@@ -590,6 +590,27 @@ a.clink{display:block;margin-top:16px}
 .kintone-line2-suf{font-size:clamp(26px,3.6vw,42px);font-weight:900;white-space:nowrap}
 .kintone-line3{font-size:clamp(26px,3.6vw,42px);font-weight:900;display:block}
 
+/* ===== 業務DXとは（自動化タグクラウド / コンプル風） ===== */
+.dxabout{position:relative;z-index:1;background:linear-gradient(165deg,#3b6ef5 0%,#2563eb 46%,#1d4ed8 100%);padding:62px 0 70px;overflow:hidden}
+.dxabout::before,.dxabout::after{content:"";position:absolute;border-radius:50%;filter:blur(75px);opacity:.5;pointer-events:none}
+.dxabout::before{width:430px;height:430px;background:radial-gradient(#7cb0ff,transparent 70%);top:-130px;left:-90px}
+.dxabout::after{width:380px;height:380px;background:radial-gradient(#22d3ee,transparent 70%);bottom:-130px;right:-70px}
+.dx-pills{position:relative;z-index:1;display:flex;flex-direction:column;gap:12px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.dx-row{display:flex;gap:11px;width:max-content;will-change:transform;animation:dxmarquee linear infinite}
+.dx-row.rev{animation-name:dxmarquee-rev}
+@keyframes dxmarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes dxmarquee-rev{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.dxabout:hover .dx-row{animation-play-state:paused}
+.dx-pill{flex-shrink:0;white-space:nowrap;font-family:"Noto Sans JP",sans-serif;font-size:13px;font-weight:700;color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.5);border-radius:999px;padding:9px 18px}
+.dx-pill.solid{background:#fff;color:#1d4ed8;border-color:#fff;box-shadow:0 5px 16px rgba(2,15,40,.2)}
+.dx-head{position:relative;z-index:2;max-width:660px;margin:42px auto 0;text-align:center;padding:0 30px}
+.dx-eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.22em;color:#bae6fd;display:flex;align-items:center;justify-content:center;gap:9px;margin-bottom:16px}
+.dx-eyebrow::before,.dx-eyebrow::after{content:"";width:22px;height:1.5px;background:rgba(186,230,253,.7)}
+.dx-head h2{font-family:"Syne","Noto Sans JP",sans-serif;font-size:clamp(28px,6.5vw,44px);font-weight:800;color:#fff;letter-spacing:-.02em;line-height:1.2}
+.dx-head p{margin-top:18px;color:rgba(255,255,255,.92);font-size:15px;line-height:1.95}
+@media(max-width:640px){.dxabout{padding:50px 0 58px}.dx-pill{font-size:12px;padding:8px 15px}}
+@media(prefers-reduced-motion:reduce){.dx-pills{-webkit-mask-image:none;mask-image:none}.dx-row{animation:none;width:auto;flex-wrap:wrap;justify-content:center}}
+
 </style>
 </head>
 <body>
@@ -648,6 +669,32 @@ a.clink{display:block;margin-top:16px}
     </div>
   </div>
 </div>
+
+<!-- 業務DXとは -->
+<section class="dxabout">
+  <div class="dx-pills">
+    <div class="dx-row" style="animation-duration:44s">
+      <span class="dx-pill">入金消込の自動照合</span><span class="dx-pill solid">LINE督促の自動送信</span><span class="dx-pill">給与計算の自動化</span><span class="dx-pill">年末調整の自動処理</span><span class="dx-pill">棚卸し・原価管理</span><span class="dx-pill">納車段取りの自動通知</span>
+    </div>
+    <div class="dx-row rev" style="animation-duration:52s">
+      <span class="dx-pill">AIによる自動応答</span><span class="dx-pill">SNS動画の自動生成</span><span class="dx-pill solid">配送割り当ての最適化</span><span class="dx-pill">出荷集計の自動化</span><span class="dx-pill">本審査の自動チェック</span><span class="dx-pill">与信スコアリング</span>
+    </div>
+    <div class="dx-row" style="animation-duration:40s">
+      <span class="dx-pill">交通費・経費の精算</span><span class="dx-pill">日報の自動リマインド</span><span class="dx-pill">勤怠の自動集計</span><span class="dx-pill solid">請求書の自動発行</span><span class="dx-pill">在庫アラート通知</span><span class="dx-pill">顧客フォローの自動化</span>
+    </div>
+    <div class="dx-row rev" style="animation-duration:48s">
+      <span class="dx-pill">契約更新リマインド</span><span class="dx-pill">免許有効期限チェック</span><span class="dx-pill">安全衛生研修の受講管理</span><span class="dx-pill solid">ヒヤリハット報告</span><span class="dx-pill">eラーニング受講管理</span><span class="dx-pill">組織サーベイ集計</span>
+    </div>
+    <div class="dx-row" style="animation-duration:46s">
+      <span class="dx-pill">工数管理表の入力</span><span class="dx-pill">案件ステータス更新</span><span class="dx-pill solid">見積書の自動作成</span><span class="dx-pill">KPIダッシュボード</span><span class="dx-pill">Slack・LINE通知連携</span><span class="dx-pill">Googleシート自動連携</span>
+    </div>
+  </div>
+  <div class="dx-head">
+    <div class="dx-eyebrow">WHAT IS BUSINESS DX</div>
+    <h2>業務DXとは</h2>
+    <p>入力・通知・確認・集計・リマインドといった毎日の手作業を、API と独自システムで自動化。「人がやらなくていい仕事」を仕組みに置き換えることで、対応漏れとムダな工数をまとめて削減します。それが、業務改善.DX の考える業務DXです。</p>
+  </div>
+</section>
 
 <!-- SYSTEMS -->
 <section class="section wrap">
@@ -3171,6 +3218,14 @@ a.clink{display:block;margin-top:16px}
 <footer><span>© 2026 業務改善.DX — 業務DX 自動化システム構築実績</span><span class="mono" style="color:var(--blue)">with SLIDE CAROUSEL</span></footer>
 
 <script>
+// ── 業務DXとは: タグを複製してシームレスなマーキーに ──
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.querySelectorAll('.dxabout .dx-row').forEach(row => {
+    row.innerHTML += row.innerHTML;
+  });
+})();
+
 // Carousel logic
 document.querySelectorAll('.mok-carousel').forEach(carousel => {
   const track = carousel.querySelector('.mok-track');
