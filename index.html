@@ -220,7 +220,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(244,247,255,.85);backdrop-
 .card-feat{background:var(--white);border:1px solid var(--border);border-radius:24px;overflow:hidden;display:grid;grid-template-columns:380px 1fr;box-shadow:0 4px 24px rgba(37,99,235,.08);margin-bottom:18px}
 .card-feat
 .card-feat .mok-carousel{min-height:340px}
-.card-feat .mok-slide{min-height:340px}
+.card-feat .mok-slide{min-height:368px}
 .card-feat .info{padding:36px 36px 36px 32px;display:flex;flex-direction:column;justify-content:center}
 .num-big{font-family:"Syne",sans-serif;font-size:80px;font-weight:800;color:rgba(37,99,235,.07);line-height:1;margin-bottom:-20px;letter-spacing:-.05em}
 .card-feat .info h3{font-size:clamp(20px,2.5vw,26px);font-weight:900;letter-spacing:-.03em;margin-bottom:12px;line-height:1.3}
@@ -240,7 +240,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(244,247,255,.85);backdrop-
 .card-wide{background:var(--white);border:1px solid var(--border);border-radius:24px;overflow:hidden;box-shadow:0 4px 20px rgba(37,99,235,.08);display:grid;grid-template-columns:380px 1fr;align-items:stretch}
 .card-wide
 .card-wide .mok-carousel{border-bottom:none;border-right:1px solid var(--border);min-height:340px}
-.card-wide .mok-slide{height:auto;min-height:340px}
+.card-wide .mok-slide{height:auto;min-height:368px}
 .card-wide .info{padding:36px 36px 36px 32px;display:flex;flex-direction:column;justify-content:center}
 .card-wide .info h3{font-size:clamp(18px,2vw,24px);font-weight:900;letter-spacing:-.03em;margin-bottom:10px;line-height:1.3}
 .card-wide .info p{font-size:14px;color:var(--mute);line-height:1.8;margin-bottom:18px}
@@ -940,22 +940,22 @@ a.clink{display:block;margin-top:16px}
                       <div style="background:#0a0f1e;border:1px solid #1e293b;border-radius:5px;padding:5px 7px">
                         <div style="font-size:5.5px;color:#fbbf24;font-weight:700;margin-bottom:4px">月別LINE友達追加数</div>
                         <div style="display:flex;align-items:flex-end;gap:3px;height:36px">
-                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div style="font-size:4.5px;color:#fbbf24">267</div><div style="width:100%;background:#fbbf24;border-radius:1px 1px 0 0;height:80%"></div><div style="font-size:4.5px;color:#64748b">12月</div></div>
-                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div style="font-size:4.5px;color:#fbbf24">216</div><div style="width:100%;background:#fbbf24;border-radius:1px 1px 0 0;height:65%"></div><div style="font-size:4.5px;color:#64748b">1月</div></div>
-                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div style="font-size:4.5px;color:#fbbf24">237</div><div style="width:100%;background:#fbbf24;border-radius:1px 1px 0 0;height:71%"></div><div style="font-size:4.5px;color:#64748b">2月</div></div>
-                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div style="font-size:4.5px;color:#fbbf24">215</div><div style="width:100%;background:#fbbf24;border-radius:1px 1px 0 0;height:64%"></div><div style="font-size:4.5px;color:#64748b">3月</div></div>
-                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div style="font-size:4.5px;color:#f59e0b;font-weight:700">202</div><div style="width:100%;background:linear-gradient(180deg,#f59e0b,#fbbf24);border-radius:1px 1px 0 0;height:61%"></div><div style="font-size:4.5px;color:#fbbf24;font-weight:700">4月</div></div>
+                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div class="c4num" data-to="267" style="font-size:4.5px;color:#fbbf24">267</div><div class="c4bar" data-h="80%" style="width:100%;background:#fbbf24;border-radius:1px 1px 0 0;height:0%"></div><div style="font-size:4.5px;color:#64748b">12月</div></div>
+                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div class="c4num" data-to="216" style="font-size:4.5px;color:#fbbf24">216</div><div class="c4bar" data-h="65%" style="width:100%;background:#fbbf24;border-radius:1px 1px 0 0;height:0%"></div><div style="font-size:4.5px;color:#64748b">1月</div></div>
+                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div class="c4num" data-to="237" style="font-size:4.5px;color:#fbbf24">237</div><div class="c4bar" data-h="71%" style="width:100%;background:#fbbf24;border-radius:1px 1px 0 0;height:0%"></div><div style="font-size:4.5px;color:#64748b">2月</div></div>
+                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div class="c4num" data-to="215" style="font-size:4.5px;color:#fbbf24">215</div><div class="c4bar" data-h="64%" style="width:100%;background:#fbbf24;border-radius:1px 1px 0 0;height:0%"></div><div style="font-size:4.5px;color:#64748b">3月</div></div>
+                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div class="c4num" data-to="202" style="font-size:4.5px;color:#f59e0b;font-weight:700">202</div><div class="c4bar" data-h="61%" style="width:100%;background:linear-gradient(180deg,#f59e0b,#fbbf24);border-radius:1px 1px 0 0;height:0%"></div><div style="font-size:4.5px;color:#fbbf24;font-weight:700">4月</div></div>
                         </div>
                       </div>
                       <!-- 納車率 -->
                       <div style="background:#0a0f1e;border:1px solid #1e293b;border-radius:5px;padding:5px 7px">
                         <div style="font-size:5.5px;color:#4ade80;font-weight:700;margin-bottom:4px">納車率 = 納車台数 ÷ 友達追加数</div>
                         <div style="display:flex;align-items:flex-end;gap:3px;height:28px">
-                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div style="font-size:4.5px;color:#4ade80">1.5%</div><div style="width:100%;background:#4ade80;border-radius:1px 1px 0 0;height:30%"></div><div style="font-size:4.5px;color:#64748b">12月</div></div>
-                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div style="font-size:4.5px;color:#4ade80">2.3%</div><div style="width:100%;background:#4ade80;border-radius:1px 1px 0 0;height:46%"></div><div style="font-size:4.5px;color:#64748b">1月</div></div>
-                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div style="font-size:4.5px;color:#4ade80">1.7%</div><div style="width:100%;background:#4ade80;border-radius:1px 1px 0 0;height:34%"></div><div style="font-size:4.5px;color:#64748b">2月</div></div>
-                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div style="font-size:4.5px;color:#4ade80">1.4%</div><div style="width:100%;background:#4ade80;border-radius:1px 1px 0 0;height:28%"></div><div style="font-size:4.5px;color:#64748b">3月</div></div>
-                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div style="font-size:4.5px;color:#4ade80;font-weight:700">2.0%</div><div style="width:100%;background:linear-gradient(180deg,#22c55e,#4ade80);border-radius:1px 1px 0 0;height:40%"></div><div style="font-size:4.5px;color:#4ade80;font-weight:700">4月</div></div>
+                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div class="c4pct" data-to="1.5" style="font-size:4.5px;color:#4ade80">1.5%</div><div class="c4bar" data-h="30%" style="width:100%;background:#4ade80;border-radius:1px 1px 0 0;height:0%"></div><div style="font-size:4.5px;color:#64748b">12月</div></div>
+                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div class="c4pct" data-to="2.3" style="font-size:4.5px;color:#4ade80">2.3%</div><div class="c4bar" data-h="46%" style="width:100%;background:#4ade80;border-radius:1px 1px 0 0;height:0%"></div><div style="font-size:4.5px;color:#64748b">1月</div></div>
+                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div class="c4pct" data-to="1.7" style="font-size:4.5px;color:#4ade80">1.7%</div><div class="c4bar" data-h="34%" style="width:100%;background:#4ade80;border-radius:1px 1px 0 0;height:0%"></div><div style="font-size:4.5px;color:#64748b">2月</div></div>
+                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div class="c4pct" data-to="1.4" style="font-size:4.5px;color:#4ade80">1.4%</div><div class="c4bar" data-h="28%" style="width:100%;background:#4ade80;border-radius:1px 1px 0 0;height:0%"></div><div style="font-size:4.5px;color:#64748b">3月</div></div>
+                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div class="c4pct" data-to="2.0" style="font-size:4.5px;color:#4ade80;font-weight:700">2.0%</div><div class="c4bar" data-h="40%" style="width:100%;background:linear-gradient(180deg,#22c55e,#4ade80);border-radius:1px 1px 0 0;height:0%"></div><div style="font-size:4.5px;color:#4ade80;font-weight:700">4月</div></div>
                         </div>
                       </div>
                     </div>
@@ -1008,7 +1008,7 @@ a.clink{display:block;margin-top:16px}
                     <div style="height:170px;background:#020817;padding:6px;display:flex;flex-direction:column;gap:4px;font-family:'Noto Sans JP',sans-serif;overflow:hidden">
                       <div style="font-size:6.5px;color:#fbbf24;font-weight:700">🚗 納車段取り — Googleシートと自動連携</div>
                       <!-- 警告バナー -->
-                      <div style="background:#1a0a00;border:1px solid #f59e0b;border-radius:4px;padding:4px 7px">
+                      <div class="c5item" style="background:#1a0a00;border:1px solid #f59e0b;border-radius:4px;padding:4px 7px;opacity:0;transform:translateY(6px)">
                         <div style="font-size:5.5px;color:#fbbf24;font-weight:700;margin-bottom:3px">⚠ 未完了項目あり — 2名</div>
                         <div style="background:#0f172a;border-radius:3px;padding:3px 5px;margin-bottom:2px">
                           <div style="font-size:6px;color:#e2e8f0;font-weight:600;white-space:nowrap">山田 太郎</div>
@@ -1019,7 +1019,7 @@ a.clink{display:block;margin-top:16px}
                         </div>
                       </div>
                       <!-- 完了例 -->
-                      <div style="background:#0a0f1e;border:1px solid #1e3a2a;border-radius:4px;padding:4px 7px">
+                      <div class="c5item" style="background:#0a0f1e;border:1px solid #1e3a2a;border-radius:4px;padding:4px 7px;opacity:0;transform:translateY(6px)">
                         <div style="display:flex;align-items:center;gap:4px;margin-bottom:3px">
                           <div style="font-size:6px;color:#e2e8f0;font-weight:600;white-space:nowrap">田中 健司</div>
                           <div style="font-size:5px;background:#052e16;color:#4ade80;padding:1px 5px;border-radius:2px;white-space:nowrap;margin-left:auto">✓ 完了</div>
@@ -1048,7 +1048,7 @@ a.clink{display:block;margin-top:16px}
                   </div>
                   <div class="lchat" style="background:#c6e1f5">
                     <div class="lc-date">今日 8:30</div>
-                    <div class="lc-msg">
+                    <div class="lc-msg c5item" style="opacity:0;transform:translateY(6px)">
                       <div class="lc-av" style="background:#06c755;font-size:6px">E</div>
                       <div><div class="lc-bub"><p>🚗 段取り未完了<br><b>山田 太郎</b><br>未: 保険確認<br>未: 名変登録</p></div></div>
                     </div>
@@ -1167,18 +1167,18 @@ a.clink{display:block;margin-top:16px}
                       <!-- 会話ログ -->
                       <div style="background:#0a0f1e;border:1px solid #1e293b;border-radius:4px;padding:5px 7px;flex:1;overflow:hidden">
                         <div style="font-size:5px;color:#38bdf8;font-weight:700;margin-bottom:3px">会話ログ</div>
-                        <div style="display:flex;flex-direction:column;gap:2px">
-                          <div style="display:flex;justify-content:flex-end">
+                        <div class="c7log" style="display:flex;flex-direction:column;gap:2px">
+                          <div class="c7msg" style="display:flex;justify-content:flex-end;opacity:0;transform:translateY(5px)">
                             <div style="background:#1e293b;border-radius:5px 5px 1px 5px;padding:2px 5px;max-width:80%"><div style="font-size:5.5px;color:#94a3b8">車の購入を検討しています</div></div>
                           </div>
-                          <div style="display:flex;gap:2px;align-items:flex-start">
+                          <div class="c7msg" style="display:flex;gap:2px;align-items:flex-start;opacity:0;transform:translateY(5px)">
                             <div style="width:10px;height:10px;border-radius:3px;background:#4ade80;display:flex;align-items:center;justify-content:center;font-size:5px;font-weight:700;color:#fff;flex-shrink:0">内</div>
                             <div style="background:#052e16;border-radius:1px 5px 5px 5px;padding:2px 5px;flex:1;max-width:80%"><div style="font-size:5.5px;color:#86efac;line-height:1.4">ありがとうございます！どのようなご予算をお考えですか？</div></div>
                           </div>
-                          <div style="display:flex;justify-content:flex-end">
+                          <div class="c7msg" style="display:flex;justify-content:flex-end;opacity:0;transform:translateY(5px)">
                             <div style="background:#1e293b;border-radius:5px 5px 1px 5px;padding:2px 5px;max-width:80%"><div style="font-size:5.5px;color:#94a3b8">月3万くらいで考えています</div></div>
                           </div>
-                          <div style="display:flex;gap:2px;align-items:flex-start">
+                          <div class="c7msg" style="display:flex;gap:2px;align-items:flex-start;opacity:0;transform:translateY(5px)">
                             <div style="width:10px;height:10px;border-radius:3px;background:#4ade80;display:flex;align-items:center;justify-content:center;font-size:5px;font-weight:700;color:#fff;flex-shrink:0">内</div>
                             <div style="background:#052e16;border-radius:1px 5px 5px 5px;padding:2px 5px;flex:1;max-width:80%"><div style="font-size:5.5px;color:#86efac;line-height:1.4">月3万ですね。担当者に繋ぎますね！</div></div>
                           </div>
@@ -1198,12 +1198,12 @@ a.clink{display:block;margin-top:16px}
                     <div class="lhdr-av" style="background:#04a347;font-size:6px">お</div>
                     <div class="lhdr-info"><p>お客様（新規）</p><span>AI返答中</span></div>
                   </div>
-                  <div class="lchat" style="background:#c6e1f5">
+                  <div class="lchat c7chat" style="background:#c6e1f5">
                     <div class="lc-date">今日</div>
-                    <div class="lc-msg" style="flex-direction:row-reverse;justify-content:flex-start">
+                    <div class="lc-msg c7msg" style="flex-direction:row-reverse;justify-content:flex-start;opacity:0;transform:translateY(5px)">
                       <div><div class="lc-bub" style="background:#06c755;border-radius:10px 10px 2px 10px"><p style="color:#fff">車の購入を検討しています</p></div></div>
                     </div>
-                    <div class="lc-msg">
+                    <div class="lc-msg c7msg" style="opacity:0;transform:translateY(5px)">
                       <div class="lc-av" style="background:#4ade80;font-size:6px">内</div>
                       <div><div class="lc-bub"><p>ありがとうございます！どのようなご予算をお考えですか？</p></div></div>
                     </div>
@@ -1773,7 +1773,7 @@ a.clink{display:block;margin-top:16px}
                   <div style="font-size:5px;color:#888;margin-bottom:4px">給与計算システム</div>
                   <div style="background:rgba(255,255,255,.08);border-radius:5px;padding:4px 8px;width:90%">
                     <div style="font-size:5px;color:#888;margin-bottom:1px">会社ID</div>
-                    <div style="font-size:7px;color:#fff">engine</div>
+                    <div style="font-size:7px;color:#fff">rakukyu</div>
                   </div>
                   <div style="background:rgba(255,255,255,.08);border-radius:5px;padding:4px 8px;width:90%">
                     <div style="font-size:5px;color:#888;margin-bottom:1px">パスワード</div>
@@ -2924,7 +2924,7 @@ a.clink{display:block;margin-top:16px}
                 <div class="laptop-screen">
                   <div class="lbar">
                     <div class="lbd" style="background:#fc6b5d"></div><div class="lbd" style="background:#fdbc40"></div><div class="lbd" style="background:#35cd4b"></div>
-                    <div class="lurl"><span>🔒</span><span>tobu-konkuri.vercel.app</span></div>
+                    <div class="lurl"><span>🔒</span><span>namakon.app</span></div>
                   </div>
                   <div style="height:170px;background:#eef2f7;display:flex;flex-direction:column;font-family:'Noto Sans JP',sans-serif;overflow:hidden">
                     <div style="display:flex;align-items:center;gap:6px;padding:5px 8px;background:#0f3060;flex-shrink:0">
@@ -2991,7 +2991,7 @@ a.clink{display:block;margin-top:16px}
                 <div class="laptop-screen">
                   <div class="lbar">
                     <div class="lbd" style="background:#fc6b5d"></div><div class="lbd" style="background:#fdbc40"></div><div class="lbd" style="background:#35cd4b"></div>
-                    <div class="lurl"><span>🔒</span><span>tobu-konkuri.vercel.app/schedule</span></div>
+                    <div class="lurl"><span>🔒</span><span>namakon.app/schedule</span></div>
                   </div>
                   <div style="height:170px;background:#fff;display:flex;flex-direction:column;font-family:'Noto Sans JP',sans-serif;overflow:hidden">
                     <div style="text-align:center;font-size:8px;font-weight:700;letter-spacing:.25em;color:#111;padding:5px 0;border-bottom:1px solid #e3e8ef;flex-shrink:0">出荷予定表</div>
@@ -3050,7 +3050,7 @@ a.clink{display:block;margin-top:16px}
                 <div class="laptop-screen">
                   <div class="lbar">
                     <div class="lbd" style="background:#fc6b5d"></div><div class="lbd" style="background:#fdbc40"></div><div class="lbd" style="background:#35cd4b"></div>
-                    <div class="lurl"><span>🔒</span><span>tobu-konkuri.vercel.app</span></div>
+                    <div class="lurl"><span>🔒</span><span>namakon.app</span></div>
                   </div>
                   <div style="height:170px;background:#f4f6f9;display:flex;flex-direction:column;font-family:'Noto Sans JP',sans-serif;overflow:hidden">
                     <div style="display:flex;align-items:center;gap:6px;padding:5px 8px;background:#0f3060;flex-shrink:0"><span style="font-size:8px;font-weight:700;color:#fff">📊 今日の出荷</span><span style="margin-left:auto;font-size:5.5px;color:#cdd5e0">2026/06/07</span></div>
@@ -3374,6 +3374,75 @@ document.querySelectorAll('.mok-carousel').forEach(carousel => {
         }, 500);
       }
     }
+    if(idx === 3){
+      // LINE管理: グラフ伸長 + 数値カウントアップ
+      const s = slides[3];
+      s.querySelectorAll('.c4bar').forEach((b, i) => {
+        b.style.transition = 'none';
+        b.style.height = '0%';
+        reflow(b);
+        setTimeout(() => {
+          b.style.transition = 'height .7s cubic-bezier(.34,1.3,.5,1)';
+          b.style.height = b.dataset.h;
+        }, (i % 5) * 90 + 150);
+      });
+      s.querySelectorAll('.c4num').forEach((el, i) => {
+        const to = +el.dataset.to;
+        setTimeout(() => {
+          const dur = 800, t0 = performance.now();
+          const tick = now => {
+            const p = Math.min((now - t0) / dur, 1);
+            const e = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.round(to * e);
+            if(p < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        }, (i % 5) * 90 + 200);
+      });
+      s.querySelectorAll('.c4pct').forEach((el, i) => {
+        const to = +el.dataset.to;
+        setTimeout(() => {
+          const dur = 800, t0 = performance.now();
+          const tick = now => {
+            const p = Math.min((now - t0) / dur, 1);
+            const e = 1 - Math.pow(1 - p, 3);
+            el.textContent = (to * e).toFixed(1) + '%';
+            if(p < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        }, (i % 5) * 90 + 250);
+      });
+    }
+    if(idx === 4){
+      // 納車段取り: カード・通知が順に出現
+      slides[4].querySelectorAll('.c5item').forEach((el, i) => {
+        el.style.transition = 'none';
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(6px)';
+        reflow(el);
+        setTimeout(() => {
+          el.style.transition = 'opacity .4s ease, transform .4s ease';
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+        }, i * 200 + 200);
+      });
+    }
+    if(idx === 6){
+      // LINE AI返答: 会話が順に出現
+      const seq = els => els.forEach((el, i) => {
+        el.style.transition = 'none';
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(5px)';
+        reflow(el);
+        setTimeout(() => {
+          el.style.transition = 'opacity .4s ease, transform .4s ease';
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+        }, i * 320 + 250);
+      });
+      seq([...slides[6].querySelectorAll('.c7log .c7msg')]);
+      seq([...slides[6].querySelectorAll('.c7chat .c7msg')]);
+    }
   }
 
   // scroll into view
@@ -3594,6 +3663,46 @@ document.querySelectorAll('.mok-carousel').forEach(carousel => {
     },310);
   }
   setInterval(next,1800);
+})();
+
+
+// ── 全スライド汎用リビール（PC・スマホ両方をフェードイン） ──
+(function(){
+  const wraps = document.querySelectorAll('.mok-slide .laptop-wrap, .mok-slide .iphone-ov');
+  if(!wraps.length) return;
+  wraps.forEach(el => {
+    el.style.willChange = 'opacity, transform';
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(12px)';
+  });
+
+  const reveal = slide => {
+    slide.querySelectorAll('.laptop-wrap, .iphone-ov').forEach((el, i) => {
+      if(el.dataset.revealed) return;
+      el.dataset.revealed = '1';
+      setTimeout(() => {
+        el.style.transition = 'opacity .55s ease, transform .55s cubic-bezier(.2,.8,.2,1)';
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      }, i * 130 + 60);
+    });
+  };
+
+  document.querySelectorAll('.mok-carousel').forEach(carousel => {
+    const track = carousel.querySelector('.mok-track');
+    if(!track) return;
+    const slides = [...track.children];
+    let last = -1;
+    new IntersectionObserver(es => {
+      es.forEach(e => {
+        if(e.isIntersecting && last < 0){ last = 0; if(slides[0]) reveal(slides[0]); }
+      });
+    }, {threshold: 0.12}).observe(carousel);
+    track.addEventListener('scroll', () => {
+      const idx = Math.round(track.scrollLeft / track.offsetWidth);
+      if(idx !== last){ last = idx; if(slides[idx]) reveal(slides[idx]); }
+    }, {passive: true});
+  });
 })();
 
 </script>
