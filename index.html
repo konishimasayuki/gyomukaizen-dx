@@ -145,9 +145,9 @@ nav{position:sticky;top:0;z-index:200;background:rgba(244,247,255,.85);backdrop-
 .mok-carousel{position:relative;overflow:hidden}
 .mok-track{display:flex;overflow-x:scroll;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none}
 .mok-track::-webkit-scrollbar{display:none}
-.mok-slide{flex:0 0 100%;scroll-snap-align:start;display:flex;align-items:center;justify-content:center;position:relative;padding:16px}
+.mok-slide{flex:0 0 100%;scroll-snap-align:start;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;padding:18px 16px 16px}
 /* swipe hint label */
-.slide-lbl{position:absolute;top:9px;left:50%;transform:translateX(-50%);background:rgba(255,255,255,.9);border:1px solid rgba(0,0,0,.07);border-radius:999px;padding:2px 10px;font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--mute);white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,.07);z-index:5;pointer-events:none}
+.slide-lbl{position:relative;flex-shrink:0;margin-bottom:9px;background:rgba(255,255,255,.9);border:1px solid rgba(0,0,0,.07);border-radius:999px;padding:2px 10px;font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--mute);white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,.07);z-index:5;pointer-events:none}
 /* swipe hint arrow */
 .swipe-hint{position:absolute;right:10px;top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:4px;font-size:10px;color:rgba(0,0,0,.3);font-family:"JetBrains Mono",monospace;animation:hintpulse 2s ease-in-out 1.5s 3 forwards;opacity:0;pointer-events:none;z-index:4}
 .swipe-hint::after{content:"›";font-size:14px}
@@ -363,7 +363,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:30
 
 
 /* === SLIDE DUO: laptop + phone side by side === */
-.slide-duo{display:flex;align-items:flex-start;justify-content:center;width:100%;overflow:visible;padding-top:12px}
+.slide-duo{display:flex;align-items:flex-start;justify-content:center;width:100%;overflow:visible;padding-top:0}
 .slide-duo .laptop-wrap{max-width:365px;position:relative;z-index:1;flex-shrink:1}
 /* Phone overlay — half size, negative margin so it overlaps the laptop on the right */
 .iphone-ov{position:relative;z-index:20;flex-shrink:0;
@@ -548,6 +548,8 @@ a.clink{display:block;margin-top:16px}
 .filter-btn[data-filter="チャットツール"].active{background:#3730a3;color:#fff;border-color:#3730a3}
 .filter-btn[data-filter="与信管理"]{background:#fef9c3;color:#b45309;border-color:#fde68a}
 .filter-btn[data-filter="与信管理"].active{background:#b45309;color:#fff;border-color:#b45309}
+.filter-btn[data-filter="GPS開発"]{background:#e0f2fe;color:#0369a1;border-color:#bae6fd}
+.filter-btn[data-filter="GPS開発"].active{background:#0369a1;color:#fff;border-color:#0369a1}
 
 /* ジャンルバッジ（カード内） */
 .genre-badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;margin-bottom:10px;width:fit-content;max-width:fit-content}
@@ -555,6 +557,9 @@ a.clink{display:block;margin-top:16px}
 .genre-badge[data-genre="AI技術"]{background:#f5f3ff;color:#6d28d9;border:1px solid #ddd6fe}
 .genre-badge[data-genre="チャットツール"]{background:#eef2ff;color:#3730a3;border:1px solid #c7d2fe}
 .genre-badge[data-genre="与信管理"]{background:#fef9c3;color:#b45309;border:1px solid #fde68a}
+.genre-badge[data-genre="GPS開発"]{background:#e0f2fe;color:#0369a1;border:1px solid #bae6fd}
+@keyframes gpspulse{0%{box-shadow:0 0 0 0 rgba(2,132,199,.5)}70%{box-shadow:0 0 0 7px rgba(2,132,199,0)}100%{box-shadow:0 0 0 0 rgba(2,132,199,0)}}
+.gps-live{animation:gpspulse 1.8s ease-out infinite}
 
 /* カード非表示アニメーション */
 .card-hidden{display:none!important}
@@ -589,6 +594,27 @@ a.clink{display:block;margin-top:16px}
 @keyframes kwEnter{0%{opacity:0;transform:translateY(115%)}100%{opacity:1;transform:translateY(0)}}
 .kintone-line2-suf{font-size:clamp(26px,3.6vw,42px);font-weight:900;white-space:nowrap}
 .kintone-line3{font-size:clamp(26px,3.6vw,42px);font-weight:900;display:block}
+
+/* ===== 業務DXとは（自動化タグクラウド / コンプル風） ===== */
+.dxabout{position:relative;z-index:1;background:linear-gradient(165deg,#3b6ef5 0%,#2563eb 46%,#1d4ed8 100%);padding:62px 0 70px;overflow:hidden}
+.dxabout::before,.dxabout::after{content:"";position:absolute;border-radius:50%;filter:blur(75px);opacity:.5;pointer-events:none}
+.dxabout::before{width:430px;height:430px;background:radial-gradient(#7cb0ff,transparent 70%);top:-130px;left:-90px}
+.dxabout::after{width:380px;height:380px;background:radial-gradient(#22d3ee,transparent 70%);bottom:-130px;right:-70px}
+.dx-pills{position:relative;z-index:1;display:flex;flex-direction:column;gap:12px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.dx-row{display:flex;gap:11px;width:max-content;will-change:transform;animation:dxmarquee linear infinite}
+.dx-row.rev{animation-name:dxmarquee-rev}
+@keyframes dxmarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes dxmarquee-rev{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.dxabout:hover .dx-row{animation-play-state:paused}
+.dx-pill{flex-shrink:0;white-space:nowrap;font-family:"Noto Sans JP",sans-serif;font-size:13px;font-weight:700;color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.5);border-radius:999px;padding:9px 18px}
+.dx-pill.solid{background:#fff;color:#1d4ed8;border-color:#fff;box-shadow:0 5px 16px rgba(2,15,40,.2)}
+.dx-head{position:relative;z-index:2;max-width:660px;margin:42px auto 0;text-align:center;padding:0 30px}
+.dx-eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.22em;color:#bae6fd;display:flex;align-items:center;justify-content:center;gap:9px;margin-bottom:16px}
+.dx-eyebrow::before,.dx-eyebrow::after{content:"";width:22px;height:1.5px;background:rgba(186,230,253,.7)}
+.dx-head h2{font-family:"Syne","Noto Sans JP",sans-serif;font-size:clamp(28px,6.5vw,44px);font-weight:800;color:#fff;letter-spacing:-.02em;line-height:1.2}
+.dx-head p{margin-top:18px;color:rgba(255,255,255,.92);font-size:15px;line-height:1.95}
+@media(max-width:640px){.dxabout{padding:50px 0 58px}.dx-pill{font-size:12px;padding:8px 15px}}
+@media(prefers-reduced-motion:reduce){.dx-pills{-webkit-mask-image:none;mask-image:none}.dx-row{animation:none;width:auto;flex-wrap:wrap;justify-content:center}}
 
 </style>
 </head>
@@ -629,19 +655,13 @@ a.clink{display:block;margin-top:16px}
     </div>
   </div>
 
-    <div class="hero-stats">
-      <div class="hstat"><div class="hn">10</div><div class="hl">稼働システム</div></div>
-      <div class="hstat"><div class="hn">2</div><div class="hl">対応法人</div></div>
-      <div class="hstat"><div class="hn">9+</div><div class="hl">自動チェック</div></div>
-      <div class="hstat"><div class="hn">24/7</div><div class="hl">無人監視</div></div>
-    </div>
   <div class="hero-r">
     <div class="iphone hero-ph">
       <div class="island"></div>
       <div class="iphone-screen">
         <div class="sb"><span class="sb-time">9:41</span><span class="sb-icons">●●● 5G 🔋</span></div>
         <div class="lhdr" style="background:#06c755"><span class="lhdr-back">‹</span><div class="lhdr-av" style="background:#04a347">E</div><div class="lhdr-info"><p style="white-space:nowrap;overflow:hidden;font-size:8.5px;letter-spacing:-.02em">ENGINE DX</p><span>グループ・4名</span></div><div class="lhdr-icons"><span>📞</span><span>≡</span></div></div>
-        <div class="lchat" id="honsa-lchat2" style="background:#c6e1f5">
+        <div class="lchat" id="hero-lchat" style="background:#c6e1f5">
           <div class="lc-date">今日</div>
           <div class="lc-msg">
             <div class="lc-av" style="background:#06c755">B</div>
@@ -655,6 +675,32 @@ a.clink{display:block;margin-top:16px}
   </div>
 </div>
 
+<!-- 業務DXとは -->
+<section class="dxabout">
+  <div class="dx-pills">
+    <div class="dx-row" style="animation-duration:44s">
+      <span class="dx-pill">入金消込の自動照合</span><span class="dx-pill solid">LINE督促の自動送信</span><span class="dx-pill">給与計算の自動化</span><span class="dx-pill">年末調整の自動処理</span><span class="dx-pill">棚卸し・原価管理</span><span class="dx-pill">納車段取りの自動通知</span>
+    </div>
+    <div class="dx-row rev" style="animation-duration:52s">
+      <span class="dx-pill">AIによる自動応答</span><span class="dx-pill">SNS動画の自動生成</span><span class="dx-pill solid">配送割り当ての最適化</span><span class="dx-pill">出荷集計の自動化</span><span class="dx-pill">本審査の自動チェック</span><span class="dx-pill">与信スコアリング</span>
+    </div>
+    <div class="dx-row" style="animation-duration:40s">
+      <span class="dx-pill">交通費・経費の精算</span><span class="dx-pill">日報の自動リマインド</span><span class="dx-pill">勤怠の自動集計</span><span class="dx-pill solid">請求書の自動発行</span><span class="dx-pill">在庫アラート通知</span><span class="dx-pill">顧客フォローの自動化</span>
+    </div>
+    <div class="dx-row rev" style="animation-duration:48s">
+      <span class="dx-pill">契約更新リマインド</span><span class="dx-pill">免許有効期限チェック</span><span class="dx-pill">安全衛生研修の受講管理</span><span class="dx-pill solid">ヒヤリハット報告</span><span class="dx-pill">eラーニング受講管理</span><span class="dx-pill">組織サーベイ集計</span>
+    </div>
+    <div class="dx-row" style="animation-duration:46s">
+      <span class="dx-pill">工数管理表の入力</span><span class="dx-pill">案件ステータス更新</span><span class="dx-pill solid">見積書の自動作成</span><span class="dx-pill">KPIダッシュボード</span><span class="dx-pill">Slack・LINE通知連携</span><span class="dx-pill">Googleシート自動連携</span>
+    </div>
+  </div>
+  <div class="dx-head">
+    <div class="dx-eyebrow">WHAT IS BUSINESS DX</div>
+    <h2>業務DXとは</h2>
+    <p>入力・通知・確認・集計・リマインドといった毎日の手作業を、API と独自システムで自動化。「人がやらなくていい仕事」を仕組みに置き換えることで、対応漏れとムダな工数をまとめて削減します。それが、業務改善.DX の考える業務DXです。</p>
+  </div>
+</section>
+
 <!-- SYSTEMS -->
 <section class="section wrap">
   <div class="sh">
@@ -666,6 +712,7 @@ a.clink{display:block;margin-top:16px}
     <button class="filter-btn" data-filter="AI技術">AI技術<span class="filter-count"></span></button>
     <button class="filter-btn" data-filter="チャットツール">チャットツール<span class="filter-count"></span></button>
     <button class="filter-btn" data-filter="与信管理">与信管理<span class="filter-count"></span></button>
+    <button class="filter-btn" data-filter="GPS開発">GPS開発<span class="filter-count"></span></button>
   </div>
 
 
@@ -940,22 +987,22 @@ a.clink{display:block;margin-top:16px}
                       <div style="background:#0a0f1e;border:1px solid #1e293b;border-radius:5px;padding:5px 7px">
                         <div style="font-size:5.5px;color:#fbbf24;font-weight:700;margin-bottom:4px">月別LINE友達追加数</div>
                         <div style="display:flex;align-items:flex-end;gap:3px;height:36px">
-                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div style="font-size:4.5px;color:#fbbf24">267</div><div style="width:100%;background:#fbbf24;border-radius:1px 1px 0 0;height:80%"></div><div style="font-size:4.5px;color:#64748b">12月</div></div>
-                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div style="font-size:4.5px;color:#fbbf24">216</div><div style="width:100%;background:#fbbf24;border-radius:1px 1px 0 0;height:65%"></div><div style="font-size:4.5px;color:#64748b">1月</div></div>
-                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div style="font-size:4.5px;color:#fbbf24">237</div><div style="width:100%;background:#fbbf24;border-radius:1px 1px 0 0;height:71%"></div><div style="font-size:4.5px;color:#64748b">2月</div></div>
-                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div style="font-size:4.5px;color:#fbbf24">215</div><div style="width:100%;background:#fbbf24;border-radius:1px 1px 0 0;height:64%"></div><div style="font-size:4.5px;color:#64748b">3月</div></div>
-                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div style="font-size:4.5px;color:#f59e0b;font-weight:700">202</div><div style="width:100%;background:linear-gradient(180deg,#f59e0b,#fbbf24);border-radius:1px 1px 0 0;height:61%"></div><div style="font-size:4.5px;color:#fbbf24;font-weight:700">4月</div></div>
+                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div class="c4num" data-to="267" style="font-size:4.5px;color:#fbbf24">267</div><div class="c4bar" data-h="80%" style="width:100%;background:#fbbf24;border-radius:1px 1px 0 0;height:0%"></div><div style="font-size:4.5px;color:#64748b">12月</div></div>
+                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div class="c4num" data-to="216" style="font-size:4.5px;color:#fbbf24">216</div><div class="c4bar" data-h="65%" style="width:100%;background:#fbbf24;border-radius:1px 1px 0 0;height:0%"></div><div style="font-size:4.5px;color:#64748b">1月</div></div>
+                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div class="c4num" data-to="237" style="font-size:4.5px;color:#fbbf24">237</div><div class="c4bar" data-h="71%" style="width:100%;background:#fbbf24;border-radius:1px 1px 0 0;height:0%"></div><div style="font-size:4.5px;color:#64748b">2月</div></div>
+                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div class="c4num" data-to="215" style="font-size:4.5px;color:#fbbf24">215</div><div class="c4bar" data-h="64%" style="width:100%;background:#fbbf24;border-radius:1px 1px 0 0;height:0%"></div><div style="font-size:4.5px;color:#64748b">3月</div></div>
+                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div class="c4num" data-to="202" style="font-size:4.5px;color:#f59e0b;font-weight:700">202</div><div class="c4bar" data-h="61%" style="width:100%;background:linear-gradient(180deg,#f59e0b,#fbbf24);border-radius:1px 1px 0 0;height:0%"></div><div style="font-size:4.5px;color:#fbbf24;font-weight:700">4月</div></div>
                         </div>
                       </div>
                       <!-- 納車率 -->
                       <div style="background:#0a0f1e;border:1px solid #1e293b;border-radius:5px;padding:5px 7px">
                         <div style="font-size:5.5px;color:#4ade80;font-weight:700;margin-bottom:4px">納車率 = 納車台数 ÷ 友達追加数</div>
                         <div style="display:flex;align-items:flex-end;gap:3px;height:28px">
-                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div style="font-size:4.5px;color:#4ade80">1.5%</div><div style="width:100%;background:#4ade80;border-radius:1px 1px 0 0;height:30%"></div><div style="font-size:4.5px;color:#64748b">12月</div></div>
-                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div style="font-size:4.5px;color:#4ade80">2.3%</div><div style="width:100%;background:#4ade80;border-radius:1px 1px 0 0;height:46%"></div><div style="font-size:4.5px;color:#64748b">1月</div></div>
-                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div style="font-size:4.5px;color:#4ade80">1.7%</div><div style="width:100%;background:#4ade80;border-radius:1px 1px 0 0;height:34%"></div><div style="font-size:4.5px;color:#64748b">2月</div></div>
-                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div style="font-size:4.5px;color:#4ade80">1.4%</div><div style="width:100%;background:#4ade80;border-radius:1px 1px 0 0;height:28%"></div><div style="font-size:4.5px;color:#64748b">3月</div></div>
-                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div style="font-size:4.5px;color:#4ade80;font-weight:700">2.0%</div><div style="width:100%;background:linear-gradient(180deg,#22c55e,#4ade80);border-radius:1px 1px 0 0;height:40%"></div><div style="font-size:4.5px;color:#4ade80;font-weight:700">4月</div></div>
+                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div class="c4pct" data-to="1.5" style="font-size:4.5px;color:#4ade80">1.5%</div><div class="c4bar" data-h="30%" style="width:100%;background:#4ade80;border-radius:1px 1px 0 0;height:0%"></div><div style="font-size:4.5px;color:#64748b">12月</div></div>
+                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div class="c4pct" data-to="2.3" style="font-size:4.5px;color:#4ade80">2.3%</div><div class="c4bar" data-h="46%" style="width:100%;background:#4ade80;border-radius:1px 1px 0 0;height:0%"></div><div style="font-size:4.5px;color:#64748b">1月</div></div>
+                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div class="c4pct" data-to="1.7" style="font-size:4.5px;color:#4ade80">1.7%</div><div class="c4bar" data-h="34%" style="width:100%;background:#4ade80;border-radius:1px 1px 0 0;height:0%"></div><div style="font-size:4.5px;color:#64748b">2月</div></div>
+                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div class="c4pct" data-to="1.4" style="font-size:4.5px;color:#4ade80">1.4%</div><div class="c4bar" data-h="28%" style="width:100%;background:#4ade80;border-radius:1px 1px 0 0;height:0%"></div><div style="font-size:4.5px;color:#64748b">3月</div></div>
+                          <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:1px"><div class="c4pct" data-to="2.0" style="font-size:4.5px;color:#4ade80;font-weight:700">2.0%</div><div class="c4bar" data-h="40%" style="width:100%;background:linear-gradient(180deg,#22c55e,#4ade80);border-radius:1px 1px 0 0;height:0%"></div><div style="font-size:4.5px;color:#4ade80;font-weight:700">4月</div></div>
                         </div>
                       </div>
                     </div>
@@ -1008,7 +1055,7 @@ a.clink{display:block;margin-top:16px}
                     <div style="height:170px;background:#020817;padding:6px;display:flex;flex-direction:column;gap:4px;font-family:'Noto Sans JP',sans-serif;overflow:hidden">
                       <div style="font-size:6.5px;color:#fbbf24;font-weight:700">🚗 納車段取り — Googleシートと自動連携</div>
                       <!-- 警告バナー -->
-                      <div style="background:#1a0a00;border:1px solid #f59e0b;border-radius:4px;padding:4px 7px">
+                      <div class="c5item" style="background:#1a0a00;border:1px solid #f59e0b;border-radius:4px;padding:4px 7px;opacity:0;transform:translateY(6px)">
                         <div style="font-size:5.5px;color:#fbbf24;font-weight:700;margin-bottom:3px">⚠ 未完了項目あり — 2名</div>
                         <div style="background:#0f172a;border-radius:3px;padding:3px 5px;margin-bottom:2px">
                           <div style="font-size:6px;color:#e2e8f0;font-weight:600;white-space:nowrap">山田 太郎</div>
@@ -1019,7 +1066,7 @@ a.clink{display:block;margin-top:16px}
                         </div>
                       </div>
                       <!-- 完了例 -->
-                      <div style="background:#0a0f1e;border:1px solid #1e3a2a;border-radius:4px;padding:4px 7px">
+                      <div class="c5item" style="background:#0a0f1e;border:1px solid #1e3a2a;border-radius:4px;padding:4px 7px;opacity:0;transform:translateY(6px)">
                         <div style="display:flex;align-items:center;gap:4px;margin-bottom:3px">
                           <div style="font-size:6px;color:#e2e8f0;font-weight:600;white-space:nowrap">田中 健司</div>
                           <div style="font-size:5px;background:#052e16;color:#4ade80;padding:1px 5px;border-radius:2px;white-space:nowrap;margin-left:auto">✓ 完了</div>
@@ -1048,7 +1095,7 @@ a.clink{display:block;margin-top:16px}
                   </div>
                   <div class="lchat" style="background:#c6e1f5">
                     <div class="lc-date">今日 8:30</div>
-                    <div class="lc-msg">
+                    <div class="lc-msg c5item" style="opacity:0;transform:translateY(6px)">
                       <div class="lc-av" style="background:#06c755;font-size:6px">E</div>
                       <div><div class="lc-bub"><p>🚗 段取り未完了<br><b>山田 太郎</b><br>未: 保険確認<br>未: 名変登録</p></div></div>
                     </div>
@@ -1167,18 +1214,18 @@ a.clink{display:block;margin-top:16px}
                       <!-- 会話ログ -->
                       <div style="background:#0a0f1e;border:1px solid #1e293b;border-radius:4px;padding:5px 7px;flex:1;overflow:hidden">
                         <div style="font-size:5px;color:#38bdf8;font-weight:700;margin-bottom:3px">会話ログ</div>
-                        <div style="display:flex;flex-direction:column;gap:2px">
-                          <div style="display:flex;justify-content:flex-end">
+                        <div class="c7log" style="display:flex;flex-direction:column;gap:2px">
+                          <div class="c7msg" style="display:flex;justify-content:flex-end;opacity:0;transform:translateY(5px)">
                             <div style="background:#1e293b;border-radius:5px 5px 1px 5px;padding:2px 5px;max-width:80%"><div style="font-size:5.5px;color:#94a3b8">車の購入を検討しています</div></div>
                           </div>
-                          <div style="display:flex;gap:2px;align-items:flex-start">
+                          <div class="c7msg" style="display:flex;gap:2px;align-items:flex-start;opacity:0;transform:translateY(5px)">
                             <div style="width:10px;height:10px;border-radius:3px;background:#4ade80;display:flex;align-items:center;justify-content:center;font-size:5px;font-weight:700;color:#fff;flex-shrink:0">内</div>
                             <div style="background:#052e16;border-radius:1px 5px 5px 5px;padding:2px 5px;flex:1;max-width:80%"><div style="font-size:5.5px;color:#86efac;line-height:1.4">ありがとうございます！どのようなご予算をお考えですか？</div></div>
                           </div>
-                          <div style="display:flex;justify-content:flex-end">
+                          <div class="c7msg" style="display:flex;justify-content:flex-end;opacity:0;transform:translateY(5px)">
                             <div style="background:#1e293b;border-radius:5px 5px 1px 5px;padding:2px 5px;max-width:80%"><div style="font-size:5.5px;color:#94a3b8">月3万くらいで考えています</div></div>
                           </div>
-                          <div style="display:flex;gap:2px;align-items:flex-start">
+                          <div class="c7msg" style="display:flex;gap:2px;align-items:flex-start;opacity:0;transform:translateY(5px)">
                             <div style="width:10px;height:10px;border-radius:3px;background:#4ade80;display:flex;align-items:center;justify-content:center;font-size:5px;font-weight:700;color:#fff;flex-shrink:0">内</div>
                             <div style="background:#052e16;border-radius:1px 5px 5px 5px;padding:2px 5px;flex:1;max-width:80%"><div style="font-size:5.5px;color:#86efac;line-height:1.4">月3万ですね。担当者に繋ぎますね！</div></div>
                           </div>
@@ -1198,12 +1245,12 @@ a.clink{display:block;margin-top:16px}
                     <div class="lhdr-av" style="background:#04a347;font-size:6px">お</div>
                     <div class="lhdr-info"><p>お客様（新規）</p><span>AI返答中</span></div>
                   </div>
-                  <div class="lchat" style="background:#c6e1f5">
+                  <div class="lchat c7chat" style="background:#c6e1f5">
                     <div class="lc-date">今日</div>
-                    <div class="lc-msg" style="flex-direction:row-reverse;justify-content:flex-start">
+                    <div class="lc-msg c7msg" style="flex-direction:row-reverse;justify-content:flex-start;opacity:0;transform:translateY(5px)">
                       <div><div class="lc-bub" style="background:#06c755;border-radius:10px 10px 2px 10px"><p style="color:#fff">車の購入を検討しています</p></div></div>
                     </div>
-                    <div class="lc-msg">
+                    <div class="lc-msg c7msg" style="opacity:0;transform:translateY(5px)">
                       <div class="lc-av" style="background:#4ade80;font-size:6px">内</div>
                       <div><div class="lc-bub"><p>ありがとうございます！どのようなご予算をお考えですか？</p></div></div>
                     </div>
@@ -1629,7 +1676,12 @@ a.clink{display:block;margin-top:16px}
                     <div style="display:flex;flex-direction:column;gap:3px;flex:1">
                       <div style="background:#fff;border:1px solid #e2e8f0;border-radius:6px;padding:5px 7px;display:flex;gap:6px;align-items:center">
                         <!-- サムネイル -->
-                        <div style="width:32px;height:40px;border-radius:4px;background:linear-gradient(135deg,#581c87,#d946ef);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0">🚗</div>
+                        <div style="position:relative;width:32px;height:40px;border-radius:4px;background:linear-gradient(135deg,#581c87,#d946ef);overflow:hidden;flex-shrink:0">
+                          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:14px;opacity:.92">🚗</div>
+                          <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 52%,rgba(0,0,0,.5))"></div>
+                          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:13px;height:13px;border-radius:50%;background:rgba(255,255,255,.88);display:flex;align-items:center;justify-content:center;font-size:5.5px;color:#7c3aed;padding-left:1px">▶</div>
+                          <div style="position:absolute;right:2px;bottom:1.5px;font-size:3.8px;color:#fff;background:rgba(0,0,0,.6);border-radius:2px;padding:0 2px;line-height:1.5">0:32</div>
+                        </div>
                         <div style="flex:1;min-width:0">
                           <div style="font-size:6.5px;font-weight:700;color:#0f172a;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">月3万で乗れる！エブリイバン維持費公開</div>
                           <div style="font-size:5px;color:#94a3b8;margin-top:1px;white-space:nowrap">2026/6/5 · Instagram</div>
@@ -1640,7 +1692,12 @@ a.clink{display:block;margin-top:16px}
                         </div>
                       </div>
                       <div style="background:#fff;border:1px solid #e2e8f0;border-radius:6px;padding:5px 7px;display:flex;gap:6px;align-items:center">
-                        <div style="width:32px;height:40px;border-radius:4px;background:linear-gradient(135deg,#1e3a5f,#0ea5e9);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0">💰</div>
+                        <div style="position:relative;width:32px;height:40px;border-radius:4px;background:linear-gradient(135deg,#1e3a5f,#0ea5e9);overflow:hidden;flex-shrink:0">
+                          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:14px;opacity:.92">💰</div>
+                          <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 52%,rgba(0,0,0,.5))"></div>
+                          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:13px;height:13px;border-radius:50%;background:rgba(255,255,255,.88);display:flex;align-items:center;justify-content:center;font-size:5.5px;color:#0ea5e9;padding-left:1px">▶</div>
+                          <div style="position:absolute;right:2px;bottom:1.5px;font-size:3.8px;color:#fff;background:rgba(0,0,0,.6);border-radius:2px;padding:0 2px;line-height:1.5">0:45</div>
+                        </div>
                         <div style="flex:1;min-width:0">
                           <div style="font-size:6.5px;font-weight:700;color:#0f172a;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">頭金ゼロでも買える？自社ローン解説</div>
                           <div style="font-size:5px;color:#94a3b8;margin-top:1px;white-space:nowrap">2026/6/3 · TikTok</div>
@@ -1666,7 +1723,11 @@ a.clink{display:block;margin-top:16px}
                 </div>
                 <div style="flex:1;overflow:hidden;padding:4px;display:flex;flex-direction:column;gap:3px;background:#f8fafc">
                   <div style="background:#fff;border:1px solid #e2e8f0;border-radius:5px;padding:4px 5px;display:flex;gap:5px;align-items:center">
-                    <div style="width:24px;height:30px;border-radius:3px;background:linear-gradient(135deg,#581c87,#d946ef);display:flex;align-items:center;justify-content:center;font-size:9px;flex-shrink:0">🚗</div>
+                    <div style="position:relative;width:24px;height:30px;border-radius:3px;background:linear-gradient(135deg,#581c87,#d946ef);overflow:hidden;flex-shrink:0">
+                      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:11px;opacity:.92">🚗</div>
+                      <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.45))"></div>
+                      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.88);display:flex;align-items:center;justify-content:center;font-size:4.5px;color:#7c3aed;padding-left:.5px">▶</div>
+                    </div>
                     <div style="flex:1;min-width:0">
                       <div style="font-size:5.5px;font-weight:700;color:#0f172a;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">月3万エブリイ維持費公開</div>
                       <div style="font-size:4.5px;color:#94a3b8;white-space:nowrap">6/5 · Instagram</div>
@@ -1677,7 +1738,11 @@ a.clink{display:block;margin-top:16px}
                     </div>
                   </div>
                   <div style="background:#fff;border:1px solid #e2e8f0;border-radius:5px;padding:4px 5px;display:flex;gap:5px;align-items:center">
-                    <div style="width:24px;height:30px;border-radius:3px;background:linear-gradient(135deg,#1e3a5f,#0ea5e9);display:flex;align-items:center;justify-content:center;font-size:9px;flex-shrink:0">💰</div>
+                    <div style="position:relative;width:24px;height:30px;border-radius:3px;background:linear-gradient(135deg,#1e3a5f,#0ea5e9);overflow:hidden;flex-shrink:0">
+                      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:11px;opacity:.92">💰</div>
+                      <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.45))"></div>
+                      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.88);display:flex;align-items:center;justify-content:center;font-size:4.5px;color:#0ea5e9;padding-left:.5px">▶</div>
+                    </div>
                     <div style="flex:1;min-width:0">
                       <div style="font-size:5.5px;font-weight:700;color:#0f172a;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">自社ローン解説動画</div>
                       <div style="font-size:4.5px;color:#94a3b8;white-space:nowrap">6/3 · TikTok</div>
@@ -1773,7 +1838,7 @@ a.clink{display:block;margin-top:16px}
                   <div style="font-size:5px;color:#888;margin-bottom:4px">給与計算システム</div>
                   <div style="background:rgba(255,255,255,.08);border-radius:5px;padding:4px 8px;width:90%">
                     <div style="font-size:5px;color:#888;margin-bottom:1px">会社ID</div>
-                    <div style="font-size:7px;color:#fff">engine</div>
+                    <div style="font-size:7px;color:#fff">rakukyu</div>
                   </div>
                   <div style="background:rgba(255,255,255,.08);border-radius:5px;padding:4px 8px;width:90%">
                     <div style="font-size:5px;color:#888;margin-bottom:1px">パスワード</div>
@@ -1982,7 +2047,7 @@ a.clink{display:block;margin-top:16px}
                         <div style="margin-left:auto;font-size:6px;background:#1a0f2e;color:#a78bfa;padding:2px 7px;border-radius:4px;border:1px solid #a78bfa40">📚 知識 8件</div>
                       </div>
                       <!-- チャット -->
-                      <div style="flex:1;padding:6px 8px;overflow:hidden;display:flex;flex-direction:column;gap:4px">
+                      <div style="flex:1;padding:6px 8px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;gap:3px;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 16px);mask-image:linear-gradient(to bottom,transparent 0,#000 16px)">
                         <div style="display:flex;justify-content:flex-end">
                           <div style="background:#0c2340;border-radius:8px 8px 2px 8px;padding:4px 7px;max-width:75%">
                             <div style="font-size:6.5px;color:#93c5fd;line-height:1.5">月収20万・勤続8ヶ月の<br>審査はどう判断する？</div>
@@ -1992,6 +2057,17 @@ a.clink{display:block;margin-top:16px}
                           <div style="width:14px;height:14px;border-radius:4px;background:linear-gradient(135deg,#7c3aed,#a78bfa);display:flex;align-items:center;justify-content:center;font-size:7px;color:#fff;flex-shrink:0">AI</div>
                           <div style="background:#1e293b;border-radius:2px 8px 8px 8px;padding:4px 7px;flex:1">
                             <div style="font-size:6.5px;color:#e2e8f0;line-height:1.5">勤続1年未満は要注意。月収の<b style="color:#fbbf24">33%以内</b>が目安です。保証人確認を推奨します。</div>
+                          </div>
+                        </div>
+                        <div class="ai-msg" style="display:flex;justify-content:flex-end;opacity:0;transform:translateY(5px)">
+                          <div style="background:#0c2340;border-radius:8px 8px 2px 8px;padding:4px 7px;max-width:75%">
+                            <div style="font-size:6.5px;color:#93c5fd;line-height:1.5">頭金なしでも<br>通して大丈夫？</div>
+                          </div>
+                        </div>
+                        <div class="ai-msg" style="display:flex;gap:4px;opacity:0;transform:translateY(5px)">
+                          <div style="width:14px;height:14px;border-radius:4px;background:linear-gradient(135deg,#7c3aed,#a78bfa);display:flex;align-items:center;justify-content:center;font-size:7px;color:#fff;flex-shrink:0">AI</div>
+                          <div style="background:#1e293b;border-radius:2px 8px 8px 8px;padding:4px 7px;flex:1">
+                            <div style="font-size:6.5px;color:#e2e8f0;line-height:1.5">頭金0は可決率が低下。<b style="color:#fbbf24">初回2ヶ月分の前納</b>で承認しやすくなります。</div>
                           </div>
                         </div>
                       </div>
@@ -2053,7 +2129,7 @@ a.clink{display:block;margin-top:16px}
                         <div style="font-size:6.5px;background:#052e16;color:#4ade80;border:1px solid #4ade8040;padding:2px 8px;border-radius:4px;font-weight:700">👤 社員</div>
                         <div style="margin-left:auto;font-size:6px;background:#1a0f2e;color:#a78bfa;padding:2px 7px;border-radius:4px;border:1px solid #a78bfa40">📚 知識 8件</div>
                       </div>
-                      <div style="flex:1;padding:6px 8px;overflow:hidden;display:flex;flex-direction:column;gap:4px">
+                      <div style="flex:1;padding:6px 8px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;gap:3px;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 16px);mask-image:linear-gradient(to bottom,transparent 0,#000 16px)">
                         <div style="display:flex;justify-content:flex-end">
                           <div style="background:#052e16;border:1px solid #4ade8040;border-radius:8px 8px 2px 8px;padding:4px 7px;max-width:75%">
                             <div style="font-size:6.5px;color:#86efac;line-height:1.5">お客様が「来月まとめて払う」<br>と言っています。どうすれば？</div>
@@ -2063,6 +2139,17 @@ a.clink{display:block;margin-top:16px}
                           <div style="width:14px;height:14px;border-radius:4px;background:linear-gradient(135deg,#7c3aed,#a78bfa);display:flex;align-items:center;justify-content:center;font-size:7px;color:#fff;flex-shrink:0">AI</div>
                           <div style="background:#1e293b;border-radius:2px 8px 8px 8px;padding:4px 7px;flex:1">
                             <div style="font-size:6.5px;color:#e2e8f0;line-height:1.5">まず約束を書面で確認してください。翌月以降に<b style="color:#fbbf24">2ヶ月分</b>が重なる場合は必ず社長に報告。口約束は避けてください。</div>
+                          </div>
+                        </div>
+                        <div class="ai-msg2" style="display:flex;justify-content:flex-end;opacity:0;transform:translateY(5px)">
+                          <div style="background:#052e16;border:1px solid #4ade8040;border-radius:8px 8px 2px 8px;padding:4px 7px;max-width:75%">
+                            <div style="font-size:6.5px;color:#86efac;line-height:1.5">もう3ヶ月滞納している<br>お客様もいます…</div>
+                          </div>
+                        </div>
+                        <div class="ai-msg2" style="display:flex;gap:4px;opacity:0;transform:translateY(5px)">
+                          <div style="width:14px;height:14px;border-radius:4px;background:linear-gradient(135deg,#7c3aed,#a78bfa);display:flex;align-items:center;justify-content:center;font-size:7px;color:#fff;flex-shrink:0">AI</div>
+                          <div style="background:#1e293b;border-radius:2px 8px 8px 8px;padding:4px 7px;flex:1">
+                            <div style="font-size:6.5px;color:#e2e8f0;line-height:1.5">3ヶ月滞納は<b style="color:#fbbf24">即・社長へ報告</b>。LINEで督促履歴を残し、来店督促へ切り替えます。</div>
                           </div>
                         </div>
                       </div>
@@ -2924,7 +3011,7 @@ a.clink{display:block;margin-top:16px}
                 <div class="laptop-screen">
                   <div class="lbar">
                     <div class="lbd" style="background:#fc6b5d"></div><div class="lbd" style="background:#fdbc40"></div><div class="lbd" style="background:#35cd4b"></div>
-                    <div class="lurl"><span>🔒</span><span>tobu-konkuri.vercel.app</span></div>
+                    <div class="lurl"><span>🔒</span><span>namakon.app</span></div>
                   </div>
                   <div style="height:170px;background:#eef2f7;display:flex;flex-direction:column;font-family:'Noto Sans JP',sans-serif;overflow:hidden">
                     <div style="display:flex;align-items:center;gap:6px;padding:5px 8px;background:#0f3060;flex-shrink:0">
@@ -2991,7 +3078,7 @@ a.clink{display:block;margin-top:16px}
                 <div class="laptop-screen">
                   <div class="lbar">
                     <div class="lbd" style="background:#fc6b5d"></div><div class="lbd" style="background:#fdbc40"></div><div class="lbd" style="background:#35cd4b"></div>
-                    <div class="lurl"><span>🔒</span><span>tobu-konkuri.vercel.app/schedule</span></div>
+                    <div class="lurl"><span>🔒</span><span>namakon.app/schedule</span></div>
                   </div>
                   <div style="height:170px;background:#fff;display:flex;flex-direction:column;font-family:'Noto Sans JP',sans-serif;overflow:hidden">
                     <div style="text-align:center;font-size:8px;font-weight:700;letter-spacing:.25em;color:#111;padding:5px 0;border-bottom:1px solid #e3e8ef;flex-shrink:0">出荷予定表</div>
@@ -3050,7 +3137,7 @@ a.clink{display:block;margin-top:16px}
                 <div class="laptop-screen">
                   <div class="lbar">
                     <div class="lbd" style="background:#fc6b5d"></div><div class="lbd" style="background:#fdbc40"></div><div class="lbd" style="background:#35cd4b"></div>
-                    <div class="lurl"><span>🔒</span><span>tobu-konkuri.vercel.app</span></div>
+                    <div class="lurl"><span>🔒</span><span>namakon.app</span></div>
                   </div>
                   <div style="height:170px;background:#f4f6f9;display:flex;flex-direction:column;font-family:'Noto Sans JP',sans-serif;overflow:hidden">
                     <div style="display:flex;align-items:center;gap:6px;padding:5px 8px;background:#0f3060;flex-shrink:0"><span style="font-size:8px;font-weight:700;color:#fff">📊 今日の出荷</span><span style="margin-left:auto;font-size:5.5px;color:#cdd5e0">2026/06/07</span></div>
@@ -3113,6 +3200,268 @@ a.clink{display:block;margin-top:16px}
   </div>
   <!-- ▲▲▲ 追加実績：東部生コン 業務管理システム ここまで ▲▲▲ -->
 
+  <!-- ▼▼▼ 追加実績：RECS 遠隔エンジン停止システム（GPS開発）▼▼▼ -->
+  <div class="card-wide" data-genre="GPS開発">
+    <div class="mok-carousel" data-id="crecs">
+      <div class="mok-track">
+
+        <!-- Slide 1: 車両管理一覧 + マップ -->
+        <div class="mok-slide" style="background:linear-gradient(140deg,#e0f2fe,#eff6ff)">
+          <span class="slide-lbl" style="background:rgba(2,132,199,.12);border-color:rgba(2,132,199,.3);color:#0369a1">① 車両管理</span>
+          <div class="swipe-hint">スワイプ</div>
+          <div class="slide-duo">
+            <div class="laptop-wrap">
+              <div class="laptop-lid">
+                <div class="laptop-screen">
+                  <div class="lbar"><div class="lbd" style="background:#fc6b5d"></div><div class="lbd" style="background:#fdbc40"></div><div class="lbd" style="background:#35cd4b"></div><div class="lurl"><span>🔒</span><span>recs-gps.app</span></div></div>
+                  <div style="height:170px;display:flex;font-family:'Noto Sans JP',sans-serif;overflow:hidden;background:#f8fafc">
+                    <div style="width:50px;background:#1e293b;flex-shrink:0;display:flex;flex-direction:column;padding:4px 0">
+                      <div style="font-size:7.5px;font-weight:800;color:#38bdf8;text-align:center;padding:3px 0 5px;letter-spacing:.06em">RECS</div>
+                      <div style="font-size:4.5px;color:#94a3b8;padding:2.5px 5px;white-space:nowrap">▦ ダッシュ</div>
+                      <div style="font-size:4.5px;color:#fff;background:#0c4a6e;border-left:2px solid #38bdf8;padding:2.5px 5px;white-space:nowrap;font-weight:700">🚗 車両管理</div>
+                      <div style="font-size:4.5px;color:#94a3b8;padding:2.5px 5px;white-space:nowrap">▦ グループ</div>
+                      <div style="font-size:4.5px;color:#94a3b8;padding:2.5px 5px;white-space:nowrap">▦ ユーザー</div>
+                      <div style="font-size:4.5px;color:#94a3b8;padding:2.5px 5px;white-space:nowrap">▦ 端末譲渡</div>
+                      <div style="margin-top:auto;display:flex;align-items:center;gap:3px;padding:3px 5px;border-top:1px solid #334155">
+                        <div style="width:9px;height:9px;border-radius:50%;background:#0284c7;color:#fff;font-size:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0">T</div>
+                        <div style="font-size:4px;color:#cbd5e1;white-space:nowrap;line-height:1.2">本部管理者</div>
+                      </div>
+                    </div>
+                    <div style="flex:1;padding:6px 7px;display:flex;flex-direction:column;gap:4px;overflow:hidden;min-width:0">
+                      <div style="display:flex;align-items:center;gap:5px;flex-shrink:0">
+                        <div style="font-size:7.5px;font-weight:800;color:#0f172a">車両管理</div>
+                        <div style="margin-left:auto;display:flex;gap:3px">
+                          <div style="font-size:4.5px;color:#475569;background:#fff;border:1px solid #e2e8f0;border-radius:3px;padding:2px 5px;white-space:nowrap">⬇ CSV</div>
+                          <div style="font-size:4.5px;color:#fff;background:#0284c7;border-radius:3px;padding:2px 6px;font-weight:700;white-space:nowrap">＋ 車両追加</div>
+                        </div>
+                      </div>
+                      <div style="height:50px;border-radius:5px;position:relative;overflow:hidden;background:linear-gradient(160deg,#dce7f2,#eef4fb);border:1px solid #d6e0ec;flex-shrink:0">
+                        <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(150,170,200,.22) 1px,transparent 1px),linear-gradient(90deg,rgba(150,170,200,.22) 1px,transparent 1px);background-size:14px 14px"></div>
+                        <div style="position:absolute;top:34%;left:30%;font-size:12px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.35))">📍</div>
+                        <div style="position:absolute;top:20%;left:62%;font-size:12px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.35))">📍</div>
+                        <div style="position:absolute;left:3px;bottom:1px;font-size:4px;color:#64748b;font-weight:600">Google</div>
+                      </div>
+                      <div style="flex:1;min-height:0;display:flex;flex-direction:column;gap:1.5px;overflow:hidden">
+                        <div style="display:grid;grid-template-columns:1.3fr .7fr .7fr .7fr;gap:2px;padding:2.5px 5px;background:#eef2f7;border-radius:3px">
+                          <div style="font-size:4.5px;color:#64748b">車台番号</div><div style="font-size:4.5px;color:#64748b">通信</div><div style="font-size:4.5px;color:#64748b">エンジン</div><div style="font-size:4.5px;color:#64748b">位置更新</div>
+                        </div>
+                        <div style="display:grid;grid-template-columns:1.3fr .7fr .7fr .7fr;gap:2px;padding:2.5px 5px;align-items:center;border-bottom:1px solid #eef2f7">
+                          <div style="font-size:5px;color:#0284c7;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">TEST02</div>
+                          <div><span style="font-size:4px;background:#dcfce7;color:#15803d;padding:1px 4px;border-radius:2px;white-space:nowrap">正常</span></div>
+                          <div><span style="font-size:4px;background:#f1f5f9;color:#64748b;padding:1px 4px;border-radius:2px;white-space:nowrap">不明</span></div>
+                          <div style="font-size:4.5px;color:#94a3b8;white-space:nowrap">—</div>
+                        </div>
+                        <div style="display:grid;grid-template-columns:1.3fr .7fr .7fr .7fr;gap:2px;padding:2.5px 5px;align-items:center;border-bottom:1px solid #eef2f7">
+                          <div style="font-size:5px;color:#0284c7;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Test01（代車）</div>
+                          <div><span style="font-size:4px;background:#dcfce7;color:#15803d;padding:1px 4px;border-radius:2px;white-space:nowrap">正常</span></div>
+                          <div><span style="font-size:4px;background:#dbeafe;color:#1d4ed8;padding:1px 4px;border-radius:2px;white-space:nowrap">始動</span></div>
+                          <div style="font-size:4.5px;color:#64748b;white-space:nowrap">14:16</div>
+                        </div>
+                        <div style="display:grid;grid-template-columns:1.3fr .7fr .7fr .7fr;gap:2px;padding:2.5px 5px;align-items:center">
+                          <div style="font-size:5px;color:#0284c7;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">DEMO-03</div>
+                          <div><span style="font-size:4px;background:#dcfce7;color:#15803d;padding:1px 4px;border-radius:2px;white-space:nowrap">正常</span></div>
+                          <div><span style="font-size:4px;background:#dbeafe;color:#1d4ed8;padding:1px 4px;border-radius:2px;white-space:nowrap">始動</span></div>
+                          <div style="font-size:4.5px;color:#64748b;white-space:nowrap">14:15</div>
+                        </div>
+                        <div style="font-size:4px;color:#94a3b8;padding:1px 5px">全3件中 1〜3件表示</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="laptop-chin"></div>
+            </div>
+            <div class="iphone-ov">
+              <div class="island"></div>
+              <div class="iphone-screen" style="background:#f8fafc">
+                <div class="sb"><span class="sb-time">9:41</span><span class="sb-icons">●●● 5G 🔋</span></div>
+                <div style="background:#1e293b;padding:4px 7px;display:flex;align-items:center;gap:4px;flex-shrink:0"><span style="font-size:7px;font-weight:800;color:#38bdf8">RECS</span><span style="font-size:5px;color:#cbd5e1;margin-left:auto">車両管理</span></div>
+                <div style="flex:1;overflow:hidden;padding:4px;display:flex;flex-direction:column;gap:3px;background:#f8fafc">
+                  <div style="background:#fff;border:1px solid #e2e8f0;border-radius:4px;padding:3px 5px">
+                    <div style="display:flex;align-items:center;gap:3px"><div style="font-size:6px;font-weight:700;color:#0284c7">Test01（代車）</div><span style="margin-left:auto;font-size:4.5px;background:#dbeafe;color:#1d4ed8;padding:1px 4px;border-radius:2px">始動</span></div>
+                    <div style="font-size:4.5px;color:#94a3b8;white-space:nowrap">サンプル自動車（株） · 14:16</div>
+                  </div>
+                  <div style="background:#fff;border:1px solid #e2e8f0;border-radius:4px;padding:3px 5px">
+                    <div style="display:flex;align-items:center;gap:3px"><div style="font-size:6px;font-weight:700;color:#0284c7">DEMO-03</div><span style="margin-left:auto;font-size:4.5px;background:#dbeafe;color:#1d4ed8;padding:1px 4px;border-radius:2px">始動</span></div>
+                    <div style="font-size:4.5px;color:#94a3b8;white-space:nowrap">Test Vehicle · 14:15</div>
+                  </div>
+                  <div style="background:#fff;border:1px solid #e2e8f0;border-radius:4px;padding:3px 5px">
+                    <div style="display:flex;align-items:center;gap:3px"><div style="font-size:6px;font-weight:700;color:#0284c7">TEST02</div><span style="margin-left:auto;font-size:4.5px;background:#f1f5f9;color:#64748b;padding:1px 4px;border-radius:2px">不明</span></div>
+                    <div style="font-size:4.5px;color:#94a3b8;white-space:nowrap">本社 · —</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2: 位置情報トラッキング -->
+        <div class="mok-slide" style="background:linear-gradient(140deg,#e0f2fe,#e0f9ff)">
+          <span class="slide-lbl" style="background:rgba(2,132,199,.12);border-color:rgba(2,132,199,.3);color:#0369a1">② 位置情報トラッキング</span>
+          <div class="slide-duo">
+            <div class="laptop-wrap">
+              <div class="laptop-lid">
+                <div class="laptop-screen">
+                  <div class="lbar"><div class="lbd" style="background:#fc6b5d"></div><div class="lbd" style="background:#fdbc40"></div><div class="lbd" style="background:#35cd4b"></div><div class="lurl"><span>🔒</span><span>recs-gps.app</span></div></div>
+                  <div style="height:170px;display:flex;font-family:'Noto Sans JP',sans-serif;overflow:hidden;background:#f8fafc">
+                    <div style="width:50px;background:#1e293b;flex-shrink:0;display:flex;flex-direction:column;padding:4px 0">
+                      <div style="font-size:7.5px;font-weight:800;color:#38bdf8;text-align:center;padding:3px 0 5px;letter-spacing:.06em">RECS</div>
+                      <div style="font-size:4.5px;color:#94a3b8;padding:2.5px 5px;white-space:nowrap">▦ ダッシュ</div>
+                      <div style="font-size:4.5px;color:#fff;background:#0c4a6e;border-left:2px solid #38bdf8;padding:2.5px 5px;white-space:nowrap;font-weight:700">🚗 車両管理</div>
+                      <div style="font-size:4.5px;color:#94a3b8;padding:2.5px 5px;white-space:nowrap">▦ グループ</div>
+                      <div style="font-size:4.5px;color:#94a3b8;padding:2.5px 5px;white-space:nowrap">▦ ユーザー</div>
+                      <div style="font-size:4.5px;color:#94a3b8;padding:2.5px 5px;white-space:nowrap">▦ 端末譲渡</div>
+                      <div style="margin-top:auto;display:flex;align-items:center;gap:3px;padding:3px 5px;border-top:1px solid #334155">
+                        <div style="width:9px;height:9px;border-radius:50%;background:#0284c7;color:#fff;font-size:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0">T</div>
+                        <div style="font-size:4px;color:#cbd5e1;white-space:nowrap;line-height:1.2">本部管理者</div>
+                      </div>
+                    </div>
+                    <div style="flex:1;padding:6px 7px;display:flex;flex-direction:column;gap:4px;overflow:hidden;min-width:0">
+                      <div style="display:flex;align-items:center;gap:4px;flex-shrink:0"><span style="font-size:6px;color:#94a3b8">←</span><div style="font-size:7.5px;font-weight:800;color:#0f172a">車両詳細</div><span style="font-size:4px;background:#dcfce7;color:#15803d;padding:1px 4px;border-radius:2px">有効</span></div>
+                      <div style="display:flex;gap:5px;flex:1;min-height:0">
+                        <div style="flex:1.6;display:flex;flex-direction:column;gap:2px;min-width:0">
+                          <div style="font-size:5px;color:#0369a1;font-weight:700">◎ 位置情報</div>
+                          <div style="flex:1;border-radius:5px;position:relative;overflow:hidden;background:linear-gradient(160deg,#e8eef5,#f1f6fb);border:1px solid #d6e0ec">
+                            <svg viewBox="0 0 200 120" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%">
+                              <g stroke="#cdd9e8" stroke-width="5" fill="none" stroke-linecap="round"><path d="M-10 78 L210 48"/><path d="M72 -10 L104 130"/></g>
+                              <g stroke="#dde6f0" stroke-width="2.5" fill="none"><path d="M-10 36 L210 22"/><path d="M150 -10 L168 130"/><path d="M-10 104 L210 112"/></g>
+                              <polyline points="40,100 75,84 110,90 145,58 170,44" fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                              <circle cx="40" cy="100" r="3.4" fill="#2563eb"/><circle cx="75" cy="84" r="3.4" fill="#2563eb"/><circle cx="110" cy="90" r="3.4" fill="#2563eb"/><circle cx="145" cy="58" r="3.4" fill="#2563eb"/>
+                              <circle cx="170" cy="44" r="6" fill="none" stroke="#2563eb" stroke-width="2" opacity="0.5"><animate attributeName="r" values="6;16;6" dur="1.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.5;0;0.5" dur="1.8s" repeatCount="indefinite"/></circle>
+                              <circle cx="170" cy="34" r="8" fill="#e23b3b" stroke="#fff" stroke-width="1.5"/><path d="M163 39 L177 39 L170 52 Z" fill="#e23b3b"/><circle cx="170" cy="34" r="3" fill="#fff"/>
+                            </svg>
+                            <div style="position:absolute;top:3px;left:3px;font-size:4px;color:#1d4ed8;background:rgba(255,255,255,.85);border:1px solid #bfdbfe;border-radius:3px;padding:1px 4px;font-weight:700;white-space:nowrap">🚗 移動軌跡・直近20分（5点）</div>
+                            <div style="position:absolute;left:3px;bottom:1px;font-size:4px;color:#64748b;font-weight:600">Google</div>
+                          </div>
+                          <div style="display:flex;justify-content:space-between;font-size:4px;color:#64748b"><span>最終更新 14:16</span><span>33.3728°N 130.5108°E</span></div>
+                        </div>
+                        <div style="flex:1;display:flex;flex-direction:column;gap:3px;min-width:0">
+                          <div style="font-size:5px;color:#0369a1;font-weight:700">⏻ エンジン制御</div>
+                          <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:4px;padding:3px 4px">
+                            <div style="display:flex;align-items:center;gap:3px"><div style="width:4px;height:4px;border-radius:50%;background:#16a34a"></div><div style="font-size:5px;color:#15803d;font-weight:700">エンジン始動中</div></div>
+                            <div style="font-size:4px;color:#86998a;margin-top:1px">最終操作:—</div>
+                          </div>
+                          <div style="font-size:5px;color:#fff;background:#dc2626;border-radius:3px;padding:3.5px;text-align:center;font-weight:700">⏻ エンジン停止</div>
+                          <div style="font-size:5px;color:#475569;background:#fff;border:1px solid #e2e8f0;border-radius:3px;padding:3.5px;text-align:center;font-weight:700">⏻ エンジン始動</div>
+                          <div style="font-size:4px;color:#94a3b8">直近20分の移動軌跡（5点）</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="laptop-chin"></div>
+            </div>
+            <div class="iphone-ov">
+              <div class="island"></div>
+              <div class="iphone-screen" style="background:#1e293b">
+                <div class="sb"><span class="sb-time" style="color:#fff">9:41</span><span class="sb-icons" style="color:#cbd5e1">5G</span></div>
+                <div style="background:#1e293b;padding:3px 7px;display:flex;align-items:center;gap:4px;flex-shrink:0"><span style="font-size:6.5px;font-weight:800;color:#38bdf8">RECS</span><span style="font-size:4.5px;color:#cbd5e1;margin-left:auto">Test01 位置</span></div>
+                <div style="flex:1;position:relative;overflow:hidden;background:linear-gradient(160deg,#e8eef5,#f1f6fb)">
+                  <svg viewBox="0 0 130 175" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%">
+                    <g stroke="#cdd9e8" stroke-width="6" fill="none" stroke-linecap="round"><path d="M-10 70 L140 95"/><path d="M55 -10 L75 185"/></g>
+                    <g stroke="#dde6f0" stroke-width="3" fill="none"><path d="M-10 130 L140 150"/><path d="M98 -10 L113 185"/></g>
+                    <polyline points="30,150 52,120 78,128 92,86 104,60" fill="none" stroke="#2563eb" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="30" cy="150" r="4" fill="#2563eb"/><circle cx="52" cy="120" r="4" fill="#2563eb"/><circle cx="78" cy="128" r="4" fill="#2563eb"/><circle cx="92" cy="86" r="4" fill="#2563eb"/>
+                    <circle cx="104" cy="60" r="8" fill="none" stroke="#2563eb" stroke-width="2.5" opacity="0.5"><animate attributeName="r" values="8;20;8" dur="1.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.5;0;0.5" dur="1.8s" repeatCount="indefinite"/></circle>
+                    <circle cx="104" cy="48" r="10" fill="#e23b3b" stroke="#fff" stroke-width="2"/><path d="M95.5 54 L112.5 54 L104 70 Z" fill="#e23b3b"/><circle cx="104" cy="48" r="3.8" fill="#fff"/>
+                  </svg>
+                  <div style="position:absolute;top:3px;left:3px;font-size:4.5px;color:#1d4ed8;background:rgba(255,255,255,.85);border:1px solid #bfdbfe;border-radius:3px;padding:1px 4px;font-weight:700;white-space:nowrap">🚗 移動軌跡（5点）</div>
+                  <div style="position:absolute;left:4px;bottom:2px;font-size:4.5px;color:#64748b;font-weight:600">Google</div>
+                </div>
+                <div style="background:#fff;padding:4px 7px;flex-shrink:0;border-top:1px solid #e2e8f0">
+                  <div style="font-size:5.5px;font-weight:700;color:#0f172a;white-space:nowrap">Test01（代車）· 始動中</div>
+                  <div style="font-size:4.5px;color:#64748b;white-space:nowrap">33.3728°N 130.5108°E · 14:16更新</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3: 遠隔エンジン停止 -->
+        <div class="mok-slide" style="background:linear-gradient(140deg,#fee2e2,#eff6ff)">
+          <span class="slide-lbl" style="background:rgba(220,38,38,.12);border-color:rgba(220,38,38,.3);color:#dc2626">③ 遠隔エンジン停止</span>
+          <div class="slide-duo">
+            <div class="laptop-wrap">
+              <div class="laptop-lid">
+                <div class="laptop-screen">
+                  <div class="lbar"><div class="lbd" style="background:#fc6b5d"></div><div class="lbd" style="background:#fdbc40"></div><div class="lbd" style="background:#35cd4b"></div><div class="lurl"><span>🔒</span><span>recs-gps.app</span></div></div>
+                  <div style="height:170px;display:flex;font-family:'Noto Sans JP',sans-serif;overflow:hidden;background:#f8fafc">
+                    <div style="width:50px;background:#1e293b;flex-shrink:0;display:flex;flex-direction:column;padding:4px 0">
+                      <div style="font-size:7.5px;font-weight:800;color:#38bdf8;text-align:center;padding:3px 0 5px;letter-spacing:.06em">RECS</div>
+                      <div style="font-size:4.5px;color:#94a3b8;padding:2.5px 5px;white-space:nowrap">▦ ダッシュ</div>
+                      <div style="font-size:4.5px;color:#fff;background:#0c4a6e;border-left:2px solid #38bdf8;padding:2.5px 5px;white-space:nowrap;font-weight:700">🚗 車両管理</div>
+                      <div style="font-size:4.5px;color:#94a3b8;padding:2.5px 5px;white-space:nowrap">▦ グループ</div>
+                      <div style="font-size:4.5px;color:#94a3b8;padding:2.5px 5px;white-space:nowrap">▦ ユーザー</div>
+                      <div style="font-size:4.5px;color:#94a3b8;padding:2.5px 5px;white-space:nowrap">▦ 端末譲渡</div>
+                      <div style="margin-top:auto;display:flex;align-items:center;gap:3px;padding:3px 5px;border-top:1px solid #334155">
+                        <div style="width:9px;height:9px;border-radius:50%;background:#0284c7;color:#fff;font-size:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0">T</div>
+                        <div style="font-size:4px;color:#cbd5e1;white-space:nowrap;line-height:1.2">本部管理者</div>
+                      </div>
+                    </div>
+                    <div style="flex:1;position:relative;overflow:hidden;min-width:0">
+                      <div style="position:absolute;inset:0;padding:6px 7px;opacity:.45">
+                        <div style="font-size:7px;font-weight:800;color:#0f172a;margin-bottom:4px">車両詳細・編集</div>
+                        <div style="height:7px;background:#eef2f7;border-radius:2px;margin-bottom:3px;width:60%"></div>
+                        <div style="height:7px;background:#eef2f7;border-radius:2px;margin-bottom:3px"></div>
+                        <div style="height:7px;background:#eef2f7;border-radius:2px;margin-bottom:3px;width:80%"></div>
+                        <div style="height:7px;background:#eef2f7;border-radius:2px;width:70%"></div>
+                      </div>
+                      <div style="position:absolute;inset:0;background:rgba(15,23,42,.32)"></div>
+                      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:80%;background:#fff;border-radius:6px;box-shadow:0 10px 26px rgba(0,0,0,.3);padding:7px 8px;display:flex;flex-direction:column;gap:3px">
+                        <div style="font-size:6.5px;font-weight:800;color:#0f172a">エンジン停止 の実行</div>
+                        <div style="background:#f8fafc;border:1px solid #eef2f7;border-radius:3px;padding:2px 5px"><div style="font-size:4.5px;color:#475569;font-weight:600">車台番号: Test01（代車）</div><div style="font-size:4px;color:#94a3b8">車種:テスト代車1号 / 利用者:サンプル自動車（株）</div></div>
+                        <div style="font-size:4.5px;color:#475569">この操作は記録されます。操作理由を入力してください。</div>
+                        <div style="font-size:4.5px;color:#0f172a;font-weight:700">操作理由 <span style="color:#dc2626">*</span></div>
+                        <div style="border:1.5px solid #0284c7;border-radius:3px;padding:3px 5px;font-size:4.5px;color:#94a3b8;background:#fff">例: 延滞 60日</div>
+                        <div style="font-size:3.5px;color:#94a3b8;line-height:1.4">冪等性キーはブラウザ側で自動採番され、リトライ時も同じ command_id を再利用します。</div>
+                        <div style="display:flex;gap:4px;justify-content:flex-end;align-items:center;margin-top:1px"><div style="font-size:5px;color:#475569;padding:3px 7px">キャンセル</div><div style="font-size:5px;color:#fff;background:#ef4444;border-radius:3px;padding:3px 10px;font-weight:700">停止する</div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="laptop-chin"></div>
+            </div>
+            <div class="iphone-ov">
+              <div class="island"></div>
+              <div class="iphone-screen" style="background:#f8fafc">
+                <div class="sb"><span class="sb-time">9:41</span><span class="sb-icons">●●● 5G 🔋</span></div>
+                <div style="background:#1e293b;padding:4px 7px;display:flex;align-items:center;gap:4px;flex-shrink:0"><span style="font-size:7px;font-weight:800;color:#38bdf8">RECS</span><span style="font-size:5px;color:#cbd5e1;margin-left:auto">エンジン制御</span></div>
+                <div style="flex:1;overflow:hidden;padding:6px 5px;display:flex;flex-direction:column;gap:5px;background:#f8fafc;align-items:center;justify-content:center">
+                  <div style="font-size:24px">🚗</div>
+                  <div style="background:#dc2626;color:#fff;font-size:6px;font-weight:800;padding:2px 8px;border-radius:999px">エンジン停止</div>
+                  <div style="background:#fff;border:1px solid #fecaca;border-radius:5px;padding:4px 6px;width:90%">
+                    <div style="font-size:5px;color:#15803d;font-weight:700">✓ 停止コマンド送信</div>
+                    <div style="font-size:4.5px;color:#64748b;white-space:nowrap">Test01（代車）· docomo回線経由</div>
+                    <div style="font-size:4px;color:#94a3b8">理由: 延滞60日 · 操作ログ記録済</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <button class="mok-arr mok-prev">‹</button>
+      <button class="mok-arr mok-next">›</button>
+      <div class="mok-dots"><span class="mdot active"></span><span class="mdot"></span><span class="mdot"></span></div>
+    </div>
+    <div class="info">
+      <div class="tags"><span class="tag blue">React</span><span class="tag blue">Vercel</span><span class="tag cyan">Google Maps API</span><span class="tag green">docomo IoT回線</span><span class="tag amber">リアルタイム測位</span><span class="tag purple">操作ログ/冪等性</span></div>
+      <div class="genre-badge" data-genre="GPS開発">📍 GPS開発</div>
+      <h3>RECS（レクス）<br>遠隔エンジン停止システム</h3>
+      <p>自社ローン・サブスク車両の遠隔管理を実現するGPS×エンジン制御システム。docomo回線を通じて車両の現在地をリアルタイムに測位し、地図上で移動軌跡まで可視化。支払い遅延車両は管理画面から遠隔でエンジンを停止でき（操作理由の記録・冪等性キー対応）、督促業務の軽減と車両回収の効率化を実現します。</p>
+      <div class="feat-section">
+        <div class="feat-lbl">搭載機能</div>
+        <div class="feat-chips"><span class="feat-chip">遠隔エンジン停止</span><span class="feat-chip">リアルタイムGPS測位</span><span class="feat-chip">移動軌跡表示</span><span class="feat-chip">車両一覧管理</span><span class="feat-chip">グループ・権限管理</span><span class="feat-chip">操作ログ（冪等性）</span></div>
+      </div>
+      <a class="clink" href="#">サイトを開く</a>
+    </div>
+  </div>
+  <!-- ▲▲▲ 追加実績：RECS 遠隔エンジン停止システム ここまで ▲▲▲ -->
+
+
 <!-- /grid2 -->
 
 </section>
@@ -3137,6 +3486,14 @@ a.clink{display:block;margin-top:16px}
 <footer><span>© 2026 業務改善.DX — 業務DX 自動化システム構築実績</span><span class="mono" style="color:var(--blue)">with SLIDE CAROUSEL</span></footer>
 
 <script>
+// ── 業務DXとは: タグを複製してシームレスなマーキーに ──
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.querySelectorAll('.dxabout .dx-row').forEach(row => {
+    row.innerHTML += row.innerHTML;
+  });
+})();
+
 // Carousel logic
 document.querySelectorAll('.mok-carousel').forEach(carousel => {
   const track = carousel.querySelector('.mok-track');
@@ -3374,6 +3731,75 @@ document.querySelectorAll('.mok-carousel').forEach(carousel => {
         }, 500);
       }
     }
+    if(idx === 3){
+      // LINE管理: グラフ伸長 + 数値カウントアップ
+      const s = slides[3];
+      s.querySelectorAll('.c4bar').forEach((b, i) => {
+        b.style.transition = 'none';
+        b.style.height = '0%';
+        reflow(b);
+        setTimeout(() => {
+          b.style.transition = 'height .7s cubic-bezier(.34,1.3,.5,1)';
+          b.style.height = b.dataset.h;
+        }, (i % 5) * 90 + 150);
+      });
+      s.querySelectorAll('.c4num').forEach((el, i) => {
+        const to = +el.dataset.to;
+        setTimeout(() => {
+          const dur = 800, t0 = performance.now();
+          const tick = now => {
+            const p = Math.min((now - t0) / dur, 1);
+            const e = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.round(to * e);
+            if(p < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        }, (i % 5) * 90 + 200);
+      });
+      s.querySelectorAll('.c4pct').forEach((el, i) => {
+        const to = +el.dataset.to;
+        setTimeout(() => {
+          const dur = 800, t0 = performance.now();
+          const tick = now => {
+            const p = Math.min((now - t0) / dur, 1);
+            const e = 1 - Math.pow(1 - p, 3);
+            el.textContent = (to * e).toFixed(1) + '%';
+            if(p < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        }, (i % 5) * 90 + 250);
+      });
+    }
+    if(idx === 4){
+      // 納車段取り: カード・通知が順に出現
+      slides[4].querySelectorAll('.c5item').forEach((el, i) => {
+        el.style.transition = 'none';
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(6px)';
+        reflow(el);
+        setTimeout(() => {
+          el.style.transition = 'opacity .4s ease, transform .4s ease';
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+        }, i * 200 + 200);
+      });
+    }
+    if(idx === 6){
+      // LINE AI返答: 会話が順に出現
+      const seq = els => els.forEach((el, i) => {
+        el.style.transition = 'none';
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(5px)';
+        reflow(el);
+        setTimeout(() => {
+          el.style.transition = 'opacity .4s ease, transform .4s ease';
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+        }, i * 320 + 250);
+      });
+      seq([...slides[6].querySelectorAll('.c7log .c7msg')]);
+      seq([...slides[6].querySelectorAll('.c7chat .c7msg')]);
+    }
   }
 
   // scroll into view
@@ -3594,6 +4020,46 @@ document.querySelectorAll('.mok-carousel').forEach(carousel => {
     },310);
   }
   setInterval(next,1800);
+})();
+
+
+// ── 全スライド汎用リビール（PC・スマホ両方をフェードイン） ──
+(function(){
+  const wraps = document.querySelectorAll('.mok-slide .laptop-wrap, .mok-slide .iphone-ov');
+  if(!wraps.length) return;
+  wraps.forEach(el => {
+    el.style.willChange = 'opacity, transform';
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(12px)';
+  });
+
+  const reveal = slide => {
+    slide.querySelectorAll('.laptop-wrap, .iphone-ov').forEach((el, i) => {
+      if(el.dataset.revealed) return;
+      el.dataset.revealed = '1';
+      setTimeout(() => {
+        el.style.transition = 'opacity .55s ease, transform .55s cubic-bezier(.2,.8,.2,1)';
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      }, i * 130 + 60);
+    });
+  };
+
+  document.querySelectorAll('.mok-carousel').forEach(carousel => {
+    const track = carousel.querySelector('.mok-track');
+    if(!track) return;
+    const slides = [...track.children];
+    let last = -1;
+    new IntersectionObserver(es => {
+      es.forEach(e => {
+        if(e.isIntersecting && last < 0){ last = 0; if(slides[0]) reveal(slides[0]); }
+      });
+    }, {threshold: 0.12}).observe(carousel);
+    track.addEventListener('scroll', () => {
+      const idx = Math.round(track.scrollLeft / track.offsetWidth);
+      if(idx !== last){ last = idx; if(slides[idx]) reveal(slides[idx]); }
+    }, {passive: true});
+  });
 })();
 
 </script>
