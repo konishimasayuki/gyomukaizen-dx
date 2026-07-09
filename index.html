@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>業務改善.DX — 業務自動化システム構築実績</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#f4f7ff;--white:#fff;--blue:#2563eb;--blue2:#1d4ed8;--bluedk:#1e3a8a;--cyan:#06b6d4;--cyanlt:#e0f9ff;--lt:#eef2ff;--ink:#0f172a;--mute:#64748b;--mute2:#94a3b8;--border:#e2e8f0}
@@ -15,15 +16,15 @@ a{text-decoration:none;color:inherit}
 
 /* BG blobs */
 .blob-layer{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-.blob-layer::after{content:"";position:absolute;inset:-60px;background-image:linear-gradient(rgba(37,99,235,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.05) 1px,transparent 1px);background-size:52px 52px;animation:bgGrid 16s linear infinite}
+.blob-layer::after{content:"";position:absolute;inset:-60px;background-image:linear-gradient(rgba(37,99,235,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.05) 1px,transparent 1px);background-size:52px 52px;animation:bgGrid 16s linear infinite;will-change:transform}
 @keyframes bgGrid{0%{transform:translate(0,0)}100%{transform:translate(52px,52px)}}
-.blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.5}
+.blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.5;transform:translateZ(0);will-change:transform}
 .blob-1{width:700px;height:600px;background:radial-gradient(#93c5fd,transparent 70%);top:-100px;right:-100px}
 .blob-2{width:600px;height:500px;background:radial-gradient(#a5f3fc,transparent 70%);bottom:5%;left:-80px}
 .blob-3{width:400px;height:400px;background:radial-gradient(#c7d2fe,transparent 70%);top:40%;right:10%}
 
 /* NAV */
-nav{position:sticky;top:0;z-index:200;background:rgba(244,247,255,.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(37,99,235,.1);height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 28px}
+nav{position:sticky;top:0;z-index:200;background:rgba(244,247,255,.85);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-bottom:1px solid rgba(37,99,235,.1);height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;transform:translateZ(0)}
 .brand{font-family:"Syne",sans-serif;font-size:19px;font-weight:800;color:var(--blue)}
 .brand span{color:var(--ink)}
 .navr{display:flex;gap:8px}
@@ -608,6 +609,8 @@ body.ld-lock{overflow:hidden;height:100vh}
 
 /* card scan shine on reveal */
 .card-feat,.card-wide{position:relative}
+/* 画面外では無限アニメーションを停止(見た目不変・描画負荷対策) */
+.anim-off,.anim-off *,.anim-off *::before,.anim-off *::after{animation-play-state:paused!important}
 .card-feat.show::after,.card-wide.show::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(37,99,235,.14) 50%,transparent 65%);transform:translateX(-130%);animation:cardScan .9s ease .1s forwards;pointer-events:none;z-index:9;border-radius:inherit}
 @keyframes cardScan{0%{transform:translateX(-130%)}100%{transform:translateX(130%)}}
 
@@ -3703,7 +3706,7 @@ document.querySelectorAll('.mok-carousel').forEach(carousel => {
   };
 
   track.addEventListener('scroll', () => {
-    const newIdx = Math.round(track.scrollLeft / getW());
+    const newIdx = Math.max(0, Math.min(total - 1, Math.round(track.scrollLeft / getW())));
     if (newIdx !== idx) { idx = newIdx; dots.forEach((d, i) => d.classList.toggle('active', i === idx)); }
   }, { passive: true });
 
@@ -4028,6 +4031,26 @@ document.querySelectorAll('.card-feat,.card-sm,.card-wide,.schip').forEach(el =>
   });
   document.addEventListener('DOMContentLoaded', updateCounts);
   if(document.readyState !== 'loading') updateCounts();
+})();
+
+// ── 画面外の無限アニメーションを一時停止(見た目不変・Safari負荷対策)──
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  // SVGの動点(SMIL)はロード直後から動き続けるため、可視判定が出るまで先に止める
+  const dxSvg = document.querySelector('#dxStage svg.dx-svg');
+  if(dxSvg && typeof dxSvg.pauseAnimations === 'function') dxSvg.pauseAnimations();
+  const targets = document.querySelectorAll('#dxStage,.card-feat,.card-wide,.card-sm');
+  if(!targets.length) return;
+  const io2 = new IntersectionObserver(es => {
+    es.forEach(e => {
+      e.target.classList.toggle('anim-off', !e.isIntersecting);
+      const svg = e.target.querySelector('svg.dx-svg');
+      if(svg && typeof svg.pauseAnimations === 'function'){
+        if(e.isIntersecting) svg.unpauseAnimations(); else svg.pauseAnimations();
+      }
+    });
+  }, {rootMargin: '30% 0px 30% 0px'});
+  targets.forEach(t => io2.observe(t));
 })();
 
 // ── キャッチコピーサイクル ──
