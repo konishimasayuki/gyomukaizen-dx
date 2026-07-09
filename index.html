@@ -453,11 +453,11 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:30
 .kc-cal-body{padding:5px 7px;flex:1}
 .kc-cal-dh{display:grid;grid-template-columns:repeat(7,1fr);font-size:6px;color:#94a3b8;text-align:center;margin-bottom:3px}
 .kc-week{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:2px;opacity:0;transition:none}
-.cal-play .kc-week:nth-child(1){opacity:1;transition:opacity .3s ease 0s}
-.cal-play .kc-week:nth-child(2){opacity:1;transition:opacity .3s ease .1s}
-.cal-play .kc-week:nth-child(3){opacity:1;transition:opacity .3s ease .2s}
-.cal-play .kc-week:nth-child(4){opacity:1;transition:opacity .3s ease .3s}
-.cal-play .kc-week:nth-child(5){opacity:1;transition:opacity .3s ease .4s}
+.cal-play .kc-week:nth-child(2){opacity:1;transition:opacity .3s ease 0s}
+.cal-play .kc-week:nth-child(3){opacity:1;transition:opacity .3s ease .1s}
+.cal-play .kc-week:nth-child(4){opacity:1;transition:opacity .3s ease .2s}
+.cal-play .kc-week:nth-child(5){opacity:1;transition:opacity .3s ease .3s}
+.cal-play .kc-week:nth-child(6){opacity:1;transition:opacity .3s ease .4s}
 .kc-day{font-size:7px;text-align:center;padding:2px 0;border-radius:4px;color:#334155;min-height:16px;position:relative}
 .kc-day.td{background:#6366f1;color:#fff;font-weight:700;border-radius:50%;width:16px;height:16px;margin:0 auto;display:flex;align-items:center;justify-content:center;font-size:7px}
 .kc-day.ot{color:#d1d5db}
@@ -714,26 +714,44 @@ h1 .grad .dc.scr{background:none;-webkit-text-fill-color:rgba(37,99,235,.4)}
 </div>
 <script>
 (function(){
+  // ブラウザ任せのスクロール復元はローダーのスクロールロック+smooth-scrollと衝突し
+  // 中途半端な位置で止まるため、手動で復元する
+  try{ if('scrollRestoration' in history) history.scrollRestoration='manual'; }catch(e){}
+  window.addEventListener('pagehide', function(){
+    try{ sessionStorage.setItem('dxScrollY', String(window.scrollY||window.pageYOffset||0)); }catch(e){}
+  });
+  function restoreScroll(){
+    if(location.hash) return;
+    var y=0;
+    try{ y=parseInt(sessionStorage.getItem('dxScrollY'),10)||0; }catch(e){}
+    if(y>0){
+      var de=document.documentElement, prev=de.style.scrollBehavior;
+      de.style.scrollBehavior='auto';           // smoothを一時無効化して即時復元
+      window.scrollTo(0,y);
+      requestAnimationFrame(function(){ de.style.scrollBehavior=prev; });
+    }
+  }
   var loader=document.getElementById('loader');
   var pbar=document.getElementById('ldPbar');
   var pct=document.getElementById('ldPct');
   document.body.classList.add('ld-lock');
   var p=0;
   setTimeout(function tick(){
-    p += p<70 ? (8+Math.random()*10) : p<92 ? (2+Math.random()*3) : 8;
+    p += p<70 ? (14+Math.random()*12) : p<92 ? (4+Math.random()*4) : 8;
     if(p>100)p=100;
     pbar.style.width=p+'%';
     pct.textContent=Math.floor(p)+'%';
-    if(p<100){ setTimeout(tick, 90+Math.random()*80); }
+    if(p<100){ setTimeout(tick, 70+Math.random()*60); }
     else{
       setTimeout(function(){
         loader.classList.add('open');
         document.body.classList.remove('ld-lock');
+        restoreScroll();
         if(window.__heroDecode) window.__heroDecode();
         setTimeout(function(){ loader.classList.add('done'); }, 750);
-      }, 350);
+      }, 300);
     }
-  }, 1000);
+  }, 500);
 })();
 </script>
 <div class="blob-layer"><div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div></div>
@@ -741,7 +759,7 @@ h1 .grad .dc.scr{background:none;-webkit-text-fill-color:rgba(37,99,235,.4)}
 <nav>
   <div class="brand">業務改善<span>.</span>DX</div>
   <div class="navr">
-    <a class="npill" href="#">システム一覧</a>
+    <a class="npill" href="#systems">システム一覧</a>
   </div>
 </nav>
 
@@ -799,7 +817,7 @@ h1 .grad .dc.scr{background:none;-webkit-text-fill-color:rgba(37,99,235,.4)}
 </section>
 
 <!-- SYSTEMS -->
-<section class="section wrap">
+<section class="section wrap" id="systems">
   <div class="sh">
     <div class="sh-top"><span class="sh-mono">/ SYSTEMS</span><h2>構築したシステム</h2></div>
   </div>
@@ -3673,15 +3691,19 @@ document.querySelectorAll('.mok-carousel').forEach(carousel => {
   const next  = carousel.querySelector('.mok-next');
   let idx = 0;
   const total = track.children.length;
+  let slideW = track.offsetWidth;
+  const getW = () => (slideW > 0 ? slideW : (slideW = track.offsetWidth)) || 1;
+  window.addEventListener('resize', () => { slideW = track.offsetWidth; });
 
   const goTo = (n) => {
     idx = Math.max(0, Math.min(total - 1, n));
-    track.scrollTo({ left: idx * track.offsetWidth, behavior: 'smooth' });
+    track.scrollTo({ left: idx * getW(), behavior: 'smooth' });
     dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    updateArrows();
   };
 
   track.addEventListener('scroll', () => {
-    const newIdx = Math.round(track.scrollLeft / track.offsetWidth);
+    const newIdx = Math.round(track.scrollLeft / getW());
     if (newIdx !== idx) { idx = newIdx; dots.forEach((d, i) => d.classList.toggle('active', i === idx)); }
   }, { passive: true });
 
@@ -3695,6 +3717,7 @@ document.querySelectorAll('.mok-carousel').forEach(carousel => {
     if (next) next.style.opacity = idx === total - 1 ? '0' : '';
   };
   track.addEventListener('scroll', updateArrows, { passive: true });
+  updateArrows();
 });
 
 // Scroll reveal
@@ -3972,7 +3995,8 @@ document.querySelectorAll('.card-feat,.card-sm,.card-wide,.schip').forEach(el =>
 // ── ジャンルフィルター（カウント付き）──
 (function(){
   const btns = document.querySelectorAll('.filter-btn');
-  const section = document.querySelector('.section.wrap');
+  const bar = document.getElementById('genre-filter-bar');
+  const section = bar ? bar.closest('section') : document.querySelector('.section.wrap');
   function getCards(){
     return section ? [...section.querySelectorAll('.card-feat[data-genre],.card-wide[data-genre],.card-sm[data-genre]')] : [];
   }
