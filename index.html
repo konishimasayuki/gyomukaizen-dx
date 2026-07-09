@@ -565,9 +565,84 @@ a.clink{display:block;margin-top:16px}
 /* mobile overrides */
 @media(max-width:900px){.card-wide{display:flex;flex-direction:column}.card-wide .mok-carousel{border-right:none;border-bottom:1px solid var(--border)}.card-wide .mok-slide{min-height:220px}}
 
+
+/* ============ LOADING SCREEN ============ */
+#loader{position:fixed;inset:0;z-index:9999;background:#060a18;display:flex;align-items:center;justify-content:center;overflow:hidden}
+#loader::before{content:"";position:absolute;inset:-50%;background-image:linear-gradient(rgba(37,99,235,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.08) 1px,transparent 1px);background-size:44px 44px;animation:ldGridDrift 8s linear infinite}
+@keyframes ldGridDrift{0%{transform:translate(0,0)}100%{transform:translate(44px,44px)}}
+.ld-glow{position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.22),rgba(6,182,212,.10) 45%,transparent 70%);filter:blur(20px);animation:ldGlowPulse 2.4s ease-in-out infinite}
+@keyframes ldGlowPulse{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.12);opacity:1}}
+.ld-inner{position:relative;z-index:2;text-align:center}
+.ld-line{display:flex;align-items:baseline;justify-content:center;gap:2px;position:relative}
+.ld-jchar{font-family:"Noto Sans JP",sans-serif;font-weight:900;font-size:clamp(44px,10vw,76px);color:#fff;display:inline-block;opacity:0;transform:translateY(38px) rotateX(60deg);filter:blur(8px);animation:ldCharIn .65s cubic-bezier(.2,.9,.25,1.2) forwards}
+.ld-jchar:nth-child(1){animation-delay:.15s}
+.ld-jchar:nth-child(2){animation-delay:.27s}
+.ld-jchar:nth-child(3){animation-delay:.39s}
+.ld-jchar:nth-child(4){animation-delay:.51s}
+@keyframes ldCharIn{0%{opacity:0;transform:translateY(38px) rotateX(60deg);filter:blur(8px)}100%{opacity:1;transform:none;filter:blur(0)}}
+.ld-dx{font-family:"Syne",sans-serif;font-weight:800;font-size:clamp(44px,10vw,76px);letter-spacing:-.02em;background:linear-gradient(120deg,var(--blue),var(--cyan) 60%,#7dd3fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-block;opacity:0;transform:translateX(-24px) skewX(-8deg);filter:blur(6px);animation:ldDxIn .6s cubic-bezier(.2,.9,.3,1.15) .72s forwards}
+@keyframes ldDxIn{0%{opacity:0;transform:translateX(-24px) skewX(-8deg);filter:blur(6px)}100%{opacity:1;transform:none;filter:blur(0)}}
+.ld-shine{position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);mix-blend-mode:overlay;transform:translateX(-120%);animation:ldShine .9s ease 1.35s forwards;pointer-events:none}
+@keyframes ldShine{0%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+.ld-subtag{font-family:"JetBrains Mono",monospace;font-size:clamp(9px,2.4vw,12px);letter-spacing:.42em;color:rgba(148,197,253,.75);margin-top:16px;opacity:0;animation:ldFadeUp .5s ease 1.15s forwards}
+@keyframes ldFadeUp{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:none}}
+.ld-pbar-wrap{width:min(280px,64vw);height:2.5px;background:rgba(148,163,184,.18);border-radius:2px;margin:26px auto 0;overflow:hidden;opacity:0;animation:ldFadeUp .4s ease .95s forwards}
+.ld-pbar{height:100%;width:0%;background:linear-gradient(90deg,var(--blue),var(--cyan));border-radius:2px;box-shadow:0 0 12px rgba(6,182,212,.8);transition:width .18s ease}
+.ld-pct{font-family:"JetBrains Mono",monospace;font-size:11px;color:rgba(148,163,184,.6);margin-top:10px;opacity:0;animation:ldFadeUp .4s ease 1.05s forwards}
+#loader .ld-panel{position:absolute;left:0;width:100%;height:50.5%;background:#060a18;z-index:3;pointer-events:none;opacity:0}
+#loader.open{background:transparent}
+#loader.open::before,#loader.open .ld-glow{opacity:0;transition:opacity .3s}
+#loader.open .ld-panel{opacity:1}
+#loader.open .ld-panel.top{top:0;animation:ldSplitUp .7s cubic-bezier(.7,0,.2,1) forwards}
+#loader.open .ld-panel.bottom{bottom:0;animation:ldSplitDown .7s cubic-bezier(.7,0,.2,1) forwards}
+#loader.open .ld-inner{animation:ldInnerOut .4s ease forwards}
+@keyframes ldSplitUp{0%{transform:translateY(0)}100%{transform:translateY(-101%)}}
+@keyframes ldSplitDown{0%{transform:translateY(0)}100%{transform:translateY(101%)}}
+@keyframes ldInnerOut{0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1.08)}}
+#loader.done{display:none}
+body.ld-lock{overflow:hidden;height:100vh}
+
 </style>
 </head>
 <body>
+<!-- ===== LOADING SCREEN ===== -->
+<div id="loader">
+  <div class="ld-glow"></div>
+  <div class="ld-inner">
+    <div class="ld-line">
+      <span class="ld-jchar">業</span><span class="ld-jchar">務</span><span class="ld-jchar">改</span><span class="ld-jchar">善</span><span class="ld-dx">.DX</span>
+      <span class="ld-shine"></span>
+    </div>
+    <div class="ld-subtag">BUSINESS AUTOMATION PORTFOLIO</div>
+    <div class="ld-pbar-wrap"><div class="ld-pbar" id="ldPbar"></div></div>
+    <div class="ld-pct" id="ldPct">0%</div>
+  </div>
+  <div class="ld-panel top"></div>
+  <div class="ld-panel bottom"></div>
+</div>
+<script>
+(function(){
+  var loader=document.getElementById('loader');
+  var pbar=document.getElementById('ldPbar');
+  var pct=document.getElementById('ldPct');
+  document.body.classList.add('ld-lock');
+  var p=0;
+  setTimeout(function tick(){
+    p += p<70 ? (8+Math.random()*10) : p<92 ? (2+Math.random()*3) : 8;
+    if(p>100)p=100;
+    pbar.style.width=p+'%';
+    pct.textContent=Math.floor(p)+'%';
+    if(p<100){ setTimeout(tick, 90+Math.random()*80); }
+    else{
+      setTimeout(function(){
+        loader.classList.add('open');
+        document.body.classList.remove('ld-lock');
+        setTimeout(function(){ loader.classList.add('done'); }, 750);
+      }, 350);
+    }
+  }, 1000);
+})();
+</script>
 <div class="blob-layer"><div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div></div>
 
 <nav>
