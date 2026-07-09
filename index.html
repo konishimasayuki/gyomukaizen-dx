@@ -154,7 +154,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(244,247,255,.85);backdrop-
 @keyframes hintpulse{0%{opacity:0;transform:translateY(-50%) translateX(0)}30%{opacity:.7;transform:translateY(-50%) translateX(-4px)}70%{opacity:.7;transform:translateY(-50%) translateX(4px)}100%{opacity:0;transform:translateY(-50%) translateX(0)}}
 
 /* Nav arrows */
-.mok-arr{position:absolute;top:50%;transform:translateY(-50%);z-index:30;width:28px;height:28px;background:rgba(255,255,255,.92);border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;color:var(--mute);box-shadow:0 2px 8px rgba(0,0,0,.1);z-index:6;opacity:0;transition:opacity .2s,background .2s;user-select:none}
+.mok-arr{position:absolute;top:50%;transform:translateY(-50%);width:28px;height:28px;background:rgba(255,255,255,.92);border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;color:var(--mute);box-shadow:0 2px 8px rgba(0,0,0,.1);z-index:6;opacity:0;transition:opacity .2s,background .2s;user-select:none}
 .mok-carousel:hover .mok-arr{opacity:1}
 .mok-arr:hover{background:#fff;color:var(--blue)}
 .mok-prev{left:8px}
@@ -217,9 +217,9 @@ nav{position:sticky;top:0;z-index:200;background:rgba(244,247,255,.85);backdrop-
 .sh h2{font-size:clamp(24px,3.5vw,32px);font-weight:900;letter-spacing:-.03em}
 .sh p{font-size:14px;color:var(--mute)}
 
-.card-feat{background:var(--white);border:1px solid var(--border);border-radius:24px;overflow:hidden;display:grid;grid-template-columns:380px 1fr;box-shadow:0 4px 24px rgba(37,99,235,.08);margin-bottom:18px}
-.card-feat
-.card-feat .mok-carousel{min-height:340px}
+.card-feat{background:var(--white);border:1px solid var(--border);border-radius:24px;overflow:hidden;display:grid;grid-template-columns:380px 1fr;box-shadow:0 4px 24px rgba(37,99,235,.08);margin-bottom:18px;opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.card-feat.show{opacity:1;transform:none}
+.card-feat .mok-carousel{height:100%;min-height:340px}
 .card-feat .mok-slide{min-height:340px}
 .card-feat .info{padding:36px 36px 36px 32px;display:flex;flex-direction:column;justify-content:center}
 .num-big{font-family:"Syne",sans-serif;font-size:80px;font-weight:800;color:rgba(37,99,235,.07);line-height:1;margin-bottom:-20px;letter-spacing:-.05em}
@@ -227,8 +227,8 @@ nav{position:sticky;top:0;z-index:200;background:rgba(244,247,255,.85);backdrop-
 .card-feat .info p{color:var(--mute);font-size:14px;line-height:1.8;margin-bottom:20px}
 
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:18px}
-.card-sm{background:var(--white);border:1px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:0 2px 12px rgba(37,99,235,.06)}
-.card-sm
+.card-sm{background:var(--white);border:1px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:0 2px 12px rgba(37,99,235,.06);opacity:0;transform:translateY(22px);transition:opacity .65s,transform .65s,box-shadow .3s,border-color .3s}
+.card-sm.show{opacity:1;transform:none}
 .card-sm:hover{box-shadow:0 14px 40px -10px rgba(37,99,235,.22);border-color:rgba(37,99,235,.3);transform:translateY(-4px)}
 .card-sm .mok-carousel{border-bottom:1px solid var(--border)}
 .card-sm .mok-slide{height:200px}
@@ -237,13 +237,13 @@ nav{position:sticky;top:0;z-index:200;background:rgba(244,247,255,.85);backdrop-
 .card-sm .info p{font-size:12.5px;color:var(--mute);line-height:1.7;margin-bottom:12px}
 
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.card-wide{background:var(--white);border:1px solid var(--border);border-radius:24px;overflow:hidden;box-shadow:0 4px 20px rgba(37,99,235,.08);display:grid;grid-template-columns:380px 1fr;align-items:stretch}
-.card-wide
-.card-wide .mok-carousel{border-bottom:none;border-right:1px solid var(--border);min-height:340px}
-.card-wide .mok-slide{height:auto;min-height:340px}
-.card-wide .info{padding:36px 36px 36px 32px;display:flex;flex-direction:column;justify-content:center}
-.card-wide .info h3{font-size:clamp(18px,2vw,24px);font-weight:900;letter-spacing:-.03em;margin-bottom:10px;line-height:1.3}
-.card-wide .info p{font-size:14px;color:var(--mute);line-height:1.8;margin-bottom:18px}
+.card-wide{background:var(--white);border:1px solid var(--border);border-radius:24px;overflow:hidden;box-shadow:0 4px 20px rgba(37,99,235,.08);opacity:0;transform:translateY(22px);transition:opacity .65s,transform .65s}
+.card-wide.show{opacity:1;transform:none}
+.card-wide .mok-carousel{border-bottom:1px solid var(--border)}
+.card-wide .mok-slide{height:280px}
+.card-wide .info{padding:22px 24px 26px}
+.card-wide .info h3{font-size:17px;font-weight:800;letter-spacing:-.02em;margin-bottom:8px;line-height:1.4}
+.card-wide .info p{font-size:13px;color:var(--mute);line-height:1.75;margin-bottom:16px}
 
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
 .tag{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:500;padding:3px 10px;border-radius:6px}
@@ -259,8 +259,8 @@ nav{position:sticky;top:0;z-index:200;background:rgba(244,247,255,.85);backdrop-
 
 /* STACK */
 .stk{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.schip{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:16px 18px;box-shadow:0 2px 8px rgba(0,0,0,.03);transition:transform .25s,box-shadow .25s,border-color .25s;position:relative;overflow:hidden}
-.schip
+.schip{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:16px 18px;box-shadow:0 2px 8px rgba(0,0,0,.03);transition:transform .25s,box-shadow .25s,border-color .25s;position:relative;overflow:hidden;opacity:0;transform:translateY(14px)}
+.schip.show{opacity:1;transform:none}
 .schip::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(var(--blue),var(--cyan));opacity:0;transition:opacity .3s}
 .schip:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(37,99,235,.14);border-color:rgba(37,99,235,.25)}
 .schip:hover::before{opacity:1}
@@ -281,7 +281,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:30
 .mono{font-family:"JetBrains Mono",monospace}
 
 /* REVEAL */
-@media(max-width:900px){.hero{grid-template-columns:1fr;padding:60px 24px 50px}.hero-r{display:none}.card-feat{display:flex;flex-direction:column;grid-template-columns:unset}.card-wide{display:flex;flex-direction:column}.card-wide .mok-carousel{border-right:none;border-bottom:1px solid var(--border)}.card-wide .mok-slide{min-height:220px}.grid2 .card-wide{grid-template-columns:unset}.grid3{grid-template-columns:1fr 1fr}.stk{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.wrap{padding:0 20px}}
+@media(max-width:900px){.hero{grid-template-columns:1fr;padding:60px 24px 50px}.hero-r{display:none}.card-feat{grid-template-columns:1fr}.grid3{grid-template-columns:1fr 1fr}.stk{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.wrap{padding:0 20px}}
 @media(max-width:580px){.grid3{grid-template-columns:1fr}.navr .npill:first-child{display:none}}
 
 /* ===== BAR L'UCE APP STYLES ===== */
@@ -479,61 +479,6 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:30
 .iphone-ov .iphone-screen > *:not(.sb){zoom:0.8}
 
 
-/* ===== 本審査 chat animation ===== */
-.honsa-chat-msg{opacity:0;transform:translateY(8px);transition:none}
-.honsa-warn{opacity:0;transform:translateX(8px);transition:none}
-.honsa-chat-play .honsa-chat-msg:nth-child(1){opacity:1;transform:none;transition:opacity .35s ease .1s,transform .35s ease .1s}
-.honsa-chat-play .honsa-chat-msg:nth-child(2){opacity:1;transform:none;transition:opacity .35s ease .25s,transform .35s ease .25s}
-.honsa-chat-play .honsa-chat-msg:nth-child(3){opacity:1;transform:none;transition:opacity .35s ease .4s,transform .35s ease .4s}
-.honsa-chat-play .honsa-chat-msg:nth-child(4){opacity:1;transform:none;transition:opacity .35s ease .55s,transform .35s ease .55s}
-.honsa-warn-play .honsa-warn:nth-child(1){opacity:1;transform:none;transition:opacity .3s ease .05s,transform .3s ease .05s}
-.honsa-warn-play .honsa-warn:nth-child(2){opacity:1;transform:none;transition:opacity .3s ease .18s,transform .3s ease .18s}
-.honsa-warn-play .honsa-warn:nth-child(3){opacity:1;transform:none;transition:opacity .3s ease .31s,transform .3s ease .31s}
-.honsa-warn-play .honsa-warn:nth-child(4){opacity:1;transform:none;transition:opacity .3s ease .44s,transform .3s ease .44s}
-.honsa-warn-play .honsa-warn:nth-child(5){opacity:1;transform:none;transition:opacity .3s ease .57s,transform .3s ease .57s}
-
-/* ===== KoniSearch animation ===== */
-.ks-anim-row{opacity:1;transform:none;transition:none}
-.ksf-play .ks-anim-row{animation:ksRowIn .4s ease forwards;}
-@keyframes ksRowIn{0%{opacity:0;transform:translateX(-8px)}100%{opacity:1;transform:none}}
-.ks-anim-result{opacity:1;transform:none;transition:none}
-.ksr-play .ks-anim-result{animation:ksResultIn .4s ease forwards;}
-@keyframes ksResultIn{0%{opacity:0;transform:translateX(-10px)}100%{opacity:1;transform:none}}
-.ks-anim-mappin{opacity:1;transform:none;transition:none}
-.ksm-play .ks-anim-mappin{animation:ksPinIn .5s cubic-bezier(.34,1.6,.64,1) .2s both;}
-@keyframes ksPinIn{0%{opacity:0;transform:translateY(-12px)}100%{opacity:1;transform:none}}
-.ks-anim-mapcard{opacity:1;transform:none;transition:none}
-.ksm-play .ks-anim-mapcard{animation:ksCardUp .4s ease .5s both;}
-@keyframes ksCardUp{0%{opacity:0;transform:translateY(8px)}100%{opacity:1;transform:none}}
-/* stagger via animation keyframes above */
-
-/* ===== こにチャット task animation ===== */
-.kc-task-item{opacity:0;transform:translateX(-8px);transition:none}
-.task-play .kc-task-item:nth-child(1){opacity:1;transform:none;transition:opacity .3s 0s,transform .3s 0s}
-.task-play .kc-task-item:nth-child(2){opacity:1;transform:none;transition:opacity .3s .1s,transform .3s .1s}
-.task-play .kc-task-item:nth-child(3){opacity:1;transform:none;transition:opacity .3s .2s,transform .3s .2s}
-.task-play .kc-task-item:nth-child(4){opacity:1;transform:none;transition:opacity .3s .3s,transform .3s .3s}
-
-
-/* ===== 搭載機能リスト ===== */
-.feat-section{margin-top:14px;padding-top:14px;border-top:1px solid #f1f5f9}
-.feat-lbl{font-size:10px;font-weight:700;color:#94a3b8;letter-spacing:.06em;text-transform:uppercase;margin-bottom:7px}
-.feat-chips{display:flex;flex-wrap:wrap;gap:5px}
-.feat-chip{font-size:11px;font-weight:600;color:#334155;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:3px 9px;white-space:nowrap}
-
-
-/* clink spacing & feat colors */
-a.clink{display:block;margin-top:16px}
-/* 搭載機能タグ色分け (nth-child cycle) */
-.feat-chips .feat-chip:nth-child(5n+1){background:#eef2ff;color:#3730a3;border-color:#c7d2fe}
-.feat-chips .feat-chip:nth-child(5n+2){background:#fef9c3;color:#b45309;border-color:#fde68a}
-.feat-chips .feat-chip:nth-child(5n+3){background:#dcfce7;color:#15803d;border-color:#bbf7d0}
-.feat-chips .feat-chip:nth-child(5n+4){background:#e0f9ff;color:#0e7490;border-color:#a5f3fc}
-.feat-chips .feat-chip:nth-child(5n){background:#f5f3ff;color:#6d28d9;border-color:#ddd6fe}
-/* カード間隔統一 */
-.section.wrap > .card-feat,
-.section.wrap > .card-wide { margin-bottom: 18px; }
-
 /* ===== ジャンルフィルター ===== */
 .filter-bar{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 24px}
 .filter-btn{font-size:12.5px;font-weight:700;padding:6px 16px;border-radius:999px;border:2px solid transparent;cursor:pointer;transition:all .2s;background:#f1f5f9;color:#64748b;border-color:#e2e8f0}
@@ -548,36 +493,38 @@ a.clink{display:block;margin-top:16px}
 .filter-btn[data-filter="チャットツール"].active{background:#3730a3;color:#fff;border-color:#3730a3}
 .filter-btn[data-filter="与信管理"]{background:#fef9c3;color:#b45309;border-color:#fde68a}
 .filter-btn[data-filter="与信管理"].active{background:#b45309;color:#fff;border-color:#b45309}
-
-/* ジャンルバッジ（カード内） */
 .genre-badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;margin-bottom:10px;width:fit-content;max-width:fit-content}
 .genre-badge[data-genre="業務効率化"]{background:#dcfce7;color:#15803d;border:1px solid #bbf7d0}
 .genre-badge[data-genre="AI技術"]{background:#f5f3ff;color:#6d28d9;border:1px solid #ddd6fe}
 .genre-badge[data-genre="チャットツール"]{background:#eef2ff;color:#3730a3;border:1px solid #c7d2fe}
 .genre-badge[data-genre="与信管理"]{background:#fef9c3;color:#b45309;border:1px solid #fde68a}
-
-/* カード非表示アニメーション */
 .card-hidden{display:none!important}
 .card-visible{animation:cardFadeIn .3s ease}
 @keyframes cardFadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-
-
-/* filter count badge */
 .filter-btn .filter-count{font-size:10px;font-weight:600;margin-left:4px;opacity:.7}
 .filter-btn.active .filter-count{opacity:.85}
-
-
-/* ===== ワードサイクルアニメーション ===== */
-.word-cycle-wrap{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:20px 0 24px;font-size:clamp(20px,2.6vw,28px);font-weight:900;color:var(--ink);line-height:1.5}
-.word-cycle-box{display:inline-flex;align-items:center;justify-content:center;border:2.5px solid var(--blue);border-radius:9px;padding:3px 16px;min-width:148px;height:46px;overflow:hidden;position:relative;background:rgba(37,99,235,.04);flex-shrink:0}
-.cycle-word{color:var(--blue);font-weight:900;font-size:clamp(18px,2.4vw,26px);white-space:nowrap;position:absolute;opacity:1;transform:translateY(0)}
-.cycle-word.wc-leave{animation:wcLeave .35s cubic-bezier(.4,0,.6,1) forwards}
-.cycle-word.wc-enter{animation:wcEnter .35s cubic-bezier(.2,.8,.4,1) forwards}
-@keyframes wcLeave{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-110%)}}
-@keyframes wcEnter{0%{opacity:0;transform:translateY(110%)}100%{opacity:1;transform:translateY(0)}}
-
-
-/* ===== キャッチコピー サイクルアニメーション ===== */
+/* 搭載機能リスト */
+.feat-section{margin-top:14px;padding-top:14px;border-top:1px solid #f1f5f9}
+.feat-lbl{font-size:10px;font-weight:700;color:#94a3b8;letter-spacing:.06em;text-transform:uppercase;margin-bottom:7px}
+.feat-chips{display:flex;flex-wrap:wrap;gap:5px}
+.feat-chip{font-size:11px;font-weight:600;color:#334155;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:3px 9px;white-space:nowrap}
+a.clink{display:block;margin-top:16px}
+.feat-chips .feat-chip:nth-child(5n+1){background:#eef2ff;color:#3730a3;border-color:#c7d2fe}
+.feat-chips .feat-chip:nth-child(5n+2){background:#fef9c3;color:#b45309;border-color:#fde68a}
+.feat-chips .feat-chip:nth-child(5n+3){background:#dcfce7;color:#15803d;border-color:#bbf7d0}
+.feat-chips .feat-chip:nth-child(5n+4){background:#e0f9ff;color:#0e7490;border-color:#a5f3fc}
+.feat-chips .feat-chip:nth-child(5n){background:#f5f3ff;color:#6d28d9;border-color:#ddd6fe}
+.section.wrap > .card-feat,.section.wrap > .card-wide{margin-bottom:18px}
+/* card-wide desktop layout */
+.card-wide{background:var(--white);border:1px solid var(--border);border-radius:24px;overflow:hidden;box-shadow:0 4px 20px rgba(37,99,235,.08);display:grid;grid-template-columns:380px 1fr;align-items:stretch}
+.card-wide .mok-carousel{border-bottom:none;border-right:1px solid var(--border);min-height:340px}
+.card-wide .mok-slide{height:auto;min-height:340px}
+.card-wide .info{padding:36px 36px 36px 32px;display:flex;flex-direction:column;justify-content:center}
+.card-wide .info h3{font-size:clamp(18px,2vw,24px);font-weight:900;letter-spacing:-.03em;margin-bottom:10px;line-height:1.3}
+.card-wide .info p{font-size:14px;color:var(--mute);line-height:1.8;margin-bottom:18px}
+/* mok-arr z-index */
+.mok-arr{z-index:30}
+/* キャッチコピーサイクル */
 .kintone-catch{margin:24px 0 20px;font-weight:900;color:var(--ink);line-height:1.25;letter-spacing:-.02em}
 .kintone-line1{font-size:clamp(22px,3vw,34px);color:var(--ink);font-weight:900;margin-bottom:4px;display:block;letter-spacing:-.03em}
 .kintone-line2{display:flex;align-items:center;gap:10px;flex-wrap:nowrap;margin-bottom:6px}
@@ -589,6 +536,25 @@ a.clink{display:block;margin-top:16px}
 @keyframes kwEnter{0%{opacity:0;transform:translateY(115%)}100%{opacity:1;transform:translateY(0)}}
 .kintone-line2-suf{font-size:clamp(26px,3.6vw,42px);font-weight:900;white-space:nowrap}
 .kintone-line3{font-size:clamp(26px,3.6vw,42px);font-weight:900;display:block}
+/* task animation */
+.kc-task-item{opacity:0;transform:translateX(-8px);transition:none}
+.task-play .kc-task-item:nth-child(1){opacity:1;transform:none;transition:opacity .3s 0s,transform .3s 0s}
+.task-play .kc-task-item:nth-child(2){opacity:1;transform:none;transition:opacity .3s .1s,transform .3s .1s}
+.task-play .kc-task-item:nth-child(3){opacity:1;transform:none;transition:opacity .3s .2s,transform .3s .2s}
+.task-play .kc-task-item:nth-child(4){opacity:1;transform:none;transition:opacity .3s .3s,transform .3s .3s}
+/* honsa animations */
+.honsa-chat-msg{opacity:0;transform:translateY(8px);transition:none}
+.honsa-warn{opacity:0;transform:translateX(8px);transition:none}
+.honsa-chat-play .honsa-chat-msg:nth-child(1){opacity:1;transform:none;transition:opacity .35s ease .1s,transform .35s ease .1s}
+.honsa-chat-play .honsa-chat-msg:nth-child(2){opacity:1;transform:none;transition:opacity .35s ease .25s,transform .35s ease .25s}
+.honsa-chat-play .honsa-chat-msg:nth-child(3){opacity:1;transform:none;transition:opacity .35s ease .4s,transform .35s ease .4s}
+.honsa-warn-play .honsa-warn:nth-child(1){opacity:1;transform:none;transition:opacity .3s ease .05s,transform .3s ease .05s}
+.honsa-warn-play .honsa-warn:nth-child(2){opacity:1;transform:none;transition:opacity .3s ease .18s,transform .3s ease .18s}
+.honsa-warn-play .honsa-warn:nth-child(3){opacity:1;transform:none;transition:opacity .3s ease .31s,transform .3s ease .31s}
+.honsa-warn-play .honsa-warn:nth-child(4){opacity:1;transform:none;transition:opacity .3s ease .44s,transform .3s ease .44s}
+.honsa-warn-play .honsa-warn:nth-child(5){opacity:1;transform:none;transition:opacity .3s ease .57s,transform .3s ease .57s}
+/* mobile overrides */
+@media(max-width:900px){.card-wide{display:flex;flex-direction:column}.card-wide .mok-carousel{border-right:none;border-bottom:1px solid var(--border)}.card-wide .mok-slide{min-height:220px}}
 
 </style>
 </head>
@@ -618,30 +584,21 @@ a.clink{display:block;margin-top:16px}
       <span class="kintone-line3">「こうしたい」を実現</span>
     </div>
 
-    </div>
-
-    <div class="cta">
-    <div class="cta-deco">DX</div>
-    <div class="cta-inner">
-      <h2>「これも自動化できる？」<br>から始まる。</h2>
-      <p>入力・通知・調査などの手作業を仕組みに変え、カスタマイズオーダーメイドのシステムを作ります。</p>
-      <a class="cta-btn" href="#">お問い合わせ・相談はこちら</a>
-    </div>
-  </div>
-
     <div class="hero-stats">
       <div class="hstat"><div class="hn">10</div><div class="hl">稼働システム</div></div>
       <div class="hstat"><div class="hn">2</div><div class="hl">対応法人</div></div>
       <div class="hstat"><div class="hn">9+</div><div class="hl">自動チェック</div></div>
       <div class="hstat"><div class="hn">24/7</div><div class="hl">無人監視</div></div>
     </div>
+    <a class="hero-cta" href="#">お問い合わせ・相談はこちら</a>
+  </div>
   <div class="hero-r">
     <div class="iphone hero-ph">
       <div class="island"></div>
       <div class="iphone-screen">
         <div class="sb"><span class="sb-time">9:41</span><span class="sb-icons">●●● 5G 🔋</span></div>
-        <div class="lhdr" style="background:#06c755"><span class="lhdr-back">‹</span><div class="lhdr-av" style="background:#04a347">E</div><div class="lhdr-info"><p style="white-space:nowrap;overflow:hidden;font-size:8.5px;letter-spacing:-.02em">ENGINE DX</p><span>グループ・4名</span></div><div class="lhdr-icons"><span>📞</span><span>≡</span></div></div>
-        <div class="lchat" id="honsa-lchat2" style="background:#c6e1f5">
+        <div class="lhdr" style="background:#06c755"><span class="lhdr-back">‹</span><div class="lhdr-av" style="background:#04a347">E</div><div class="lhdr-info"><p>エンジン業務管理DX</p><span>グループ・4名</span></div><div class="lhdr-icons"><span>📞</span><span>≡</span></div></div>
+        <div class="lchat" style="background:#c6e1f5">
           <div class="lc-date">今日</div>
           <div class="lc-msg">
             <div class="lc-av" style="background:#06c755">B</div>
@@ -669,12 +626,10 @@ a.clink{display:block;margin-top:16px}
   </div>
 
 
+  <!-- Bar L'UCE: TOP FEATURED CARD -->
+  
 
-
-
-
-  <!-- カーセラ: 自社ローン業務管理 -->
-    <div class="card-wide" data-genre="業務効率化">
+  <div class="card-wide" data-genre="業務効率化">
       <div class="mok-carousel" data-id="ccarsera">
         <div class="mok-track">
 
@@ -1224,6 +1179,13 @@ a.clink{display:block;margin-top:16px}
         <div class="genre-badge" data-genre="業務効率化">⚙️ 業務効率化</div>
       <h3>カーセラ<br>自社ローン業務管理システム</h3>
         <p>銀行CSV自動照合による入金消込、LINE督促送信、棚卸し＆原価管理、納車段取り、AI役員タブまで。中古車販売の全業務フローをワンダッシュボードで管理。</p>
+        <div class="tags" style="margin-bottom:12px">
+          <span class="tag blue">入金照合</span>
+          <span class="tag cyan">LINE督促</span>
+          <span class="tag amber">棚卸し</span>
+          <span class="tag blue">原価管理</span>
+          <span class="tag green">AI返答</span>
+        </div>
         <div class="feat-section">
         <div class="feat-lbl">搭載機能</div>
         <div class="feat-chips"><span class="feat-chip">売掛金入金管理</span><span class="feat-chip">売上管理</span><span class="feat-chip">原価管理</span><span class="feat-chip">LINE自動通知</span><span class="feat-chip">新規顧客通知</span><span class="feat-chip">LINE AI返答</span><span class="feat-chip">納車タスク管理</span></div>
@@ -1233,153 +1195,59 @@ a.clink{display:block;margin-top:16px}
     </div>
 
 
-  <!-- 01: 本審査 (featured, 3 slides) -->
-  <div class="card-feat" style="margin-bottom:18px" data-genre="与信管理">
+  <div class="card-feat" data-genre="与信管理">
     <div class="mok-carousel" data-id="c01">
       <div class="mok-track">
         <!-- Slide 1: LINE notification -->
         <div class="mok-slide" style="background:linear-gradient(140deg,#eef2ff,#e0f2fe)">
           <span class="slide-lbl">① LINE通知</span>
           <div class="swipe-hint">スワイプ</div>
-          <div class="slide-duo">
-            <div class="laptop-wrap">
-              <div class="laptop-lid">
-                <div class="laptop-screen">
-                  <div class="lbar"><div class="lbd" style="background:#fc6b5d"></div><div class="lbd" style="background:#fdbc40"></div><div class="lbd" style="background:#35cd4b"></div><div class="lurl"><span>🔒</span><span>formAI.app</span></div></div>
-                  <div style="height:170px;display:flex;flex-direction:column;background:#fff;overflow:hidden">
-                    <div style="background:#0f9d58;padding:4px 8px;display:flex;align-items:center;gap:6px;flex-shrink:0">
-                      <span style="font-size:8px;font-weight:700;color:#fff;white-space:nowrap">本審査フォーム 自動通知</span>
-                      <span style="margin-left:auto;font-size:7px;background:rgba(255,255,255,.2);color:#fff;border-radius:3px;padding:1px 5px;white-space:nowrap">GAS ● 稼働中</span>
-                    </div>
-                    <div style="display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;font-size:7px;font-weight:700;color:#1967d2;padding:3px 8px;border-bottom:1px solid #e0e0e0;background:#e8f0fe;flex-shrink:0">
-                      <span>名前</span><span>月収</span><span>雇用</span><span>状態</span>
-                    </div>
-                    <div style="flex:1;overflow:hidden">
-                      <div style="display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;font-size:7.5px;padding:3px 8px;border-bottom:1px solid #e8e8e8;color:#3c4043"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">田中 花子</span><span>28万</span><span>正社員</span><span style="color:#16a34a;font-weight:700">✓ 済</span></div>
-                      <div style="display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;font-size:7.5px;padding:3px 8px;border-bottom:1px solid #e8e8e8;color:#3c4043"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">佐藤 健二</span><span>25万</span><span>正社員</span><span style="color:#16a34a;font-weight:700">✓ 済</span></div>
-                      <div style="display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;font-size:7.5px;padding:3px 8px;border-bottom:2px solid #34a853;color:#3c4043;background:#f0fff4"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:700;color:#0d6b2e">山田 太郎 🆕</span><span>22万</span><span>正社員</span><span style="color:#dc2626;font-weight:700;white-space:nowrap">→通知中</span></div>
-                    </div>
-                    <div style="background:#e8f5e9;border-top:1px solid #c8e6c9;padding:3px 8px;flex-shrink:0"><span style="font-size:7px;color:#2e7d32;white-space:nowrap">⚡ 新規行検知 → LINE自動通知 実行中...</span></div>
-                  </div>
-                </div>
+          <div class="iphone lg">
+            <div class="island"></div>
+            <div class="iphone-screen">
+              <div class="sb"><span class="sb-time">9:41</span><span class="sb-icons">5G 🔋</span></div>
+              <div class="lhdr" style="background:#06c755"><span class="lhdr-back">‹</span><div class="lhdr-av" style="background:#04a347">E</div><div class="lhdr-info"><p>エンジン業務管理DX</p><span>グループ</span></div><div class="lhdr-icons"><span>≡</span></div></div>
+              <div class="lchat" style="background:#c6e1f5">
+                <div class="lc-date">今日</div>
+                <div class="lc-msg"><div class="lc-av" style="background:#06c755">B</div><div><div class="lc-bub"><p>📊 本審査フォーム受取<br><b>名前：</b>山田太郎<br><b>年齢：</b>27歳<br><b>月収：</b>22万円<br><b>借入：</b>2件 / 50万</p></div><div class="lc-time">9:41</div></div></div>
               </div>
-              <div class="laptop-chin"></div>
-            </div>
-            <div class="iphone-ov">
-              <div class="island"></div>
-              <div class="iphone-screen">
-                <div class="sb"><span class="sb-time">9:41</span><span class="sb-icons">5G 🔋</span></div>
-                <div class="lhdr" style="background:#06c755">
-                  <span class="lhdr-back">‹</span>
-                  <div class="lhdr-av" style="background:#04a347">E</div>
-                  <div class="lhdr-info" style="min-width:0;overflow:hidden;flex:1">
-                    <p style="white-space:nowrap;overflow:hidden;font-size:8.5px">ENGINE DX</p>
-                    <span style="font-size:5.5px;white-space:nowrap">グループ・4名</span>
-                  </div>
-                </div>
-                <div class="lchat" id="honsa-lchat1" style="background:#c6e1f5">
-                  <div class="lc-date">今日</div>
-                  <div class="lc-msg honsa-chat-msg">
-                    <div class="lc-av" style="background:#06c755">B</div>
-                    <div><div class="lc-bub"><p>📊 本審査フォーム受取<br><b>名前：</b>山田太郎<br><b>年齢：</b>27歳<br><b>月収：</b>22万円<br><b>雇用：</b>正社員</p></div><div class="lc-time">9:41</div></div>
-                  </div>
-                  <div class="lc-warn honsa-chat-msg"><p>⚠️ 注意点<br>・免許再発行あり<br>・勤続1年未満<br>・国保加入</p></div>
-                  <div class="lc-msg honsa-chat-msg">
-                    <div class="lc-av" style="background:#06c755">B</div>
-                    <div><div class="lc-bub"><p>🔍 konisearch.vercel.app/...</p></div><div class="lc-time">9:41</div></div>
-                  </div>
-                </div>
-                <div class="lftr"><div class="lftr-inp">メッセージ</div><div class="lftr-send" style="background:#06c755">↑</div></div>
-              </div>
+              <div class="lftr"><div class="lftr-inp">メッセージ</div><div class="lftr-send" style="background:#06c755">↑</div></div>
             </div>
           </div>
         </div>
         <!-- Slide 2: Audit warnings -->
         <div class="mok-slide" style="background:linear-gradient(140deg,#fff9ec,#fff7ed)">
           <span class="slide-lbl">② 審査チェック</span>
-          <div class="slide-duo">
-            <div class="laptop-wrap">
-              <div class="laptop-lid">
-                <div class="laptop-screen">
-                  <div class="lbar"><div class="lbd" style="background:#fc6b5d"></div><div class="lbd" style="background:#fdbc40"></div><div class="lbd" style="background:#35cd4b"></div><div class="lurl"><span>🔒</span><span>formAI.app</span></div></div>
-                  <div style="height:170px;display:flex;flex-direction:column;background:#fff;overflow:hidden">
-                    <div style="background:#1a73e8;padding:4px 8px;display:flex;align-items:center;gap:6px;flex-shrink:0">
-                      <span style="font-size:8px;font-weight:700;color:#fff;white-space:nowrap">審査チェック — 山田 太郎</span>
-                    </div>
-                    <div id="honsa-warnlist" style="flex:1;overflow:hidden;padding:5px 8px;display:flex;flex-direction:column;gap:3px">
-                      <div class="honsa-warn" style="display:flex;align-items:center;gap:5px;padding:3px 6px;background:#dcfce7;border-radius:4px;border-left:3px solid #16a34a"><span style="font-size:8px">✅</span><span style="font-size:7.5px;font-weight:600;color:#15803d;white-space:nowrap">年齢：27歳（基準以内）</span></div>
-                      <div class="honsa-warn" style="display:flex;align-items:center;gap:5px;padding:3px 6px;background:#dcfce7;border-radius:4px;border-left:3px solid #16a34a"><span style="font-size:8px">✅</span><span style="font-size:7.5px;font-weight:600;color:#15803d;white-space:nowrap">雇用形態：正社員</span></div>
-                      <div class="honsa-warn" style="display:flex;align-items:center;gap:5px;padding:3px 6px;background:#fef9c3;border-radius:4px;border-left:3px solid #ca8a04"><span style="font-size:8px">⚠️</span><span style="font-size:7.5px;font-weight:600;color:#92400e;white-space:nowrap">勤続：8ヶ月（1年未満）</span></div>
-                      <div class="honsa-warn" style="display:flex;align-items:center;gap:5px;padding:3px 6px;background:#fef9c3;border-radius:4px;border-left:3px solid #ca8a04"><span style="font-size:8px">⚠️</span><span style="font-size:7.5px;font-weight:600;color:#92400e;white-space:nowrap">健保：国民健康保険</span></div>
-                      <div class="honsa-warn" style="display:flex;align-items:center;gap:5px;padding:3px 6px;background:#fee2e2;border-radius:4px;border-left:3px solid #dc2626"><span style="font-size:8px">❌</span><span style="font-size:7.5px;font-weight:600;color:#991b1b;white-space:nowrap">免許：再発行1回</span></div>
-                    </div>
-                  </div>
-                </div>
+          <div class="iphone lg">
+            <div class="island"></div>
+            <div class="iphone-screen">
+              <div class="sb"><span class="sb-time">9:41</span><span class="sb-icons">5G 🔋</span></div>
+              <div class="lhdr" style="background:#06c755"><span class="lhdr-back">‹</span><div class="lhdr-av" style="background:#04a347">E</div><div class="lhdr-info"><p>エンジン業務管理DX</p><span>グループ</span></div></div>
+              <div class="lchat" style="background:#c6e1f5">
+                <div class="lc-warn" style="margin-left:0"><p>⚠️ 注意点（自動チェック）<br>・免許再発行あり（末尾:1）<br>・勤続1年未満（8ヶ月）<br>・国民健康保険→雇用確認<br>・月収22万→支払能力要確認</p></div>
+                <div class="lc-msg" style="margin-top:4px"><div class="lc-av" style="background:#06c755">B</div><div><div class="lc-bub"><p>🔍 コニサーチ<br>konisearch.vercel.app/...</p></div></div></div>
               </div>
-              <div class="laptop-chin"></div>
-            </div>
-            <div class="iphone-ov">
-              <div class="island"></div>
-              <div class="iphone-screen">
-                <div class="sb"><span class="sb-time">9:41</span><span class="sb-icons">5G 🔋</span></div>
-                <div class="lhdr" style="background:#06c755">
-                  <span class="lhdr-back">‹</span>
-                  <div class="lhdr-av" style="background:#04a347">E</div>
-                  <div class="lhdr-info" style="min-width:0;overflow:hidden;flex:1">
-                    <p style="white-space:nowrap;overflow:hidden;font-size:8.5px">ENGINE DX</p>
-                  </div>
-                </div>
-                <div class="lchat" id="honsa-lchat2" style="background:#c6e1f5">
-                  <div class="lc-warn honsa-chat-msg"><p>⚠️ 注意点（自動）<br>・免許再発行1回<br>・勤続1年未満<br>・国民健康保険</p></div>
-                  <div class="lc-msg honsa-chat-msg">
-                    <div class="lc-av" style="background:#06c755">B</div>
-                    <div><div class="lc-bub"><p>🔍 konisearch.vercel.app/<br>search?q=山田太郎</p></div><div class="lc-time">9:42</div></div>
-                  </div>
-                </div>
-                <div class="lftr"><div class="lftr-inp">メッセージ</div><div class="lftr-send" style="background:#06c755">↑</div></div>
-              </div>
+              <div class="lftr"><div class="lftr-inp">メッセージ</div><div class="lftr-send" style="background:#06c755">↑</div></div>
             </div>
           </div>
         </div>
         <!-- Slide 3: Google Form trigger -->
         <div class="mok-slide" style="background:linear-gradient(140deg,#f0fdf4,#ecfdf5)">
           <span class="slide-lbl">③ フォーム（トリガー）</span>
-          <div class="slide-duo">
-            <div class="laptop-wrap">
-              <div class="laptop-lid">
-                <div class="laptop-screen">
-                  <div class="lbar"><div class="lbd" style="background:#fc6b5d"></div><div class="lbd" style="background:#fdbc40"></div><div class="lbd" style="background:#35cd4b"></div><div class="lurl"><span>🔒</span><span>formAI.app</span></div></div>
-                  <div style="height:170px;display:flex;flex-direction:column;background:#f0f0f0;overflow:hidden">
-                    <div style="background:#1a73e8;padding:5px 10px;display:flex;align-items:center;gap:6px;flex-shrink:0">
-                      <span style="font-size:8px;font-weight:700;color:#fff;white-space:nowrap">📝 本審査フォーム</span>
-                    </div>
-                    <div style="flex:1;padding:6px;overflow:hidden;display:flex;flex-direction:column;gap:4px">
-                      <div style="background:#fff;border-radius:5px;padding:6px 8px;box-shadow:0 1px 3px rgba(0,0,0,.1)"><div style="font-size:6.5px;color:#5f6368;margin-bottom:2px">お名前 *</div><div style="font-size:8px;color:#202124;border-bottom:2px solid #1a73e8;padding-bottom:2px">山田 太郎</div></div>
-                      <div style="background:#fff;border-radius:5px;padding:6px 8px;box-shadow:0 1px 3px rgba(0,0,0,.1)"><div style="font-size:6.5px;color:#5f6368;margin-bottom:2px">月収（手取り） *</div><div style="font-size:8px;color:#202124;border-bottom:2px solid #1a73e8;padding-bottom:2px">22万円</div></div>
-                      <div style="background:#1a73e8;border-radius:4px;padding:5px;text-align:center;font-size:8px;color:#fff;font-weight:700">送信</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="laptop-chin"></div>
-            </div>
-            <div class="iphone-ov">
-              <div class="island"></div>
-              <div class="iphone-screen">
-                <div class="sb"><span class="sb-time">9:40</span><span class="sb-icons">5G 🔋</span></div>
-                <div style="background:#1a73e8;padding:3px 7px;flex-shrink:0;display:flex;align-items:center;overflow:hidden">
-                  <span style="font-size:8px;font-weight:700;color:#fff;white-space:nowrap">📝 本審査フォーム</span>
-                </div>
-                <div class="scr-gform" style="flex:1;overflow:hidden">
-                  <div class="gf-body">
-                    <div class="gf-card">
-                      <div class="gf-field"><div class="gf-lbl">お名前 *</div><div class="gf-val">山田 太郎</div></div>
-                      <div class="gf-field"><div class="gf-lbl">生年月日 *</div><div class="gf-val">1997年5月14日</div></div>
-                      <div class="gf-field"><div class="gf-lbl">住所 *</div><div class="gf-val">東京都新宿区…</div></div>
-                      <div class="gf-field"><div class="gf-lbl">月収 *</div><div class="gf-val">22万円</div></div>
-                      <div class="gf-field"><div class="gf-lbl">雇用形態 *</div><div class="gf-radio"><span>●</span> 正社員</div></div>
-                      <div class="gf-submit" style="background:#1a73e8;margin-top:4px">送信</div>
-                    </div>
+          <div class="iphone lg">
+            <div class="island"></div>
+            <div class="iphone-screen">
+              <div class="sb"><span class="sb-time">9:40</span><span class="sb-icons">5G 🔋</span></div>
+              <div class="scr-gform">
+                <div class="gf-topbar"><span class="gf-icon">📝</span><span class="gf-name">本審査フォーム</span></div>
+                <div class="gf-body">
+                  <div class="gf-card">
+                    <div class="gf-title">本審査申込フォーム</div>
+                    <div class="gf-field"><div class="gf-lbl">お名前 *</div><div class="gf-val">山田 太郎</div></div>
+                    <div class="gf-field"><div class="gf-lbl">年齢 *</div><div class="gf-val">27歳</div></div>
+                    <div class="gf-field"><div class="gf-lbl">ご職業 *</div><div class="gf-radio"><span>●</span> 正社員</div></div>
+                    <div class="gf-field"><div class="gf-lbl">月収（手取り） *</div><div class="gf-val">22万円</div></div>
+                    <div class="gf-submit">送信</div>
                   </div>
                 </div>
               </div>
@@ -1392,6 +1260,7 @@ a.clink{display:block;margin-top:16px}
       <div class="mok-dots"><span class="mdot active"></span><span class="mdot"></span><span class="mdot"></span></div>
     </div>
     <div class="info">
+      <div class="num-big">01</div>
       <div class="tags"><span class="tag blue">GAS</span><span class="tag blue">LINE Messaging API</span><span class="tag amber">自動審査チェック</span></div>
       <div class="genre-badge" data-genre="与信管理">🔍 与信管理</div>
       <h3>本審査 自動通知・<br>監査システム</h3>
@@ -1405,7 +1274,6 @@ a.clink{display:block;margin-top:16px}
   </div>
 
 
-  <!-- Posta: SNS動画生成 CARD -->
   <div class="card-feat" style="margin-bottom:18px" data-genre="AI技術">
     <div class="mok-carousel" data-id="cposta">
       <div class="mok-track">
@@ -1699,10 +1567,17 @@ a.clink{display:block;margin-top:16px}
       <div class="mok-dots"><span class="mdot active"></span><span class="mdot"></span><span class="mdot"></span><span class="mdot"></span></div>
     </div>
     <div class="info">
+      <div class="num-big" style="color:rgba(217,70,239,.06)">03</div>
       <div class="tags"><span class="tag blue">React</span><span class="tag blue">Vercel</span><span class="tag cyan">Upstash Redis</span><span class="tag purple">Claude API</span><span class="tag amber">Kling AI</span></div>
       <div class="genre-badge" data-genre="AI技術">🤖 AI技術</div>
       <h3>Posta<br>AI SNS動画生成システム</h3>
       <p>ブランド情報を一度登録するだけで、今日のSNSネタをAIが提案。Kling AI用の動画プロンプトとInstagram・TikTok向け投稿文を自動生成し、作品を一元管理。</p>
+      <div class="tags" style="margin-bottom:14px">
+        <span class="tag purple">ネタ自動提案</span>
+        <span class="tag amber">動画プロンプト</span>
+        <span class="tag cyan">投稿文生成</span>
+        <span class="tag blue">作品管理</span>
+      </div>
       <div class="feat-section">
         <div class="feat-lbl">搭載機能</div>
         <div class="feat-chips"><span class="feat-chip">プロジェクト管理</span><span class="feat-chip">AI動画成形</span><span class="feat-chip">作品履歴</span><span class="feat-chip">人気作品検索</span><span class="feat-chip">SNS投稿文成形</span><span class="feat-chip">ネタ自動成形</span></div>
@@ -1712,7 +1587,6 @@ a.clink{display:block;margin-top:16px}
   </div>
 
 
-  <!-- 楽給.com: PAYROLL CARD -->
   <div class="card-feat" style="margin-bottom:18px" data-genre="業務効率化">
     <div class="mok-carousel" data-id="crk">
       <div class="mok-track">
@@ -1945,10 +1819,17 @@ a.clink{display:block;margin-top:16px}
       <div class="mok-dots"><span class="mdot active"></span><span class="mdot"></span><span class="mdot"></span></div>
     </div>
     <div class="info">
+      <div class="num-big" style="color:rgba(108,99,255,.07)">02</div>
       <div class="tags"><span class="tag blue">React</span><span class="tag blue">Vercel</span><span class="tag cyan">Upstash Redis</span><span class="tag green">令和6年度対応</span></div>
       <div class="genre-badge" data-genre="業務効率化">⚙️ 業務効率化</div>
       <h3>楽給.com<br>給与計算システム</h3>
       <p>複数法人対応のクラウド型給与計算システム。月給・日給・時給など4種の支給形態、社会保険の自動計算から年末調整・源泉徴収票の発行まで一括対応。50名規模のデモデータ収録。</p>
+      <div class="tags" style="margin-bottom:10px">
+        <span class="tag blue">給与明細PDF</span>
+        <span class="tag cyan">賃金台帳</span>
+        <span class="tag blue">年末調整</span>
+        <span class="tag amber">源泉徴収票</span>
+      </div>
       <div class="feat-section">
         <div class="feat-lbl">搭載機能</div>
         <div class="feat-chips"><span class="feat-chip">給料明細発行</span><span class="feat-chip">賃金台帳</span><span class="feat-chip">年末調整</span><span class="feat-chip">源泉徴収票</span><span class="feat-chip">源泉徴収簿</span></div>
@@ -1958,8 +1839,7 @@ a.clink{display:block;margin-top:16px}
   </div>
 
 
-  <!-- AI役員システム -->
-    <div class="card-wide" data-genre="AI技術">
+  <div class="card-wide" data-genre="AI技術">
       <div class="mok-carousel" data-id="cai">
         <div class="mok-track">
           <!-- Slide 1: 社長モード（知識登録） -->
@@ -2111,6 +1991,11 @@ a.clink{display:block;margin-top:16px}
         <div class="genre-badge" data-genre="AI技術">🤖 AI技術</div>
       <h3>AI役員<br>社内知識AIシステム</h3>
         <p>社長が方針・審査基準・ルールを登録すると、社員がAIに相談できるシステム。会話から自動で知識を蓄積し、次回の回答精度を向上。音声入力・ファイル添付対応。</p>
+        <div class="tags" style="margin-bottom:12px">
+          <span class="tag purple">知識蓄積</span>
+          <span class="tag blue">社長/社員モード</span>
+          <span class="tag cyan">音声入力</span>
+        </div>
         <div class="feat-section">
         <div class="feat-lbl">搭載機能</div>
         <div class="feat-chips"><span class="feat-chip">知識蓄積機能</span><span class="feat-chip">社長モード</span><span class="feat-chip">社員モード</span><span class="feat-chip">LINE報告</span><span class="feat-chip">音声入力</span><span class="feat-chip">ファイル分析</span></div>
@@ -2120,7 +2005,6 @@ a.clink{display:block;margin-top:16px}
     </div>
 
 
-  <!-- こにチャット: 2nd card -->
   <div class="card-feat" style="margin-bottom:18px" data-genre="チャットツール">
     <div class="mok-carousel" data-id="ckc">
       <div class="mok-track">
@@ -2238,7 +2122,6 @@ a.clink{display:block;margin-top:16px}
                       <div class="kc-msgs">
                         <div class="kc-msg"><div class="kc-av" style="background:#0ea5e9">ま</div><div class="kc-bdy"><span class="nm">まさと</span><span class="tm">10:05</span><div class="tx">見積書できました！</div><div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:4px 6px;margin-top:3px;display:flex;align-items:center;gap:4px"><span style="font-size:10px">📄</span><div><div style="font-size:6.5px;font-weight:700">見積書_2026Q2.pdf</div><div style="font-size:6px;color:#94a3b8">2.4 MB</div></div></div><div class="kc-rr"><span class="kc-rb">👍 2</span><span class="kc-rb">✅ 1</span><span class="kc-rb">🎉 1</span></div></div></div>
                         <div style="display:flex;justify-content:flex-end"><div style="background:linear-gradient(135deg,#6366f1,#0ea5e9);border-radius:8px 8px 2px 8px;padding:4px 7px"><div style="font-size:7px;color:#fff">確認しました、ありがとう！</div></div></div>
-                        <div class="kc-msg" style="margin-top:4px"><div class="kc-av" style="background:#0ea5e9">ま</div><div class="kc-bdy"><span class="nm">まさと</span><span class="tm">10:14</span><div class="tx">ありがとうございます！すぐ対応します 🙏</div></div></div>
                       </div>
                       <div class="kc-inp"><div class="kc-inp-box"><div class="kc-inp-ph">まさとへDM...</div><div class="kc-inp-send">↑</div></div></div>
                     </div>
@@ -2292,78 +2175,8 @@ a.clink{display:block;margin-top:16px}
           </div>
         </div>
         <!-- Slide 3: カレンダー -->
-                  <div class="mok-slide" style="background:linear-gradient(140deg,#eef2ff,#f5f3ff)">
-            <span class="slide-lbl">③ タスク管理</span>
-            <div class="slide-duo">
-              <div class="laptop-wrap">
-                <div class="laptop-lid">
-                  <div class="laptop-screen">
-                    <div class="lbar"><div class="lbd" style="background:#fc6b5d"></div><div class="lbd" style="background:#fdbc40"></div><div class="lbd" style="background:#35cd4b"></div><div class="lurl"><span>🔒</span><span>konichat.app</span></div></div>
-                    <div class="kc-app" style="height:162px">
-                      <div class="kc-sb">
-                        <div class="kc-sb-hdr"><div class="kc-sb-ws">こにチャット</div></div>
-                        <div class="kc-sb-body">
-                          <div class="kc-sb-sec">チャンネル</div>
-                          <div class="kc-ch"># 営業チーム</div>
-                          <div class="kc-ch"># 開発</div>
-                          <div class="kc-ch a">✅ タスク管理</div>
-                          <div class="kc-ch">📅 カレンダー</div>
-                        </div>
-                      </div>
-                      <div class="kc-main">
-                        <div class="kc-mhdr"><span class="cn">✅ タスク管理</span><div class="ci"><span style="background:linear-gradient(135deg,#6366f1,#0ea5e9);color:#fff;border-radius:4px;font-size:7px;padding:1px 5px;font-weight:700">＋ 追加</span></div></div>
-                        <div class="kc-msgs kc-task-list" style="gap:4px;overflow:hidden">
-                          <div class="kc-task-item" style="display:flex;align-items:center;gap:5px;padding:4px 6px;background:#fff;border-radius:6px;border:1px solid #e2e8f0">
-                            <div style="width:12px;height:12px;border-radius:50%;border:2px solid #6366f1;flex-shrink:0"></div>
-                            <div style="flex:1;min-width:0;overflow:hidden"><div style="font-size:7.5px;font-weight:700;color:#0f172a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">見積書の最終確認</div></div>
-                            <div style="width:14px;height:14px;border-radius:4px;background:#0ea5e9;display:flex;align-items:center;justify-content:center;font-size:6px;color:#fff;flex-shrink:0">ま</div>
-                            <div style="font-size:6.5px;color:#94a3b8;white-space:nowrap;flex-shrink:0">本日</div>
-                          </div>
-                          <div class="kc-task-item" style="display:flex;align-items:center;gap:5px;padding:4px 6px;background:#fff;border-radius:6px;border:1px solid #e2e8f0">
-                            <div style="width:12px;height:12px;border-radius:50%;border:2px solid #f59e0b;flex-shrink:0"></div>
-                            <div style="flex:1;min-width:0;overflow:hidden"><div style="font-size:7.5px;font-weight:700;color:#0f172a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">田中様アポ調整</div></div>
-                            <div style="width:14px;height:14px;border-radius:4px;background:#10b981;display:flex;align-items:center;justify-content:center;font-size:6px;color:#fff;flex-shrink:0">中</div>
-                            <div style="font-size:6.5px;color:#94a3b8;white-space:nowrap;flex-shrink:0">6/10</div>
-                          </div>
-                          <div class="kc-task-item" style="display:flex;align-items:center;gap:5px;padding:4px 6px;background:#f8fafc;border-radius:6px;border:1px solid #e2e8f0;opacity:.65">
-                            <div style="width:12px;height:12px;border-radius:50%;background:#22c55e;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="font-size:7px;color:#fff">✓</span></div>
-                            <div style="flex:1;min-width:0;overflow:hidden"><div style="font-size:7.5px;color:#64748b;text-decoration:line-through;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">請求書作成 完了</div></div>
-                            <div style="width:14px;height:14px;border-radius:4px;background:#6366f1;display:flex;align-items:center;justify-content:center;font-size:6px;color:#fff;flex-shrink:0">小</div>
-                          </div>
-                          <div class="kc-task-item" style="display:flex;align-items:center;gap:5px;padding:4px 6px;background:#fff;border-radius:6px;border:1px solid #e2e8f0">
-                            <div style="width:12px;height:12px;border-radius:50%;border:2px solid #6366f1;flex-shrink:0"></div>
-                            <div style="flex:1;min-width:0;overflow:hidden"><div style="font-size:7.5px;font-weight:700;color:#0f172a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">月次レポート作成</div></div>
-                            <div style="width:14px;height:14px;border-radius:4px;background:#6366f1;display:flex;align-items:center;justify-content:center;font-size:6px;color:#fff;flex-shrink:0">小</div>
-                            <div style="font-size:6.5px;color:#94a3b8;white-space:nowrap;flex-shrink:0">6/15</div>
-                          </div>
-                        </div>
-                        <div class="kc-inp"><div class="kc-inp-box"><div class="kc-inp-ph">新しいタスクを追加...</div><div class="kc-inp-send">↑</div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="laptop-chin"></div>
-              </div>
-              <div class="iphone-ov">
-                <div class="island"></div>
-                <div class="iphone-screen">
-                  <div class="sb"><span class="sb-time">9:41</span><span class="sb-icons">5G</span></div>
-                  <div style="background:linear-gradient(135deg,#6366f1,#0ea5e9);padding:4px 7px;flex-shrink:0;overflow:hidden">
-                    <div style="font-size:7px;font-weight:700;color:#fff;white-space:nowrap">✅ タスク管理</div>
-                    <div style="font-size:5px;color:rgba(255,255,255,.7);white-space:nowrap">4件 / 1件完了</div>
-                  </div>
-                  <div style="flex:1;overflow:hidden;padding:4px;background:#f8faff;display:flex;flex-direction:column;gap:3px">
-                    <div style="display:flex;align-items:center;gap:3px;padding:3px 5px;background:#fff;border-radius:4px;border:1px solid #e2e8f0;overflow:hidden"><div style="width:8px;height:8px;border-radius:50%;border:1.5px solid #6366f1;flex-shrink:0"></div><span style="font-size:6px;font-weight:700;color:#0f172a;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">見積書の最終確認</span><span style="font-size:5px;color:#94a3b8;white-space:nowrap;flex-shrink:0">本日</span></div>
-                    <div style="display:flex;align-items:center;gap:3px;padding:3px 5px;background:#fff;border-radius:4px;border:1px solid #e2e8f0;overflow:hidden"><div style="width:8px;height:8px;border-radius:50%;border:1.5px solid #f59e0b;flex-shrink:0"></div><span style="font-size:6px;font-weight:700;color:#0f172a;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">田中様アポ調整</span><span style="font-size:5px;color:#94a3b8;white-space:nowrap;flex-shrink:0">6/10</span></div>
-                    <div style="display:flex;align-items:center;gap:3px;padding:3px 5px;background:#f8fafc;border-radius:4px;border:1px solid #e2e8f0;overflow:hidden;opacity:.65"><div style="width:8px;height:8px;border-radius:50%;background:#22c55e;flex-shrink:0"></div><span style="font-size:6px;color:#64748b;text-decoration:line-through;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">請求書作成</span></div>
-                    <div style="display:flex;align-items:center;gap:3px;padding:3px 5px;background:#fff;border-radius:4px;border:1px solid #e2e8f0;overflow:hidden"><div style="width:8px;height:8px;border-radius:50%;border:1.5px solid #6366f1;flex-shrink:0"></div><span style="font-size:6px;font-weight:700;color:#0f172a;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">月次レポート作成</span><span style="font-size:5px;color:#94a3b8;white-space:nowrap;flex-shrink:0">6/15</span></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-<div class="mok-slide" style="background:linear-gradient(140deg,#e0f2fe,#eef2ff)">
-          <span class="slide-lbl">④ カレンダー</span>
+        <div class="mok-slide" style="background:linear-gradient(140deg,#e0f2fe,#eef2ff)">
+          <span class="slide-lbl">③ カレンダー</span>
           <div class="slide-duo">
             <div class="laptop-wrap">
               <div class="laptop-lid">
@@ -2430,9 +2243,10 @@ a.clink{display:block;margin-top:16px}
       </div>
       <button class="mok-arr mok-prev">‹</button>
       <button class="mok-arr mok-next">›</button>
-      <div class="mok-dots"><span class="mdot active"></span><span class="mdot"></span><span class="mdot"></span><span class="mdot"></span></div>
+      <div class="mok-dots"><span class="mdot active"></span><span class="mdot"></span><span class="mdot"></span></div>
     </div>
     <div class="info">
+      <div class="num-big" style="color:rgba(99,102,241,.07)">01</div>
       <div class="tags"><span class="tag blue">Next.js</span><span class="tag blue">Vercel</span><span class="tag blue">Upstash Redis</span><span class="tag purple">React</span><span class="tag cyan">Vercel Blob</span></div>
       <div class="genre-badge" data-genre="チャットツール">💬 チャットツール</div>
       <h3>こにチャット<br>チーム内チャットツール</h3>
@@ -2446,8 +2260,7 @@ a.clink{display:block;margin-top:16px}
   </div>
 
 
-  <!-- 06-08: KoniSearch (3 slides) -->
-    <div class="card-wide" data-genre="与信管理">
+  <div class="card-wide" data-genre="与信管理">
       <div class="mok-carousel" data-id="c06">
         <div class="mok-track">
           <!-- Slide 1: Search input -->
@@ -2462,10 +2275,10 @@ a.clink{display:block;margin-top:16px}
                   <div class="lbody">
                     <div class="ks-head"><div class="ks-logo">🔍 KONISEARCH</div><div class="ks-sub">人物・法人情報 統合検索</div></div>
                     <div class="ks-tabs"><div class="ktab act">👤 個人検索</div><div class="ktab">🏢 法人検索</div><div class="ktab">📱 電話</div></div>
-                    <div class="kf-row ks-anim-row"><div class="kf-lbl">氏名 *</div><div class="kf-inp fill"></div></div>
-                    <div class="kf-row ks-anim-row"><div class="kf-lbl">住所</div><div class="kf-inp fill"></div></div>
-                    <div class="kf-row ks-anim-row"><div class="kf-lbl">電話番号</div><div class="kf-inp fill"></div></div>
-                    <div class="kf-row ks-anim-row"><div class="kf-lbl">生年月日</div><div class="kf-inp fill"></div></div>
+                    <div class="kf-row"><div class="kf-lbl">氏名 *</div><div class="kf-inp fill"></div></div>
+                    <div class="kf-row"><div class="kf-lbl">住所</div><div class="kf-inp fill"></div></div>
+                    <div class="kf-row"><div class="kf-lbl">電話番号</div><div class="kf-inp fill"></div></div>
+                    <div class="kf-row"><div class="kf-lbl">生年月日</div><div class="kf-inp fill"></div></div>
                     <div class="ks-btn">🔍 コニサーチ開始</div>
                   </div>
                 </div>
@@ -2512,10 +2325,10 @@ a.clink{display:block;margin-top:16px}
                   <div class="lbody">
                     <div style="font-size:8px;font-weight:700;color:var(--blue);margin-bottom:7px">「山田太郎」の検索結果</div>
                     <div class="ks-results">
-                      <div class="ksr-item ks-anim-result"><span class="ksr-icon">🐦</span><div class="ksr-text"><div class="kt">Twitter / X — プロフィール発見</div><div class="ks">@yamada_taro · 東京都</div></div><span class="ksr-badge">HIT</span></div>
-                      <div class="ksr-item ks-anim-result"><span class="ksr-icon">🔍</span><div class="ksr-text"><div class="kt">爆サイ.com — 投稿3件ヒット</div><div class="ks">電話番号の言及あり</div></div><span class="ksr-badge">HIT</span></div>
-                      <div class="ksr-item ks-anim-result"><span class="ksr-icon">🏢</span><div class="ksr-text"><div class="kt">法人番号 — 山田商事（株）</div><div class="ks">東京都港区</div></div><span class="ksr-badge">HIT</span></div>
-                      <div class="ksr-item ks-anim-result"><span class="ksr-icon">📰</span><div class="ksr-text"><div class="kt">ニュース — 関連記事なし</div></div><span class="ksr-badge miss">MISS</span></div>
+                      <div class="ksr-item"><span class="ksr-icon">🐦</span><div class="ksr-text"><div class="kt">Twitter / X — プロフィール発見</div><div class="ks">@yamada_taro · 東京都</div></div><span class="ksr-badge">HIT</span></div>
+                      <div class="ksr-item"><span class="ksr-icon">🔍</span><div class="ksr-text"><div class="kt">爆サイ.com — 投稿3件ヒット</div><div class="ks">電話番号の言及あり</div></div><span class="ksr-badge">HIT</span></div>
+                      <div class="ksr-item"><span class="ksr-icon">🏢</span><div class="ksr-text"><div class="kt">法人番号 — 山田商事（株）</div><div class="ks">東京都港区</div></div><span class="ksr-badge">HIT</span></div>
+                      <div class="ksr-item"><span class="ksr-icon">📰</span><div class="ksr-text"><div class="kt">ニュース — 関連記事なし</div></div><span class="ksr-badge miss">MISS</span></div>
                     </div>
                   </div>
                 </div>
@@ -2566,31 +2379,16 @@ a.clink{display:block;margin-top:16px}
             <div class="slide-duo">
           <div class="laptop-wrap">
               <div class="laptop-lid">
-                <div class="laptop-screen" style="height:196px;display:flex;flex-direction:column;">
+                <div class="laptop-screen">
                   <div class="lbar"><div class="lbd" style="background:#fc6b5d"></div><div class="lbd" style="background:#fdbc40"></div><div class="lbd" style="background:#35cd4b"></div><div class="lurl"><span>🔒</span><span>KONIsearch.app</span></div></div>
-                  <div class="lbody" style="padding:0;display:flex;flex-direction:column;overflow:hidden;flex:1;min-height:0;">
-                    <div class="ks-map" style="flex:1;display:flex;flex-direction:column;margin-bottom:0;border-radius:0;">
-                      <div class="map-bg ks-anim-mappin" style="flex:1;min-height:0;position:relative;overflow:hidden">
-                    <div class="map-grid"></div>
-                    <!-- 道路 -->
-                    <div style="position:absolute;background:rgba(255,255,255,.9);height:10px;width:100%;top:40%"></div>
-                    <div style="position:absolute;background:rgba(255,255,255,.9);height:10px;width:100%;top:65%"></div>
-                    <div style="position:absolute;background:rgba(255,255,255,.7);width:8px;height:100%;left:35%"></div>
-                    <div style="position:absolute;background:rgba(255,255,255,.7);width:8px;height:100%;left:65%"></div>
-                    <!-- 建物ブロック -->
-                    <div style="position:absolute;background:rgba(150,140,130,.3);border:1px solid rgba(150,140,130,.4);border-radius:2px;width:18%;height:15%;top:10%;left:10%"></div>
-                    <div style="position:absolute;background:rgba(150,140,130,.25);border:1px solid rgba(150,140,130,.4);border-radius:2px;width:22%;height:20%;top:10%;left:42%"></div>
-                    <div style="position:absolute;background:rgba(150,140,130,.3);border:1px solid rgba(150,140,130,.4);border-radius:2px;width:15%;height:18%;top:8%;left:72%"></div>
-                    <div style="position:absolute;background:rgba(150,140,130,.25);border:1px solid rgba(150,140,130,.4);border-radius:2px;width:20%;height:16%;top:54%;left:10%"></div>
-                    <div style="position:absolute;background:rgba(150,140,130,.3);border:1px solid rgba(150,140,130,.4);border-radius:2px;width:25%;height:22%;top:52%;left:70%"></div>
-                    <!-- ピン -->
-                    <div class="map-pin ks-anim-mappin" style="position:absolute;top:28%;left:50%;transform:translate(-50%,-100%);font-size:22px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.3))">📍</div>
-                    <!-- 情報カード -->
-                    <div class="map-mini-card ks-anim-mapcard" style="position:absolute;bottom:8px;left:8px;right:8px;background:#fff;border-radius:7px;padding:5px 8px;box-shadow:0 3px 12px rgba(0,0,0,.2)">
-                      <div style="font-size:8px;font-weight:700;color:var(--ink)">東京都新宿区西新宿 2-8-1</div>
-                      <div style="font-size:7px;color:var(--blue);margin-top:2px">🚶 ストリートビューで確認 →</div>
-                    </div>
-                  </div>
+                  <div class="lbody" style="padding:8px">
+                    <div class="ks-map">
+                      <div class="map-bg">
+                        <div class="map-grid"></div>
+                        <div class="map-roads"><div class="map-road-h"></div><div class="map-road-v"></div></div>
+                        <div class="map-pin">📍</div>
+                        <div class="map-mini-card"><div class="ma">東京都新宿区西新宿 2-8-1</div><div class="ms">入力住所を自動マップ表示</div></div>
+                      </div>
                     </div>
                     <div class="sv-btn"><span>🚶</span> ストリートビューで確認する</div>
                   </div>
@@ -2599,45 +2397,25 @@ a.clink{display:block;margin-top:16px}
               <div class="laptop-chin"></div>
             </div>
           <div class="iphone-ov">
-              <div class="island"></div>
-              <div class="iphone-screen">
-                <div class="sb"><span class="sb-time">9:41</span><span class="sb-icons">5G 🔋</span></div>
-                <div style="background:var(--blue);padding:3px 7px;flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:space-between">
-                  <span style="font-size:6.5px;font-weight:700;color:#fff;white-space:nowrap">📍 ストリートビュー</span>
-                </div>
-                <div style="flex:1;position:relative;overflow:hidden">
-                  <!-- Street view scene -->
-                  <div style="position:absolute;inset:0;background:linear-gradient(180deg,#87ceeb 0%,#b8d4e8 40%,#87ceeb 40%)">
-                    <!-- Sky -->
-                    <div style="position:absolute;top:0;left:0;right:0;height:40%;background:linear-gradient(180deg,#4a9fd8,#87ceeb)"></div>
-                    <!-- Ground/Road -->
-                    <div style="position:absolute;bottom:0;left:0;right:0;height:45%;background:linear-gradient(180deg,#7a7a7a,#5a5a5a)">
-                      <!-- Road markings -->
-                      <div style="position:absolute;top:30%;left:50%;transform:translateX(-50%);width:6px;height:15px;background:rgba(255,255,255,.8);border-radius:2px"></div>
-                    </div>
-                    <!-- Buildings left -->
-                    <div style="position:absolute;bottom:45%;left:0;width:35%;background:#c4b9a8;height:55%"></div>
-                    <div style="position:absolute;bottom:45%;left:0;width:35%;background:linear-gradient(90deg,#c4b9a8,#b0a898);height:45%">
-                      <!-- Windows -->
-                      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;padding:4px;margin-top:4px">
-                        <div style="height:5px;background:rgba(255,220,80,.6);border-radius:1px"></div>
-                        <div style="height:5px;background:rgba(255,220,80,.4);border-radius:1px"></div>
-                        <div style="height:5px;background:rgba(255,220,80,.6);border-radius:1px"></div>
-                      </div>
-                    </div>
-                    <!-- Buildings right -->
-                    <div style="position:absolute;bottom:45%;right:0;width:30%;background:#d0c8bc;height:40%"></div>
-                    <!-- Sidewalk -->
-                    <div style="position:absolute;bottom:38%;left:0;right:0;height:8%;background:#b8b0a4"></div>
-                  </div>
-                  <!-- UI overlay -->
-                  <div style="position:absolute;bottom:5px;left:5px;right:5px;background:rgba(255,255,255,.92);border-radius:5px;padding:3px 6px;box-shadow:0 2px 6px rgba(0,0,0,.2)">
-                    <div style="font-size:6px;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">新宿区西新宿 2-8-1</div>
-                    <div style="font-size:5.5px;color:var(--blue);white-space:nowrap">📍 Google ストリートビュー</div>
-                  </div>
-                </div>
-              </div>
+      <div class="island"></div>
+      <div class="iphone-screen">
+        <div class="sb"><span class="sb-time">9:41</span><span class="sb-icons">5G</span></div>
+        <div style="background:var(--blue);padding:4px 7px;flex-shrink:0;overflow:hidden">
+          <div style="font-size:7px;font-weight:800;color:#fff;white-space:nowrap">📍 住所マップ</div>
+        </div>
+        <div style="flex:1;overflow:hidden;position:relative">
+          <div class="map-bg" style="height:100%">
+            <div class="map-grid"></div>
+            <div class="map-roads"><div class="map-road-h"></div><div class="map-road-v"></div></div>
+            <div class="map-pin" style="font-size:18px">📍</div>
+            <div style="position:absolute;bottom:5px;left:5px;right:5px;background:#fff;border-radius:4px;padding:3px 5px;box-shadow:0 2px 6px rgba(0,0,0,.15);overflow:hidden">
+              <div style="font-size:5.5px;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">新宿区西新宿 2-8-1</div>
+              <div style="font-size:5px;color:var(--blue);white-space:nowrap">StreetViewで確認 →</div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
           </div>
           </div>
         </div>
@@ -2659,7 +2437,6 @@ a.clink{display:block;margin-top:16px}
     </div>
 
 
-  <!-- Bar L'UCE: TOP FEATURED CARD -->
   <div class="card-feat" style="margin-bottom:18px" data-genre="業務効率化">
     <div class="mok-carousel" data-id="cbar">
       <div class="mok-track">
@@ -2794,72 +2571,13 @@ a.clink{display:block;margin-top:16px}
           </div>
         </div>
         <!-- Slide 3: Barcode scan -->
-                <div class="mok-slide" style="background:linear-gradient(140deg,#fef3e2,#fff8ed)">
-          <span class="slide-lbl">③ 商品管理</span>
-          <div class="slide-duo">
-            <div class="laptop-wrap">
-              <div class="laptop-lid">
-                <div class="laptop-screen">
-                  <div class="lbar"><div class="lbd" style="background:#fc6b5d"></div><div class="lbd" style="background:#fdbc40"></div><div class="lbd" style="background:#35cd4b"></div><div class="lurl"><span>🔒</span><span>bar.app</span></div></div>
-                  <div style="display:flex;flex-direction:column;height:170px">
-                    <div class="bl-hdr"><div class="bl-logo">BAR <em>L'UCE</em></div><div class="bl-hdr-r">商品管理</div></div>
-                    <div class="bl-tabs"><div class="bl-tab">ダッシュ</div><div class="bl-tab act">商品管理</div><div class="bl-tab">棚卸し</div><div class="bl-tab">売上</div></div>
-                    <div class="bl-content" style="overflow:hidden">
-                      <div style="display:flex;align-items:center;gap:6px;padding:5px 8px;border-bottom:1px solid #f0e4d0;flex-shrink:0">
-                        <div style="flex:1;background:#f9f5ef;border:1px solid #e8d5b8;border-radius:5px;height:16px;display:flex;align-items:center;padding:0 7px"><span style="font-size:7.5px;color:#9a7a5a">🔍 商品名・バーコードで検索...</span></div>
-                        <div style="background:#b45309;color:#fff;border-radius:5px;padding:3px 7px;font-size:7.5px;font-weight:700;white-space:nowrap">＋ 追加</div>
-                      </div>
-                      <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;font-size:7px;font-weight:700;color:#9a7a5a;padding:3px 8px;background:#fdf8f3;border-bottom:1px solid #f0e4d0;flex-shrink:0">
-                        <span>商品名</span><span>カテゴリ</span><span>単価</span><span>在庫</span>
-                      </div>
-                      <div class="bl-prod-rows">
-                        <div class="bl-prod-row" style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;font-size:7.5px;padding:3px 8px;border-bottom:1px solid #f5ead8;align-items:center">
-                          <span style="font-weight:700;color:#1c1108;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">エビス ザ・ホップ 350ml</span><span style="color:#9a7a5a">ビール</span><span style="color:#b45309;font-weight:700">¥350</span><span style="color:#15803d;font-weight:700">48本</span>
-                        </div>
-                        <div class="bl-prod-row" style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;font-size:7.5px;padding:3px 8px;border-bottom:1px solid #f5ead8;align-items:center">
-                          <span style="font-weight:700;color:#1c1108;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">山崎 12年</span><span style="color:#9a7a5a">ウイスキー</span><span style="color:#b45309;font-weight:700">¥1,200</span><span style="color:#15803d;font-weight:700">3本</span>
-                        </div>
-                        <div class="bl-prod-row" style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;font-size:7.5px;padding:3px 8px;border-bottom:1px solid #f5ead8;align-items:center;background:#fff9f0">
-                          <span style="font-weight:700;color:#1c1108;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">獺祭 純米大吟醸</span><span style="color:#9a7a5a">日本酒</span><span style="color:#b45309;font-weight:700">¥900</span><span style="color:#dc2626;font-weight:700">⚠ 1本</span>
-                        </div>
-                        <div class="bl-prod-row" style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;font-size:7.5px;padding:3px 8px;align-items:center">
-                          <span style="font-weight:700;color:#1c1108;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">カサーレ ヴェッキオ</span><span style="color:#9a7a5a">ワイン</span><span style="color:#b45309;font-weight:700">¥750</span><span style="color:#15803d;font-weight:700">6本</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="laptop-chin"></div>
-            </div>
-            <div class="iphone-ov">
-              <div class="island"></div>
-              <div class="iphone-screen">
-                <div class="sb"><span class="sb-time">9:41</span><span class="sb-icons">5G</span></div>
-                <div style="background:#1c1108;padding:3px 7px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;overflow:hidden">
-                  <span style="font-size:6.5px;font-weight:800;color:#f5e0c0;white-space:nowrap">BAR <span style="color:#f59e0b">L'UCE</span></span>
-                  <span style="font-size:5px;color:rgba(245,224,192,.5);white-space:nowrap">商品管理</span>
-                </div>
-                <div style="background:#fffbf7;flex:1;overflow:hidden;display:flex;flex-direction:column">
-                  <div style="padding:3px 5px;border-bottom:1px solid #f0e4d0;flex-shrink:0;background:#fdf8f3">
-                    <div style="background:#f9f5ef;border:1px solid #e8d5b8;border-radius:3px;height:12px;display:flex;align-items:center;padding:0 5px"><span style="font-size:5px;color:#9a7a5a;white-space:nowrap">🔍 検索...</span></div>
-                  </div>
-                  <div style="display:flex;align-items:center;padding:2px 5px;border-bottom:1px solid #f5ead8;gap:2px;flex-shrink:0"><span style="font-size:8px">🍺</span><div style="flex:1;min-width:0;overflow:hidden"><div style="font-size:6px;font-weight:700;color:#1c1108;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">エビス 350ml</div></div><span style="font-size:6px;font-weight:700;color:#15803d;white-space:nowrap;flex-shrink:0">48本</span></div>
-                  <div style="display:flex;align-items:center;padding:2px 5px;border-bottom:1px solid #f5ead8;gap:2px;flex-shrink:0"><span style="font-size:8px">🥃</span><div style="flex:1;min-width:0;overflow:hidden"><div style="font-size:6px;font-weight:700;color:#1c1108;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">山崎 12年</div></div><span style="font-size:6px;font-weight:700;color:#15803d;white-space:nowrap;flex-shrink:0">3本</span></div>
-                  <div style="display:flex;align-items:center;padding:2px 5px;border-bottom:1px solid #f5ead8;gap:2px;flex-shrink:0;background:#fffbf0"><span style="font-size:8px">🍶</span><div style="flex:1;min-width:0;overflow:hidden"><div style="font-size:6px;font-weight:700;color:#1c1108;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">獺祭 大吟醸</div></div><span style="font-size:6px;font-weight:700;color:#dc2626;white-space:nowrap;flex-shrink:0">⚠1本</span></div>
-                  <div style="display:flex;align-items:center;padding:2px 5px;gap:2px;flex-shrink:0"><span style="font-size:8px">🍷</span><div style="flex:1;min-width:0;overflow:hidden"><div style="font-size:6px;font-weight:700;color:#1c1108;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">カサーレ・V</div></div><span style="font-size:6px;font-weight:700;color:#15803d;white-space:nowrap;flex-shrink:0">6本</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-<div class="mok-slide" style="background:linear-gradient(140deg,#fef3e2,#fffbf5)">
-          <span class="slide-lbl" style="">④ バーコードスキャン</span>
+        <div class="mok-slide" style="background:linear-gradient(140deg,#1c1108,#2a1e10)">
+          <span class="slide-lbl" style="background:rgba(0,0,0,.5);color:rgba(245,224,192,.8);border-color:rgba(245,224,192,.15)">③ バーコードスキャン</span>
           <div class="slide-duo">
           <div class="laptop-wrap">
             <div class="laptop-lid" style="background:#2a2a2a;border-color:#444">
               <div class="laptop-screen" style="border-color:#333">
-                <div class="lbar" style="background:#1a1a1a;border-color:#333"><div class="lbd" style="background:#fc6b5d"></div><div class="lbd" style="background:#fdbc40"></div><div class="lbd" style="background:#35cd4b"></div><div class="lurl" style="background:#2a2a2a;border-color:#444;color:#888"><span>🔒</span><span>bar.app</span></div></div>
+                <div class="lbar" style="background:#1a1a1a;border-color:#333"><div class="lbd" style="background:#fc6b5d"></div><div class="lbd" style="background:#fdbc40"></div><div class="lbd" style="background:#35cd4b"></div><div class="lurl" style="background:#2a2a2a;border-color:#444;color:#888"><span>🔒</span><span>bar-luce.vercel.app</span></div></div>
                 <div style="display:flex;flex-direction:column;height:170px;background:#1c1108">
                   <div class="bl-hdr"><div class="bl-logo">BAR <em>L'UCE</em></div><div class="bl-hdr-r">商品登録</div></div>
                   <div class="bl-scan-area">
@@ -2894,9 +2612,10 @@ a.clink{display:block;margin-top:16px}
       </div>
       <button class="mok-arr mok-prev">‹</button>
       <button class="mok-arr mok-next">›</button>
-      <div class="mok-dots"><span class="mdot active"></span><span class="mdot"></span><span class="mdot"></span><span class="mdot"></span></div>
+      <div class="mok-dots"><span class="mdot active"></span><span class="mdot"></span><span class="mdot"></span></div>
     </div>
     <div class="info">
+      <div class="num-big" style="color:rgba(180,83,9,.07)">00</div>
       <div class="tags"><span class="tag blue">Next.js</span><span class="tag blue">Vercel</span><span class="tag amber">Upstash Redis</span><span class="tag amber">recharts</span><span class="tag green">バーコードスキャン</span></div>
       <div class="genre-badge" data-genre="業務効率化">⚙️ 業務効率化</div>
       <h3>Bar L'UCE<br>バー在庫・売上管理システム</h3>
@@ -2909,7 +2628,25 @@ a.clink{display:block;margin-top:16px}
     </div>
   </div>
 
-  <!-- ▼▼▼ 追加実績：東部生コン 業務管理システム（このブロックのみ新規追加 / 既存カードは未変更）▼▼▼ -->
+</section>
+
+<!-- STACK -->
+<section class="section wrap" style="padding-top:0">
+  <div class="sh"><div class="sh-top"><span class="sh-mono">/ TECH STACK</span><h2>使用技術</h2></div><p>現場に最適化したスタックで構築。ノーコードに頼らず、実運用に耐える設計。</p></div>
+  <div class="stk">
+    <div class="schip"><div class="cn">Google Apps Script</div><div class="cd">業務自動化の中核</div></div>
+    <div class="schip"><div class="cn">LINE Messaging API</div><div class="cd">通知・督促の配信基盤</div></div>
+    <div class="schip"><div class="cn">React + Vite</div><div class="cd">フロントエンド</div></div>
+    <div class="schip"><div class="cn">Next.js / Vercel</div><div class="cd">ホスティング・API Routes</div></div>
+    <div class="schip"><div class="cn">Upstash Redis</div><div class="cd">クラウドDB</div></div>
+    <div class="schip"><div class="cn">Google Spreadsheet</div><div class="cd">データの起点</div></div>
+    <div class="schip"><div class="cn">SerpAPI</div><div class="cd">Web横断検索</div></div>
+    <div class="schip"><div class="cn">Google Maps API</div><div class="cd">住所の可視化</div></div>
+    <div class="schip"><div class="cn">Biome</div><div class="cd">Linter / Formatter</div></div>
+    <div class="schip"><div class="cn">GitHub</div><div class="cd">ソース管理</div></div>
+  </div>
+
+  <!-- ▼▼▼ 追加実績：東部生コン 業務管理システム ▼▼▼ -->
   <div class="card-wide" data-genre="業務効率化">
     <div class="mok-carousel">
       <div class="mok-track">
@@ -2962,17 +2699,13 @@ a.clink{display:block;margin-top:16px}
             <div class="iphone-ov">
               <div class="island"></div>
               <div class="iphone-screen">
-                <div class="sb"><span class="sb-time">9:41</span><span class="sb-icons">●●● 5G 🔋</span></div>
-                <div class="lhdr" style="background:#06c755"><span class="lhdr-back">‹</span><div class="lhdr-av" style="background:#04a347">東</div><div class="lhdr-info"><p style="white-space:nowrap;overflow:hidden;font-size:8.5px;letter-spacing:-.02em">東部生コン 配送</p><span>グループ・6名</span></div><div class="lhdr-icons"><span>📞</span><span>≡</span></div></div>
+                <div class="sb"><span class="sb-time">9:41</span><span class="sb-icons">5G 🔋</span></div>
+                <div class="lhdr" style="background:#06c755"><span class="lhdr-back">‹</span><div class="lhdr-av" style="background:#04a347">東</div><div class="lhdr-info" style="min-width:0;overflow:hidden;flex:1"><p style="white-space:nowrap;overflow:hidden;font-size:8.5px">東部生コン 配送</p><span>グループ・6名</span></div></div>
                 <div class="lchat" style="background:#8aabd4">
                   <div class="lc-date">今日</div>
                   <div class="lc-msg">
                     <div class="lc-av" style="background:#06c755">配</div>
-                    <div><div class="lc-bub"><p>🚚 本日の配送指示<br><b>時刻：</b>09:00<br><b>業者：</b>A建設（株）<br><b>現場：</b>配水池工事<br><b>配合：</b>25-12-20／25m³<br><b>住所：</b>○○県△△市△△町</p></div><div class="lc-time">8:30</div></div>
-                  </div>
-                  <div class="lc-msg">
-                    <div class="lc-av" style="background:#06c755">配</div>
-                    <div><div class="lc-bub"><p>📍 現場地図はこちら<br>maps.app.goo.gl/x9k2</p></div><div class="lc-time">8:30</div></div>
+                    <div><div class="lc-bub"><p>🚚 本日の配送指示<br><b>時刻：</b>09:00<br><b>業者：</b>A建設（株）<br><b>現場：</b>配水池工事<br><b>配合：</b>25-12-20／25m³</p></div><div class="lc-time">8:30</div></div>
                   </div>
                 </div>
                 <div class="lftr"><div class="lftr-inp">メッセージ</div><div class="lftr-send" style="background:#06c755">↑</div></div>
@@ -2981,26 +2714,19 @@ a.clink{display:block;margin-top:16px}
           </div>
         </div>
 
-        <!-- Slide 2: 出荷予定表（PC表 + スマホ縦持ち）-->
+        <!-- Slide 2: 出荷予定表 -->
         <div class="mok-slide" style="background:linear-gradient(140deg,#f4f6f9,#eef2f7)">
           <span class="slide-lbl" style="background:rgba(27,78,168,.12);border-color:rgba(27,78,168,.3);color:#1b4ea8">② 出荷予定表</span>
-          <div class="swipe-hint">スワイプ</div>
           <div class="slide-duo">
             <div class="laptop-wrap">
               <div class="laptop-lid">
                 <div class="laptop-screen">
                   <div class="lbar">
                     <div class="lbd" style="background:#fc6b5d"></div><div class="lbd" style="background:#fdbc40"></div><div class="lbd" style="background:#35cd4b"></div>
-                    <div class="lurl"><span>🔒</span><span>tobu-konkuri.vercel.app/schedule</span></div>
+                    <div class="lurl"><span>🔒</span><span>tobu-konkuri.vercel.app</span></div>
                   </div>
                   <div style="height:170px;background:#fff;display:flex;flex-direction:column;font-family:'Noto Sans JP',sans-serif;overflow:hidden">
                     <div style="text-align:center;font-size:8px;font-weight:700;letter-spacing:.25em;color:#111;padding:5px 0;border-bottom:1px solid #e3e8ef;flex-shrink:0">出荷予定表</div>
-                    <div style="display:flex;justify-content:center;gap:4px;padding:4px 0;flex-shrink:0">
-                      <span style="font-size:6px;background:#1b4ea8;color:#fff;border-radius:4px;padding:2px 8px;font-weight:700">本日</span>
-                      <span style="font-size:6px;background:#eef0f4;color:#6b7a8d;border-radius:4px;padding:2px 7px">6/9</span>
-                      <span style="font-size:6px;background:#eef0f4;color:#6b7a8d;border-radius:4px;padding:2px 7px">6/10</span>
-                      <span style="font-size:6px;background:#eef0f4;color:#6b7a8d;border-radius:4px;padding:2px 7px">6/11</span>
-                    </div>
                     <div style="flex:1;overflow:hidden;padding:0 50px 5px 8px">
                       <div style="display:grid;grid-template-columns:0.55fr 1fr 1fr 0.85fr 0.7fr 0.4fr;background:#0f3060;color:#fff;font-size:5.5px;font-weight:700;border-radius:3px"><div style="padding:3px 4px">時間</div><div style="padding:3px 4px">業者名</div><div style="padding:3px 4px">現場名</div><div style="padding:3px 4px">担当</div><div style="padding:3px 4px">配合</div><div style="padding:3px 4px">m³</div></div>
                       <div style="display:grid;grid-template-columns:0.55fr 1fr 1fr 0.85fr 0.7fr 0.4fr;font-size:5.5px;color:#3a4a5c;border-bottom:1px solid #eef0f4"><div style="padding:3px 4px;font-weight:700;color:#c0392b">09:00</div><div style="padding:3px 4px">A建設（株）</div><div style="padding:3px 4px">配水池工事</div><div style="padding:3px 4px;color:#0f3060;font-weight:700">佐藤</div><div style="padding:3px 4px">25-12-20</div><div style="padding:3px 4px;font-weight:700">25</div></div>
@@ -3016,23 +2742,20 @@ a.clink{display:block;margin-top:16px}
             <div class="iphone-ov">
               <div class="island"></div>
               <div class="iphone-screen" style="background:#f4f6f9">
-                <div class="sb"><span class="sb-time">9:41</span><span class="sb-icons">●●● 5G 🔋</span></div>
+                <div class="sb"><span class="sb-time">9:41</span><span class="sb-icons">5G 🔋</span></div>
                 <div style="text-align:center;font-size:9px;font-weight:700;letter-spacing:.28em;padding:6px 0;border-bottom:1px solid #e3e8ef;color:#111;background:#fff">出荷予定表</div>
                 <div style="padding:6px;display:flex;flex-direction:column;gap:5px;overflow:hidden">
                   <div style="background:#fff;border:1px solid #e3e8ef;border-left:3px solid #1b4ea8;border-radius:6px;padding:5px 7px">
                     <div style="display:flex;align-items:baseline;gap:5px"><span style="font-size:9px;font-weight:800;color:#c0392b">09:00</span><span style="font-size:7.5px;font-weight:700;color:#1a2332">A建設（株）</span></div>
-                    <div style="font-size:6.5px;color:#6b7a8d;margin-top:1px">配水池工事</div>
-                    <div style="display:flex;gap:9px;font-size:6.5px;margin-top:2px"><span style="color:#6b7a8d">配合 <b style="color:#111">25-12-20</b></span><span style="color:#0f3060;font-weight:700">25m³</span></div>
+                    <div style="font-size:6.5px;color:#6b7a8d;margin-top:1px">配水池工事 / 25m³</div>
                   </div>
                   <div style="background:#fff;border:1px solid #e3e8ef;border-left:3px solid #1b4ea8;border-radius:6px;padding:5px 7px">
                     <div style="display:flex;align-items:baseline;gap:5px"><span style="font-size:9px;font-weight:800;color:#c0392b">11:00</span><span style="font-size:7.5px;font-weight:700;color:#1a2332">A建設（株）</span></div>
-                    <div style="font-size:6.5px;color:#6b7a8d;margin-top:1px">橋梁下部工</div>
-                    <div style="display:flex;gap:9px;font-size:6.5px;margin-top:2px"><span style="color:#6b7a8d">配合 <b style="color:#111">25-13-20</b></span><span style="color:#0f3060;font-weight:700">23m³</span></div>
+                    <div style="font-size:6.5px;color:#6b7a8d;margin-top:1px">橋梁下部工 / 23m³</div>
                   </div>
                   <div style="background:#fff;border:1px solid #e3e8ef;border-left:3px solid #9aa7b5;border-radius:6px;padding:5px 7px">
                     <div style="display:flex;align-items:baseline;gap:5px"><span style="font-size:9px;font-weight:800;color:#c0392b">14:00</span><span style="font-size:7.5px;font-weight:700;color:#1a2332">C組</span></div>
-                    <div style="font-size:6.5px;color:#6b7a8d;margin-top:1px">橋梁下部工</div>
-                    <div style="display:flex;gap:9px;font-size:6.5px;margin-top:2px"><span style="color:#6b7a8d">配合 <b style="color:#111">28-17-20</b></span><span style="color:#0f3060;font-weight:700">16m³</span></div>
+                    <div style="font-size:6.5px;color:#6b7a8d;margin-top:1px">橋梁下部工 / 16m³</div>
                   </div>
                 </div>
               </div>
@@ -3040,10 +2763,9 @@ a.clink{display:block;margin-top:16px}
           </div>
         </div>
 
-        <!-- Slide 3: 出荷集計ダッシュボード + 現場マップ / 出荷登録フォーム -->
+        <!-- Slide 3: 集計・現場マップ -->
         <div class="mok-slide" style="background:linear-gradient(140deg,#e9f1f8,#eef2f7)">
           <span class="slide-lbl" style="background:rgba(27,78,168,.12);border-color:rgba(27,78,168,.3);color:#1b4ea8">③ 集計・現場マップ</span>
-          <div class="swipe-hint">スワイプ</div>
           <div class="slide-duo">
             <div class="laptop-wrap">
               <div class="laptop-lid">
@@ -3053,17 +2775,16 @@ a.clink{display:block;margin-top:16px}
                     <div class="lurl"><span>🔒</span><span>tobu-konkuri.vercel.app</span></div>
                   </div>
                   <div style="height:170px;background:#f4f6f9;display:flex;flex-direction:column;font-family:'Noto Sans JP',sans-serif;overflow:hidden">
-                    <div style="display:flex;align-items:center;gap:6px;padding:5px 8px;background:#0f3060;flex-shrink:0"><span style="font-size:8px;font-weight:700;color:#fff">📊 今日の出荷</span><span style="margin-left:auto;font-size:5.5px;color:#cdd5e0">2026/06/07</span></div>
+                    <div style="display:flex;align-items:center;gap:6px;padding:5px 8px;background:#0f3060;flex-shrink:0"><span style="font-size:8px;font-weight:700;color:#fff">📊 今日の出荷</span></div>
                     <div style="display:flex;gap:5px;padding:6px 52px 6px 8px;flex-shrink:0">
-                      <div style="flex:1;background:#fff;border:1px solid #e3e8ef;border-radius:6px;padding:4px 6px"><div style="font-size:5px;color:#6b7a8d">今日の合計</div><div style="font-size:11px;font-weight:800;color:#1b4ea8">92<span style="font-size:6px">m³</span></div></div>
+                      <div style="flex:1;background:#fff;border:1px solid #e3e8ef;border-radius:6px;padding:4px 6px"><div style="font-size:5px;color:#6b7a8d">合計</div><div style="font-size:11px;font-weight:800;color:#1b4ea8">92<span style="font-size:6px">m³</span></div></div>
                       <div style="flex:1;background:#fff;border:1px solid #e3e8ef;border-radius:6px;padding:4px 6px"><div style="font-size:5px;color:#6b7a8d">便数</div><div style="font-size:11px;font-weight:800;color:#1a6a9f">8<span style="font-size:6px">便</span></div></div>
-                      <div style="flex:1;background:#fff;border:1px solid #e3e8ef;border-radius:6px;padding:4px 6px"><div style="font-size:5px;color:#6b7a8d">車種別</div><div style="font-size:8px;font-weight:800;color:#1a2332;margin-top:1px">4t×3 / 7t×5</div></div>
                     </div>
                     <div style="flex:1;margin:0 52px 7px 8px;border-radius:6px;position:relative;overflow:hidden;background:linear-gradient(180deg,#cfe0f0,#dfe7f1);border:1px solid #cdd5e0">
                       <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(120,140,180,.22) 1px,transparent 1px),linear-gradient(90deg,rgba(120,140,180,.22) 1px,transparent 1px);background-size:14px 14px"></div>
                       <div style="position:absolute;top:48%;left:0;right:0;height:5px;background:rgba(255,255,255,.85)"></div>
                       <div style="position:absolute;left:42%;top:0;bottom:0;width:5px;background:rgba(255,255,255,.85)"></div>
-                      <div style="position:absolute;top:30%;left:42%;transform:translate(-50%,-100%);font-size:14px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.3))">📍</div>
+                      <div style="position:absolute;top:30%;left:42%;transform:translate(-50%,-100%);font-size:14px">📍</div>
                       <div style="position:absolute;bottom:4px;left:4px;right:4px;background:#fff;border-radius:4px;padding:3px 6px;box-shadow:0 1px 4px rgba(0,0,0,.18)"><div style="font-size:6px;font-weight:700;color:#1a2332">配水池工事 現場</div><div style="font-size:5px;color:#6b7a8d">○○県△△市</div></div>
                     </div>
                   </div>
@@ -3074,18 +2795,14 @@ a.clink{display:block;margin-top:16px}
             <div class="iphone-ov">
               <div class="island"></div>
               <div class="iphone-screen" style="background:#f4f6f9">
-                <div class="sb"><span class="sb-time">9:41</span><span class="sb-icons">●●● 5G 🔋</span></div>
-                <div style="display:flex;align-items:center;gap:5px;padding:6px 8px;background:#0f3060"><span style="font-size:9px;font-weight:700;color:#fff">📝 出荷登録</span><span style="margin-left:auto;font-size:5px;color:#cdd5e0">新規</span></div>
+                <div class="sb"><span class="sb-time">9:41</span><span class="sb-icons">5G 🔋</span></div>
+                <div style="display:flex;align-items:center;gap:5px;padding:6px 8px;background:#0f3060"><span style="font-size:9px;font-weight:700;color:#fff">📝 出荷登録</span></div>
                 <div style="flex:1;padding:6px 7px;display:flex;flex-direction:column;gap:4px;overflow:hidden;background:#f4f6f9">
-                  <div><div style="font-size:5px;color:#6b7a8d;margin-bottom:1px">業者名 <span style="color:#c0392b">*</span></div><div style="font-size:6.5px;color:#1a2332;font-weight:700;background:#fff;border:1.5px solid #1b4ea8;border-radius:4px;padding:2px 5px">A建設（株）</div></div>
+                  <div><div style="font-size:5px;color:#6b7a8d;margin-bottom:1px">業者名</div><div style="font-size:6.5px;color:#1a2332;font-weight:700;background:#fff;border:1.5px solid #1b4ea8;border-radius:4px;padding:2px 5px">A建設（株）</div></div>
                   <div><div style="font-size:5px;color:#6b7a8d;margin-bottom:1px">現場名</div><div style="font-size:6.5px;color:#1a2332;background:#fff;border:1px solid #dde3ed;border-radius:4px;padding:2px 5px">配水池工事</div></div>
                   <div style="display:flex;gap:5px">
-                    <div style="flex:1;min-width:0"><div style="font-size:5px;color:#6b7a8d;margin-bottom:1px">時間</div><div style="font-size:6.5px;color:#1a2332;background:#fff;border:1px solid #dde3ed;border-radius:4px;padding:2px 5px">09:00</div></div>
-                    <div style="flex:1;min-width:0"><div style="font-size:5px;color:#6b7a8d;margin-bottom:1px">車種</div><div style="font-size:6.5px;color:#1a2332;background:#fff;border:1px solid #dde3ed;border-radius:4px;padding:2px 5px">4t ×2台</div></div>
-                  </div>
-                  <div style="display:flex;gap:5px">
-                    <div style="flex:1;min-width:0"><div style="font-size:5px;color:#6b7a8d;margin-bottom:1px">配合</div><div style="font-size:6.5px;color:#1a2332;background:#fff;border:1px solid #dde3ed;border-radius:4px;padding:2px 5px">25-12-20</div></div>
-                    <div style="flex:1;min-width:0"><div style="font-size:5px;color:#6b7a8d;margin-bottom:1px">数量</div><div style="font-size:6.5px;color:#1a2332;background:#fff;border:1px solid #dde3ed;border-radius:4px;padding:2px 5px">25 m³</div></div>
+                    <div style="flex:1"><div style="font-size:5px;color:#6b7a8d;margin-bottom:1px">時間</div><div style="font-size:6.5px;color:#1a2332;background:#fff;border:1px solid #dde3ed;border-radius:4px;padding:2px 5px">09:00</div></div>
+                    <div style="flex:1"><div style="font-size:5px;color:#6b7a8d;margin-bottom:1px">数量</div><div style="font-size:6.5px;color:#1a2332;background:#fff;border:1px solid #dde3ed;border-radius:4px;padding:2px 5px">25 m³</div></div>
                   </div>
                   <div style="background:#1b4ea8;color:#fff;text-align:center;font-size:7px;font-weight:700;border-radius:5px;padding:4px;margin-top:2px">登録する</div>
                 </div>
@@ -3103,7 +2820,7 @@ a.clink{display:block;margin-top:16px}
       <div class="tags"><span class="tag blue">React + Vite</span><span class="tag blue">Vercel Functions</span><span class="tag amber">Upstash Redis</span><span class="tag green">LINE Messaging API</span><span class="tag purple">JWT認証</span><span class="tag cyan">Google Maps</span></div>
       <div class="genre-badge" data-genre="業務効率化">⚙️ 業務効率化</div>
       <h3>東部生コン<br>生コン配送・出荷管理システム</h3>
-      <p>生コンクリート工場の出荷予定・配送割り当て・伝票管理を一元化。ドライバーへLINEで配送指示（業者・現場・配合・数量）を自動送信し、現場住所はマップで可視化。PDF／CSV取込や、役割別の権限管理（admin／manager／staff）にも対応した実運用システムです。</p>
+      <p>生コンクリート工場の出荷予定・配送割り当て・伝票管理を一元化。ドライバーへLINEで配送指示を自動送信し、現場住所はマップで可視化。PDF／CSV取込や役割別権限管理にも対応した実運用システム。</p>
       <div class="feat-section">
         <div class="feat-lbl">搭載機能</div>
         <div class="feat-chips"><span class="feat-chip">出荷予定表</span><span class="feat-chip">配送割り当て</span><span class="feat-chip">LINE自動通知</span><span class="feat-chip">現場マップ</span><span class="feat-chip">PDF/CSV取込</span><span class="feat-chip">権限管理</span></div>
@@ -3111,29 +2828,21 @@ a.clink{display:block;margin-top:16px}
       <a class="clink" href="#">サイトを開く</a>
     </div>
   </div>
-  <!-- ▲▲▲ 追加実績：東部生コン 業務管理システム ここまで ▲▲▲ -->
-
-<!-- /grid2 -->
+  <!-- ▲▲▲ 東部生コン ここまで ▲▲▲ -->
 
 </section>
 
-<!-- STACK -->
-<section class="section wrap" style="padding-top:0">
-  <div class="sh"><div class="sh-top"><span class="sh-mono">/ TECH STACK</span><h2>使用技術</h2></div><p>現場に最適化したスタックで構築。ノーコードに頼らず、実運用に耐える設計。</p></div>
-  <div class="stk">
-    <div class="schip"><div class="cn">Google Apps Script</div><div class="cd">業務自動化の中核</div></div>
-    <div class="schip"><div class="cn">LINE Messaging API</div><div class="cd">通知・督促の配信基盤</div></div>
-    <div class="schip"><div class="cn">React + Vite</div><div class="cd">フロントエンド</div></div>
-    <div class="schip"><div class="cn">Next.js / Vercel</div><div class="cd">ホスティング・API Routes</div></div>
-    <div class="schip"><div class="cn">Upstash Redis</div><div class="cd">クラウドDB</div></div>
-    <div class="schip"><div class="cn">Google Spreadsheet</div><div class="cd">データの起点</div></div>
-    <div class="schip"><div class="cn">SerpAPI</div><div class="cd">Web横断検索</div></div>
-    <div class="schip"><div class="cn">Google Maps API</div><div class="cd">住所の可視化</div></div>
-    <div class="schip"><div class="cn">Biome</div><div class="cd">Linter / Formatter</div></div>
-    <div class="schip"><div class="cn">GitHub</div><div class="cd">ソース管理</div></div>
+<!-- CTA -->
+<div class="wrap">
+  <div class="cta">
+    <div class="cta-deco">DX</div>
+    <div class="cta-inner">
+      <h2>「これも自動化できる？」<br>から始まる。</h2>
+      <p>入力・通知・調査などの手作業を仕組みに変え、カスタマイズオーダーメイドのシステムを作ります。</p>
+      <a class="cta-btn" href="#">お問い合わせ・相談はこちら</a>
+    </div>
   </div>
-</section>
-
+</div>
 <footer><span>© 2026 業務改善.DX — 業務DX 自動化システム構築実績</span><span class="mono" style="color:var(--blue)">with SLIDE CAROUSEL</span></footer>
 
 <script>
@@ -3169,6 +2878,19 @@ document.querySelectorAll('.mok-carousel').forEach(carousel => {
   track.addEventListener('scroll', updateArrows, { passive: true });
 });
 
+// Scroll reveal
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const siblings = [...e.target.parentElement.children];
+      const i = siblings.indexOf(e.target);
+      setTimeout(() => e.target.classList.add('show'), i * 90);
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: .1 });
+document.querySelectorAll('.card-feat,.card-sm,.card-wide,.schip').forEach(el => io.observe(el));
+
 // ── AI役員 slide animations ──
 (function(){
   const aiC = document.querySelector('[data-id="cai"]');
@@ -3197,9 +2919,9 @@ document.querySelectorAll('.mok-carousel').forEach(carousel => {
   const card = aiC.closest('.card-wide');
   if(card) new IntersectionObserver(es => {
     es.forEach(e => {
-      if(e.isIntersecting && !visible){ visible=true; lastIdx=0; setTimeout(()=>playSlide(0), 150); }
+      if(e.isIntersecting && !visible){ visible=true; lastIdx=0; setTimeout(()=>playSlide(0), 400); }
     });
-  }, {threshold: 0.05}).observe(card);
+  }, {threshold: 0.2}).observe(card);
 
   track.addEventListener('scroll', () => {
     const idx = Math.round(track.scrollLeft / track.offsetWidth);
@@ -3257,10 +2979,10 @@ document.querySelectorAll('.mok-carousel').forEach(carousel => {
     es.forEach(e=>{
       if(e.isIntersecting && !visible){
         visible=true; lastIdx=0;
-        setTimeout(()=>playSlide(0), 150);
+        setTimeout(()=>playSlide(0), 450);
       }
     });
-  },{threshold:0.02}).observe(card);
+  },{threshold:0.2}).observe(card);
 
   // trigger on slide swipe
   track.addEventListener('scroll',()=>{
@@ -3385,7 +3107,7 @@ document.querySelectorAll('.mok-carousel').forEach(carousel => {
         setTimeout(() => playSlide(0), 400);
       }
     });
-  }, {threshold: 0.05}).observe(card);
+  }, {threshold: 0.2}).observe(card);
 
   // slide swipe
   track.addEventListener('scroll', () => {
@@ -3404,32 +3126,25 @@ document.querySelectorAll('.mok-carousel').forEach(carousel => {
   function reflow(el){void el.offsetWidth}
   function playSlide(idx){
     if(idx===0){
-      // messages slide in (チャンネル)
+      // messages slide in
       const msgs=slides[0].querySelectorAll('.kc-msgs');
       msgs.forEach(m=>{m.classList.remove('msg-play');reflow(m);m.classList.add('msg-play');});
     }
     if(idx===1){
-      // DM: messages + reactions
-      const msgs=slides[1].querySelectorAll('.kc-msgs');
-      msgs.forEach(m=>{m.classList.remove('msg-play');reflow(m);m.classList.add('msg-play');});
+      // reaction badges pop
       const rrs=slides[1].querySelectorAll('.kc-rr');
       rrs.forEach(r=>{r.classList.remove('react-play');reflow(r);r.classList.add('react-play');});
     }
     if(idx===2){
-      // タスク管理
-      const tasks=slides[2].querySelectorAll('.kc-task-list');
-      tasks.forEach(t=>{t.classList.remove('task-play');reflow(t);t.classList.add('task-play');});
-    }
-    if(idx===3){
-      // カレンダー
-      const cals=slides[3].querySelectorAll('.kc-cal');
+      // calendar weeks fade in
+      const cals=slides[2].querySelectorAll('.kc-cal');
       cals.forEach(c=>{c.classList.remove('cal-play');reflow(c);c.classList.add('cal-play');});
     }
   }
   const card=kcC.closest('.card-feat');
   new IntersectionObserver(es=>{
     es.forEach(e=>{if(e.isIntersecting&&!visible){visible=true;lastIdx=0;setTimeout(()=>playSlide(0),400);}});
-  },{threshold:0.02}).observe(card);
+  },{threshold:0.2}).observe(card);
   track.addEventListener('scroll',()=>{
     const idx=Math.round(track.scrollLeft/track.offsetWidth);
     if(idx!==lastIdx){lastIdx=idx;playSlide(idx);}
@@ -3437,98 +3152,13 @@ document.querySelectorAll('.mok-carousel').forEach(carousel => {
 })();
 
 
-// ── 本審査 chat animation ──
-(function(){
-  const c01 = document.querySelector('[data-id="c01"]');
-  if(!c01) return;
-  const track = c01.querySelector('.mok-track');
-  const slides = track.children;
-  let visible=false, lastIdx=-1;
-  function rf(el){void el.offsetWidth;}
-
-  function play(idx){
-    if(idx===0){
-      const chat = document.getElementById('honsa-lchat1');
-      if(chat){chat.classList.remove('honsa-chat-play');rf(chat);chat.classList.add('honsa-chat-play');}
-    }
-    if(idx===1){
-      // スマホのlchat
-      const chat2 = document.getElementById('honsa-lchat2');
-      if(chat2){chat2.classList.remove('honsa-chat-play');rf(chat2);chat2.classList.add('honsa-chat-play');}
-      // laptopの審査チェックリスト
-      const wl = document.getElementById('honsa-warnlist');
-      if(wl){wl.classList.remove('honsa-warn-play');rf(wl);wl.classList.add('honsa-warn-play');}
-    }
-  }
-
-  const card = c01.closest('.card-feat');
-  new IntersectionObserver(es=>{
-    es.forEach(e=>{if(e.isIntersecting&&!visible){visible=true;lastIdx=0;setTimeout(()=>play(0),400);}});
-  },{threshold:0.02}).observe(card);
-
-  track.addEventListener('scroll',()=>{
-    const idx=Math.round(track.scrollLeft/track.offsetWidth);
-    if(idx!==lastIdx){lastIdx=idx;play(idx);}
-  },{passive:true});
-})();
-
-// ── KoniSearch animation ──
-(function(){
-  const ksC = document.querySelector('[data-id="c06"]');
-  if(!ksC) return;
-  const track = ksC.querySelector('.mok-track');
-  const slides = track.children;
-  let visible=false, lastIdx=-1;
-  function rf(el){void el.offsetWidth;}
-
-  function play(idx){
-    if(idx===0){
-      // kf-rowの親（koni-form or lbody）にksf-play付与
-        const containers = new Set();
-      slides[0].querySelectorAll('.kf-row.ks-anim-row').forEach(r=>containers.add(r.parentElement));
-      containers.forEach(c=>{c.classList.remove('ksf-play');rf(c);c.classList.add('ksf-play');});
-    }
-    if(idx===1){
-      const containers = new Set();
-      slides[1].querySelectorAll('.ksr-item.ks-anim-result').forEach(r=>containers.add(r.parentElement));
-      containers.forEach(c=>{c.classList.remove('ksr-play');rf(c);c.classList.add('ksr-play');});
-    }
-    if(idx===2){
-      const s3=slides[2];
-      if(!s3)return;
-      const pin=s3.querySelector('.ks-anim-mappin');
-      const card=s3.querySelector('.ks-anim-mapcard');
-      // 親要素にksm-playを付与
-      const par=pin&&pin.closest('.map-bg');
-      if(par){par.classList.remove('ksm-play');rf(par);par.classList.add('ksm-play');}
-    }
-  }
-
-  const card = ksC.closest('.card-wide,.card-feat,.card-sm');
-  if(card){
-    new IntersectionObserver(es=>{
-      es.forEach(e=>{if(e.isIntersecting&&!visible){visible=true;lastIdx=0;setTimeout(()=>play(0),400);}});
-    },{threshold:0.02}).observe(card);
-  }
-
-  track.addEventListener('scroll',()=>{
-    const idx=Math.round(track.scrollLeft/track.offsetWidth);
-    if(idx!==lastIdx){lastIdx=idx;play(idx);}
-  },{passive:true});
-})();
-
-// タスクアニメーションは上記playSlideで処理
-
-
 // ── ジャンルフィルター（カウント付き）──
 (function(){
   const btns = document.querySelectorAll('.filter-btn');
   const section = document.querySelector('.section.wrap');
-
   function getCards(){
     return section ? [...section.querySelectorAll('.card-feat[data-genre],.card-wide[data-genre],.card-sm[data-genre]')] : [];
   }
-
   function updateCounts(){
     const cards = getCards();
     const total = cards.length;
@@ -3539,7 +3169,6 @@ document.querySelectorAll('.mok-carousel').forEach(carousel => {
       if(span) span.textContent = '(' + cnt + ')';
     });
   }
-
   function applyFilter(filter){
     const cards = getCards();
     cards.forEach(card => {
@@ -3548,13 +3177,7 @@ document.querySelectorAll('.mok-carousel').forEach(carousel => {
       if(show){ card.classList.add('card-visible'); }
       else { card.classList.remove('card-visible'); }
     });
-    // grid2の表示制御
-    if(section) section.querySelectorAll('.grid2').forEach(grid => {
-      const ch = [...grid.querySelectorAll('[data-genre]')];
-      grid.style.display = ch.some(c => filter==='全て'||c.dataset.genre===filter) ? '' : 'none';
-    });
   }
-
   btns.forEach(btn => {
     btn.addEventListener('click', () => {
       btns.forEach(b => b.classList.remove('active'));
@@ -3562,14 +3185,9 @@ document.querySelectorAll('.mok-carousel').forEach(carousel => {
       applyFilter(btn.dataset.filter);
     });
   });
-
-  // 初期化（カウント表示）
   document.addEventListener('DOMContentLoaded', updateCounts);
   if(document.readyState !== 'loading') updateCounts();
 })();
-
-
-
 
 // ── キャッチコピーサイクル ──
 (function(){
