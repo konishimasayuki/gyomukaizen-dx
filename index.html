@@ -31,7 +31,8 @@ nav{position:sticky;top:0;z-index:200;background:rgba(244,247,255,.85);backdrop-
 .npill.solid:hover{background:var(--blue2)}
 
 /* HERO */
-.hero{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:90px 48px 60px;display:block}
+.hero{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:90px 48px 70px;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hero-catch{display:flex;justify-content:flex-start}
 .hero-tag{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.22em;color:var(--cyan);margin-bottom:20px;display:flex;align-items:center;gap:8px}
 .hero-tag::before{content:"";display:block;width:24px;height:1.5px;background:var(--cyan)}
 .hero h1{font-size:clamp(40px,5.5vw,68px);font-weight:900;line-height:1.08;letter-spacing:-.04em;margin-bottom:26px}
@@ -281,7 +282,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:30
 .mono{font-family:"JetBrains Mono",monospace}
 
 /* REVEAL */
-@media(max-width:900px){.hero{grid-template-columns:1fr;padding:60px 24px 50px}.hero-r{display:none}.card-feat{grid-template-columns:1fr}.grid3{grid-template-columns:1fr 1fr}.stk{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.wrap{padding:0 20px}}
+@media(max-width:900px){.hero{grid-template-columns:1fr;padding:60px 24px 50px}.hero-r{display:none}.hero-catch{justify-content:flex-start}.card-feat{grid-template-columns:1fr}.grid3{grid-template-columns:1fr 1fr}.stk{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.wrap{padding:0 20px}}
 @media(max-width:580px){.grid3{grid-template-columns:1fr}.navr .npill:first-child{display:none}}
 
 /* ===== BAR L'UCE APP STYLES ===== */
@@ -574,6 +575,8 @@ a.clink{display:block;margin-top:16px}
     <div class="hero-tag">BUSINESS DX PORTFOLIO</div>
     <h1>仕組みを、<span class="grad">システムが勝手に。</span></h1>
     <p class="hero-desc">あらゆる APIを組み合わせ、業務効率化・各種自動化・給料計算・動画成形まで——現場の手作業を自動化したシステム。</p>
+  </div>
+  <div class="hero-catch">
     <div class="kintone-catch">
       <span class="kintone-line1">AIと独自システムで</span>
       <div class="kintone-line2">
@@ -581,13 +584,6 @@ a.clink{display:block;margin-top:16px}
         <span class="kintone-line2-suf">業務の</span>
       </div>
       <span class="kintone-line3">「こうしたい」を実現</span>
-    </div>
-
-    <div class="hero-stats">
-      <div class="hstat"><div class="hn">10</div><div class="hl">稼働システム</div></div>
-      <div class="hstat"><div class="hn">2</div><div class="hl">対応法人</div></div>
-      <div class="hstat"><div class="hn">9+</div><div class="hl">自動チェック</div></div>
-      <div class="hstat"><div class="hn">24/7</div><div class="hl">無人監視</div></div>
     </div>
   </div>
 </div>
@@ -1185,7 +1181,7 @@ a.clink{display:block;margin-top:16px}
             <div class="island"></div>
             <div class="iphone-screen">
               <div class="sb"><span class="sb-time">9:41</span><span class="sb-icons">5G 🔋</span></div>
-              <div class="lhdr" style="background:#06c755"><span class="lhdr-back">‹</span><div class="lhdr-av" style="background:#04a347">E</div><div class="lhdr-info"><p>エンジン業務管理DX</p><span>グループ</span></div><div class="lhdr-icons"><span>≡</span></div></div>
+              <div class="lhdr" style="background:#06c755"><span class="lhdr-back">‹</span><div class="lhdr-av" style="background:#04a347">E</div><div class="lhdr-info"><p>審査通知ルーム</p><span>グループ</span></div><div class="lhdr-icons"><span>≡</span></div></div>
               <div class="lchat" style="background:#c6e1f5">
                 <div class="lc-date">今日</div>
                 <div class="lc-msg"><div class="lc-av" style="background:#06c755">B</div><div><div class="lc-bub"><p>📊 本審査フォーム受取<br><b>名前：</b>山田太郎<br><b>年齢：</b>27歳<br><b>月収：</b>22万円<br><b>借入：</b>2件 / 50万</p></div><div class="lc-time">9:41</div></div></div>
@@ -1201,7 +1197,7 @@ a.clink{display:block;margin-top:16px}
             <div class="island"></div>
             <div class="iphone-screen">
               <div class="sb"><span class="sb-time">9:41</span><span class="sb-icons">5G 🔋</span></div>
-              <div class="lhdr" style="background:#06c755"><span class="lhdr-back">‹</span><div class="lhdr-av" style="background:#04a347">E</div><div class="lhdr-info"><p>エンジン業務管理DX</p><span>グループ</span></div></div>
+              <div class="lhdr" style="background:#06c755"><span class="lhdr-back">‹</span><div class="lhdr-av" style="background:#04a347">E</div><div class="lhdr-info"><p>審査通知ルーム</p><span>グループ</span></div></div>
               <div class="lchat" style="background:#c6e1f5">
                 <div class="lc-warn" style="margin-left:0"><p>⚠️ 注意点（自動チェック）<br>・免許再発行あり（末尾:1）<br>・勤続1年未満（8ヶ月）<br>・国民健康保険→雇用確認<br>・月収22万→支払能力要確認</p></div>
                 <div class="lc-msg" style="margin-top:4px"><div class="lc-av" style="background:#06c755">B</div><div><div class="lc-bub"><p>🔍 コニサーチ<br>konisearch.vercel.app/...</p></div></div></div>
@@ -1333,7 +1329,7 @@ a.clink{display:block;margin-top:16px}
                     <!-- プロジェクトカード群 -->
                     <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;flex:1">
                       <div style="background:#fff;border:2px solid #e879f9;border-radius:7px;padding:7px 8px">
-                        <div style="font-size:8px;font-weight:800;color:#0f172a;margin-bottom:2px">エンジン 🚗</div>
+                        <div style="font-size:8px;font-weight:800;color:#0f172a;margin-bottom:2px">こにチャット 💬</div>
                         <div style="font-size:5.5px;color:#94a3b8">中古車販売 · Instagram</div>
                         <div style="margin-top:4px;display:flex;gap:2px">
                           <div style="font-size:4.5px;background:#fdf4ff;color:#a21caf;padding:1px 4px;border-radius:3px;white-space:nowrap">動画 12本</div>
@@ -1367,7 +1363,7 @@ a.clink{display:block;margin-top:16px}
                 </div>
                 <div style="flex:1;overflow:hidden;padding:5px;display:flex;flex-direction:column;gap:4px;background:#f8fafc">
                   <div style="background:#fff;border:2px solid #e879f9;border-radius:7px;padding:6px 8px">
-                    <div style="font-size:8px;font-weight:800;color:#0f172a;white-space:nowrap">エンジン 🚗</div>
+                    <div style="font-size:8px;font-weight:800;color:#0f172a;white-space:nowrap">こにチャット 💬</div>
                     <div style="font-size:5.5px;color:#94a3b8;white-space:nowrap">中古車販売 · Instagram</div>
                     <div style="font-size:5px;color:#a21caf;margin-top:2px;white-space:nowrap">動画12 / 投稿28</div>
                   </div>
@@ -1391,7 +1387,7 @@ a.clink{display:block;margin-top:16px}
                 <div class="laptop-screen">
                   <div class="lbar"><div class="lbd" style="background:#fc6b5d"></div><div class="lbd" style="background:#fdbc40"></div><div class="lbd" style="background:#35cd4b"></div><div class="lurl"><span>🔒</span><span>posta.com</span></div></div>
                   <div style="height:168px;background:#fafafa;font-family:'Noto Sans JP',sans-serif;padding:7px;display:flex;flex-direction:column;gap:4px">
-                    <div style="font-size:6.5px;color:#6d28d9;font-weight:700">✨ コンテンツ生成 — エンジン 🚗</div>
+                    <div style="font-size:6.5px;color:#6d28d9;font-weight:700">✨ コンテンツ生成 — こにチャット 💬</div>
                     <!-- ネタ候補 -->
                     <div style="background:#fff;border:1px solid #e2e8f0;border-radius:6px;padding:5px 7px">
                       <div style="font-size:5.5px;color:#64748b;margin-bottom:4px">📋 今日のネタ候補（AI生成）</div>
@@ -1436,7 +1432,7 @@ a.clink{display:block;margin-top:16px}
                 <div class="sb"><span class="sb-time">9:41</span><span class="sb-icons">5G</span></div>
                 <div style="background:linear-gradient(135deg,#d946ef,#8b5cf6);padding:4px 7px;flex-shrink:0">
                   <div style="font-size:7px;font-weight:800;color:#fff;white-space:nowrap">✨ 生成</div>
-                  <div style="font-size:5px;color:rgba(255,255,255,.7);white-space:nowrap">エンジン 🚗</div>
+                  <div style="font-size:5px;color:rgba(255,255,255,.7);white-space:nowrap">こにチャット 💬</div>
                 </div>
                 <div style="flex:1;overflow:hidden;padding:4px;display:flex;flex-direction:column;gap:3px;background:#f8fafc">
                   <div style="font-size:5px;color:#6d28d9;font-weight:700;white-space:nowrap">今日のネタ候補</div>
@@ -1464,7 +1460,7 @@ a.clink{display:block;margin-top:16px}
                   <div class="lbar"><div class="lbd" style="background:#fc6b5d"></div><div class="lbd" style="background:#fdbc40"></div><div class="lbd" style="background:#35cd4b"></div><div class="lurl"><span>🔒</span><span>posta.com</span></div></div>
                   <div style="height:168px;background:#fafafa;font-family:'Noto Sans JP',sans-serif;padding:7px;display:flex;flex-direction:column;gap:4px;overflow:hidden">
                     <div style="display:flex;align-items:center;gap:5px">
-                      <div style="font-size:6.5px;color:#6d28d9;font-weight:700">📁 過去の作品 — エンジン 🚗</div>
+                      <div style="font-size:6.5px;color:#6d28d9;font-weight:700">📁 過去の作品 — こにチャット 💬</div>
                       <div style="margin-left:auto;display:flex;gap:3px">
                         <div style="font-size:5px;background:#fdf4ff;color:#a21caf;padding:1px 5px;border-radius:3px;border:1px solid #f0abfc;white-space:nowrap">動画 12</div>
                         <div style="font-size:5px;background:#f5f3ff;color:#7c3aed;padding:1px 5px;border-radius:3px;border:1px solid #c4b5fd;white-space:nowrap">投稿 28</div>
@@ -2419,7 +2415,7 @@ a.clink{display:block;margin-top:16px}
               <div class="laptop-screen">
                 <div class="lbar"><div class="lbd" style="background:#fc6b5d"></div><div class="lbd" style="background:#fdbc40"></div><div class="lbd" style="background:#35cd4b"></div><div class="lurl"><span>🔒</span><span>bar.app</span></div></div>
                 <div style="display:flex;flex-direction:column;height:170px">
-                  <div class="bl-hdr"><div class="bl-logo">BAR <em>L'UCE</em></div><div class="bl-hdr-r">2026年6月</div></div>
+                  <div class="bl-hdr"><div class="bl-logo">業務管理システム</div><div class="bl-hdr-r">2026年6月</div></div>
                   <div class="bl-tabs"><div class="bl-tab act">ダッシュ</div><div class="bl-tab">商品管理</div><div class="bl-tab">棚卸し</div><div class="bl-tab">売上</div></div>
                   <div class="bl-content">
                     <div class="bl-kpis">
@@ -2449,7 +2445,7 @@ a.clink{display:block;margin-top:16px}
       <div class="iphone-screen">
         <div class="sb"><span class="sb-time">9:41</span><span class="sb-icons">5G</span></div>
         <div style="background:#1c1108;padding:3px 7px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;overflow:hidden">
-          <span style="font-size:6.5px;font-weight:800;color:#f5e0c0;white-space:nowrap">BAR <span style="color:#f59e0b">L'UCE</span></span>
+          <span style="font-size:6.5px;font-weight:800;color:#f5e0c0;white-space:nowrap">業務管理システム</span>
           <span style="font-size:5px;color:rgba(245,224,192,.5);white-space:nowrap">6月</span>
         </div>
         <div style="background:#fffbf7;flex:1;overflow:hidden;padding:3px;display:flex;flex-direction:column;gap:2px">
@@ -2486,7 +2482,7 @@ a.clink{display:block;margin-top:16px}
               <div class="laptop-screen">
                 <div class="lbar"><div class="lbd" style="background:#fc6b5d"></div><div class="lbd" style="background:#fdbc40"></div><div class="lbd" style="background:#35cd4b"></div><div class="lurl"><span>🔒</span><span>bar.app</span></div></div>
                 <div style="display:flex;flex-direction:column;height:170px">
-                  <div class="bl-hdr"><div class="bl-logo">BAR <em>L'UCE</em></div><div class="bl-hdr-r">2026年6月度 棚卸し</div></div>
+                  <div class="bl-hdr"><div class="bl-logo">業務管理システム</div><div class="bl-hdr-r">2026年6月度 棚卸し</div></div>
                   <div class="bl-tabs"><div class="bl-tab">ダッシュ</div><div class="bl-tab">商品管理</div><div class="bl-tab act">棚卸し</div><div class="bl-tab">売上</div></div>
                   <div class="bl-content" style="overflow:hidden">
                     <div class="bl-inv-row"><div class="ic">🍺</div><div><div class="iname">エビス ザ・ホップ 350ml</div><div class="icat">ビール</div></div><div class="iqty">24本</div></div>
@@ -2505,7 +2501,7 @@ a.clink{display:block;margin-top:16px}
       <div class="iphone-screen">
         <div class="sb"><span class="sb-time">9:41</span><span class="sb-icons">5G</span></div>
         <div style="background:#1c1108;padding:3px 7px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;overflow:hidden">
-          <span style="font-size:6.5px;font-weight:800;color:#f5e0c0;white-space:nowrap">BAR <span style="color:#f59e0b">L'UCE</span></span>
+          <span style="font-size:6.5px;font-weight:800;color:#f5e0c0;white-space:nowrap">業務管理システム</span>
           <span style="font-size:5px;color:rgba(245,224,192,.5);white-space:nowrap">棚卸し</span>
         </div>
         <div style="background:#fffbf7;flex:1;overflow:hidden;display:flex;flex-direction:column">
@@ -2548,7 +2544,7 @@ a.clink{display:block;margin-top:16px}
               <div class="laptop-screen" style="border-color:#333">
                 <div class="lbar" style="background:#1a1a1a;border-color:#333"><div class="lbd" style="background:#fc6b5d"></div><div class="lbd" style="background:#fdbc40"></div><div class="lbd" style="background:#35cd4b"></div><div class="lurl" style="background:#2a2a2a;border-color:#444;color:#888"><span>🔒</span><span>bar-luce.vercel.app</span></div></div>
                 <div style="display:flex;flex-direction:column;height:170px;background:#1c1108">
-                  <div class="bl-hdr"><div class="bl-logo">BAR <em>L'UCE</em></div><div class="bl-hdr-r">商品登録</div></div>
+                  <div class="bl-hdr"><div class="bl-logo">業務管理システム</div><div class="bl-hdr-r">商品登録</div></div>
                   <div class="bl-scan-area">
                     <div class="bl-scan-frame">
                       <div class="bl-scan-icon">📦</div>
@@ -2567,7 +2563,7 @@ a.clink{display:block;margin-top:16px}
       <div class="iphone-screen">
         <div class="sb"><span class="sb-time">9:41</span><span class="sb-icons">5G</span></div>
         <div style="background:#1c1108;padding:3px 7px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;overflow:hidden">
-          <span style="font-size:6.5px;font-weight:800;color:#f5e0c0;white-space:nowrap">BAR <span style="color:#f59e0b">L'UCE</span></span>
+          <span style="font-size:6.5px;font-weight:800;color:#f5e0c0;white-space:nowrap">業務管理システム</span>
           <span style="font-size:5px;color:rgba(245,224,192,.5);white-space:nowrap">商品登録</span>
         </div>
         <div class="bl-scan-area" style="flex:1">
@@ -2649,7 +2645,7 @@ a.clink{display:block;margin-top:16px}
               <div class="island"></div>
               <div class="iphone-screen">
                 <div class="sb"><span class="sb-time">9:41</span><span class="sb-icons">5G 🔋</span></div>
-                <div class="lhdr" style="background:#06c755"><span class="lhdr-back">‹</span><div class="lhdr-av" style="background:#04a347">東</div><div class="lhdr-info" style="min-width:0;overflow:hidden;flex:1"><p style="white-space:nowrap;overflow:hidden;font-size:8.5px">東部生コン 配送</p><span>グループ・6名</span></div></div>
+                <div class="lhdr" style="background:#06c755"><span class="lhdr-back">‹</span><div class="lhdr-av" style="background:#04a347">東</div><div class="lhdr-info" style="min-width:0;overflow:hidden;flex:1"><p style="white-space:nowrap;overflow:hidden;font-size:8.5px">配送グループ</p><span>グループ・6名</span></div></div>
                 <div class="lchat" style="background:#8aabd4">
                   <div class="lc-date">今日</div>
                   <div class="lc-msg">
