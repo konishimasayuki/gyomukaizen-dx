@@ -31,7 +31,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(244,247,255,.85);backdrop-
 .npill.solid:hover{background:var(--blue2)}
 
 /* HERO */
-.hero{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:90px 48px 80px;display:grid;grid-template-columns:1fr 420px;gap:48px;align-items:center}
+.hero{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:90px 48px 60px;display:block}
 .hero-tag{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.22em;color:var(--cyan);margin-bottom:20px;display:flex;align-items:center;gap:8px}
 .hero-tag::before{content:"";display:block;width:24px;height:1.5px;background:var(--cyan)}
 .hero h1{font-size:clamp(40px,5.5vw,68px);font-weight:900;line-height:1.08;letter-spacing:-.04em;margin-bottom:26px}
@@ -565,7 +565,6 @@ a.clink{display:block;margin-top:16px}
   <div class="brand">業務改善<span>.</span>DX</div>
   <div class="navr">
     <a class="npill" href="#">システム一覧</a>
-    <a class="npill solid" href="#">相談する</a>
   </div>
 </nav>
 
@@ -589,25 +588,6 @@ a.clink{display:block;margin-top:16px}
       <div class="hstat"><div class="hn">2</div><div class="hl">対応法人</div></div>
       <div class="hstat"><div class="hn">9+</div><div class="hl">自動チェック</div></div>
       <div class="hstat"><div class="hn">24/7</div><div class="hl">無人監視</div></div>
-    </div>
-    <a class="hero-cta" href="#">お問い合わせ・相談はこちら</a>
-  </div>
-  <div class="hero-r">
-    <div class="iphone hero-ph">
-      <div class="island"></div>
-      <div class="iphone-screen">
-        <div class="sb"><span class="sb-time">9:41</span><span class="sb-icons">●●● 5G 🔋</span></div>
-        <div class="lhdr" style="background:#06c755"><span class="lhdr-back">‹</span><div class="lhdr-av" style="background:#04a347">E</div><div class="lhdr-info"><p>エンジン業務管理DX</p><span>グループ・4名</span></div><div class="lhdr-icons"><span>📞</span><span>≡</span></div></div>
-        <div class="lchat" style="background:#c6e1f5">
-          <div class="lc-date">今日</div>
-          <div class="lc-msg">
-            <div class="lc-av" style="background:#06c755">B</div>
-            <div><div class="lc-bub"><p>📊 本審査フォーム受取<br><b>名前：</b>山田太郎<br><b>年齢：</b>27歳<br><b>月収：</b>22万円<br><b>雇用：</b>正社員<br><b>勤続：</b>8ヶ月</p></div><div class="lc-time">9:41</div></div>
-          </div>
-          <div class="lc-warn"><p>⚠️ 注意点<br>・免許再発行あり（1回）<br>・勤続1年未満<br>・国民健康保険加入</p></div>
-        </div>
-        <div class="lftr"><div class="lftr-inp">メッセージ</div><div class="lftr-send" style="background:#06c755">↑</div></div>
-      </div>
     </div>
   </div>
 </div>
@@ -1175,9 +1155,8 @@ a.clink{display:block;margin-top:16px}
         <div class="mok-dots"><span class="mdot active"></span><span class="mdot"></span><span class="mdot"></span><span class="mdot"></span><span class="mdot"></span><span class="mdot"></span><span class="mdot"></span></div>
       </div>
       <div class="info">
-        <div class="tags"><span class="tag blue">React</span><span class="tag blue">Vercel</span><span class="tag cyan">Upstash Redis</span><span class="tag cyan">LINE API</span><span class="tag amber">Google Sheets</span></div>
         <div class="genre-badge" data-genre="業務効率化">⚙️ 業務効率化</div>
-      <h3>カーセラ<br>自社ローン業務管理システム</h3>
+      <h3>自社ローン業務管理システム</h3>
         <p>銀行CSV自動照合による入金消込、LINE督促送信、棚卸し＆原価管理、納車段取り、AI役員タブまで。中古車販売の全業務フローをワンダッシュボードで管理。</p>
         <div class="tags" style="margin-bottom:12px">
           <span class="tag blue">入金照合</span>
@@ -1190,7 +1169,7 @@ a.clink{display:block;margin-top:16px}
         <div class="feat-lbl">搭載機能</div>
         <div class="feat-chips"><span class="feat-chip">売掛金入金管理</span><span class="feat-chip">売上管理</span><span class="feat-chip">原価管理</span><span class="feat-chip">LINE自動通知</span><span class="feat-chip">新規顧客通知</span><span class="feat-chip">LINE AI返答</span><span class="feat-chip">納車タスク管理</span></div>
       </div>
-      <a class="clink" href="https://engine-payment.vercel.app" target="_blank">サイトを開く</a>
+      <a class="clink" href="https://engine-payment.vercel.app" target="_blank">デモサイトを見る</a>
       </div>
     </div>
 
@@ -1260,8 +1239,6 @@ a.clink{display:block;margin-top:16px}
       <div class="mok-dots"><span class="mdot active"></span><span class="mdot"></span><span class="mdot"></span></div>
     </div>
     <div class="info">
-      <div class="num-big">01</div>
-      <div class="tags"><span class="tag blue">GAS</span><span class="tag blue">LINE Messaging API</span><span class="tag amber">自動審査チェック</span></div>
       <div class="genre-badge" data-genre="与信管理">🔍 与信管理</div>
       <h3>本審査 自動通知・<br>監査システム</h3>
       <p>新規フォームを1分間隔でポーリング検知。免許再発行・年齢・雇用形態・月収など9項目を自動判定し、注意点付きでLINEグループへ配信。コニサーチURLも自動付与。</p>
@@ -1567,8 +1544,6 @@ a.clink{display:block;margin-top:16px}
       <div class="mok-dots"><span class="mdot active"></span><span class="mdot"></span><span class="mdot"></span><span class="mdot"></span></div>
     </div>
     <div class="info">
-      <div class="num-big" style="color:rgba(217,70,239,.06)">03</div>
-      <div class="tags"><span class="tag blue">React</span><span class="tag blue">Vercel</span><span class="tag cyan">Upstash Redis</span><span class="tag purple">Claude API</span><span class="tag amber">Kling AI</span></div>
       <div class="genre-badge" data-genre="AI技術">🤖 AI技術</div>
       <h3>Posta<br>AI SNS動画生成システム</h3>
       <p>ブランド情報を一度登録するだけで、今日のSNSネタをAIが提案。Kling AI用の動画プロンプトとInstagram・TikTok向け投稿文を自動生成し、作品を一元管理。</p>
@@ -1582,7 +1557,7 @@ a.clink{display:block;margin-top:16px}
         <div class="feat-lbl">搭載機能</div>
         <div class="feat-chips"><span class="feat-chip">プロジェクト管理</span><span class="feat-chip">AI動画成形</span><span class="feat-chip">作品履歴</span><span class="feat-chip">人気作品検索</span><span class="feat-chip">SNS投稿文成形</span><span class="feat-chip">ネタ自動成形</span></div>
       </div>
-      <a class="clink" href="#">サイトを開く</a>
+      <a class="clink" href="#">デモサイトを見る</a>
     </div>
   </div>
 
@@ -1819,8 +1794,6 @@ a.clink{display:block;margin-top:16px}
       <div class="mok-dots"><span class="mdot active"></span><span class="mdot"></span><span class="mdot"></span></div>
     </div>
     <div class="info">
-      <div class="num-big" style="color:rgba(108,99,255,.07)">02</div>
-      <div class="tags"><span class="tag blue">React</span><span class="tag blue">Vercel</span><span class="tag cyan">Upstash Redis</span><span class="tag green">令和6年度対応</span></div>
       <div class="genre-badge" data-genre="業務効率化">⚙️ 業務効率化</div>
       <h3>楽給.com<br>給与計算システム</h3>
       <p>複数法人対応のクラウド型給与計算システム。月給・日給・時給など4種の支給形態、社会保険の自動計算から年末調整・源泉徴収票の発行まで一括対応。50名規模のデモデータ収録。</p>
@@ -1834,7 +1807,7 @@ a.clink{display:block;margin-top:16px}
         <div class="feat-lbl">搭載機能</div>
         <div class="feat-chips"><span class="feat-chip">給料明細発行</span><span class="feat-chip">賃金台帳</span><span class="feat-chip">年末調整</span><span class="feat-chip">源泉徴収票</span><span class="feat-chip">源泉徴収簿</span></div>
       </div>
-      <a class="clink" href="#">サイトを開く</a>
+      <a class="clink" href="#">デモサイトを見る</a>
     </div>
   </div>
 
@@ -1987,7 +1960,6 @@ a.clink{display:block;margin-top:16px}
         <div class="mok-dots"><span class="mdot active"></span><span class="mdot"></span></div>
       </div>
       <div class="info">
-        <div class="tags"><span class="tag blue">Claude API</span><span class="tag purple">Sonnet 4</span><span class="tag cyan">Upstash Redis</span></div>
         <div class="genre-badge" data-genre="AI技術">🤖 AI技術</div>
       <h3>AI役員<br>社内知識AIシステム</h3>
         <p>社長が方針・審査基準・ルールを登録すると、社員がAIに相談できるシステム。会話から自動で知識を蓄積し、次回の回答精度を向上。音声入力・ファイル添付対応。</p>
@@ -2000,7 +1972,7 @@ a.clink{display:block;margin-top:16px}
         <div class="feat-lbl">搭載機能</div>
         <div class="feat-chips"><span class="feat-chip">知識蓄積機能</span><span class="feat-chip">社長モード</span><span class="feat-chip">社員モード</span><span class="feat-chip">LINE報告</span><span class="feat-chip">音声入力</span><span class="feat-chip">ファイル分析</span></div>
       </div>
-      <a class="clink" href="https://engine-payment.vercel.app" target="_blank">サイトを開く</a>
+      <a class="clink" href="https://engine-payment.vercel.app" target="_blank">デモサイトを見る</a>
       </div>
     </div>
 
@@ -2246,8 +2218,6 @@ a.clink{display:block;margin-top:16px}
       <div class="mok-dots"><span class="mdot active"></span><span class="mdot"></span><span class="mdot"></span></div>
     </div>
     <div class="info">
-      <div class="num-big" style="color:rgba(99,102,241,.07)">01</div>
-      <div class="tags"><span class="tag blue">Next.js</span><span class="tag blue">Vercel</span><span class="tag blue">Upstash Redis</span><span class="tag purple">React</span><span class="tag cyan">Vercel Blob</span></div>
       <div class="genre-badge" data-genre="チャットツール">💬 チャットツール</div>
       <h3>こにチャット<br>チーム内チャットツール</h3>
       <p>Slack風のチャンネル制チャットツール。DM・ファイル共有・絵文字リアクション・カレンダー・検索など業務に必要な機能を完備。2秒ポーリングでリアルタイム同期。</p>
@@ -2255,7 +2225,7 @@ a.clink{display:block;margin-top:16px}
         <div class="feat-lbl">搭載機能</div>
         <div class="feat-chips"><span class="feat-chip">チャンネル分別</span><span class="feat-chip">DM機能</span><span class="feat-chip">ファイル送信</span><span class="feat-chip">タスク管理</span><span class="feat-chip">カレンダー</span></div>
       </div>
-      <a class="clink" href="#">サイトを開く</a>
+      <a class="clink" href="#">デモサイトを見る</a>
     </div>
   </div>
 
@@ -2424,7 +2394,6 @@ a.clink{display:block;margin-top:16px}
         <div class="mok-dots"><span class="mdot active"></span><span class="mdot"></span><span class="mdot"></span></div>
       </div>
       <div class="info">
-        <div class="tags"><span class="tag blue">Next.js</span><span class="tag blue">Vercel</span><span class="tag cyan">SerpAPI</span><span class="tag cyan">Google Maps</span><span class="tag purple">OSINT</span></div>
         <div class="genre-badge" data-genre="与信管理">🔍 与信管理</div>
       <h3>コニサーチ｜人物・法人情報 検索システム（06–08）</h3>
         <p>氏名・住所・電話・生年月日からWeb公開情報を一括検索。SNS・掲示板・法人情報・地図を横断調査し、審査通知にURLを自動付与。</p>
@@ -2432,7 +2401,7 @@ a.clink{display:block;margin-top:16px}
         <div class="feat-lbl">搭載機能</div>
         <div class="feat-chips"><span class="feat-chip">エゴサーチ</span><span class="feat-chip">人物検索</span><span class="feat-chip">法人検索</span><span class="feat-chip">地図・StreetView</span><span class="feat-chip">SNS検索</span><span class="feat-chip">電話番号検索</span><span class="feat-chip">キャリア検索</span></div>
       </div>
-      <a class="clink" href="#">サイトを開く</a>
+      <a class="clink" href="#">デモサイトを見る</a>
       </div>
     </div>
 
@@ -2615,35 +2584,15 @@ a.clink{display:block;margin-top:16px}
       <div class="mok-dots"><span class="mdot active"></span><span class="mdot"></span><span class="mdot"></span></div>
     </div>
     <div class="info">
-      <div class="num-big" style="color:rgba(180,83,9,.07)">00</div>
-      <div class="tags"><span class="tag blue">Next.js</span><span class="tag blue">Vercel</span><span class="tag amber">Upstash Redis</span><span class="tag amber">recharts</span><span class="tag green">バーコードスキャン</span></div>
       <div class="genre-badge" data-genre="業務効率化">⚙️ 業務効率化</div>
-      <h3>Bar L'UCE<br>バー在庫・売上管理システム</h3>
+      <h3>飲食店向け売上・棚卸システム</h3>
       <p>バーのボトル在庫をバーコードスキャンで登録・管理。月次棚卸し、売上記録から客単価を算出してダッシュボードに可視化。CSVエクスポートでExcel連携も対応。</p>
       <div class="feat-section">
         <div class="feat-lbl">搭載機能</div>
         <div class="feat-chips"><span class="feat-chip">売上管理</span><span class="feat-chip">商品登録</span><span class="feat-chip">棚卸機能</span><span class="feat-chip">バーコードスキャン</span></div>
       </div>
-      <a class="clink" href="#">サイトを開く</a>
+      <a class="clink" href="#">デモサイトを見る</a>
     </div>
-  </div>
-
-</section>
-
-<!-- STACK -->
-<section class="section wrap" style="padding-top:0">
-  <div class="sh"><div class="sh-top"><span class="sh-mono">/ TECH STACK</span><h2>使用技術</h2></div><p>現場に最適化したスタックで構築。ノーコードに頼らず、実運用に耐える設計。</p></div>
-  <div class="stk">
-    <div class="schip"><div class="cn">Google Apps Script</div><div class="cd">業務自動化の中核</div></div>
-    <div class="schip"><div class="cn">LINE Messaging API</div><div class="cd">通知・督促の配信基盤</div></div>
-    <div class="schip"><div class="cn">React + Vite</div><div class="cd">フロントエンド</div></div>
-    <div class="schip"><div class="cn">Next.js / Vercel</div><div class="cd">ホスティング・API Routes</div></div>
-    <div class="schip"><div class="cn">Upstash Redis</div><div class="cd">クラウドDB</div></div>
-    <div class="schip"><div class="cn">Google Spreadsheet</div><div class="cd">データの起点</div></div>
-    <div class="schip"><div class="cn">SerpAPI</div><div class="cd">Web横断検索</div></div>
-    <div class="schip"><div class="cn">Google Maps API</div><div class="cd">住所の可視化</div></div>
-    <div class="schip"><div class="cn">Biome</div><div class="cd">Linter / Formatter</div></div>
-    <div class="schip"><div class="cn">GitHub</div><div class="cd">ソース管理</div></div>
   </div>
 
   <!-- ▼▼▼ 追加実績：東部生コン 業務管理システム ▼▼▼ -->
@@ -2817,32 +2766,38 @@ a.clink{display:block;margin-top:16px}
       <div class="mok-dots"><span class="mdot active"></span><span class="mdot"></span><span class="mdot"></span></div>
     </div>
     <div class="info">
-      <div class="tags"><span class="tag blue">React + Vite</span><span class="tag blue">Vercel Functions</span><span class="tag amber">Upstash Redis</span><span class="tag green">LINE Messaging API</span><span class="tag purple">JWT認証</span><span class="tag cyan">Google Maps</span></div>
       <div class="genre-badge" data-genre="業務効率化">⚙️ 業務効率化</div>
-      <h3>東部生コン<br>生コン配送・出荷管理システム</h3>
+      <h3>生コン業者向け業務管理システム</h3>
       <p>生コンクリート工場の出荷予定・配送割り当て・伝票管理を一元化。ドライバーへLINEで配送指示を自動送信し、現場住所はマップで可視化。PDF／CSV取込や役割別権限管理にも対応した実運用システム。</p>
       <div class="feat-section">
         <div class="feat-lbl">搭載機能</div>
         <div class="feat-chips"><span class="feat-chip">出荷予定表</span><span class="feat-chip">配送割り当て</span><span class="feat-chip">LINE自動通知</span><span class="feat-chip">現場マップ</span><span class="feat-chip">PDF/CSV取込</span><span class="feat-chip">権限管理</span></div>
       </div>
-      <a class="clink" href="#">サイトを開く</a>
+      <a class="clink" href="#">デモサイトを見る</a>
     </div>
   </div>
   <!-- ▲▲▲ 東部生コン ここまで ▲▲▲ -->
 
 </section>
 
-<!-- CTA -->
-<div class="wrap">
-  <div class="cta">
-    <div class="cta-deco">DX</div>
-    <div class="cta-inner">
-      <h2>「これも自動化できる？」<br>から始まる。</h2>
-      <p>入力・通知・調査などの手作業を仕組みに変え、カスタマイズオーダーメイドのシステムを作ります。</p>
-      <a class="cta-btn" href="#">お問い合わせ・相談はこちら</a>
-    </div>
+<!-- STACK -->
+<section class="section wrap" style="padding-top:0">
+  <div class="sh"><div class="sh-top"><span class="sh-mono">/ TECH STACK</span><h2>使用技術</h2></div><p>現場に最適化したスタックで構築。ノーコードに頼らず、実運用に耐える設計。</p></div>
+  <div class="stk">
+    <div class="schip"><div class="cn">Google Apps Script</div><div class="cd">業務自動化の中核</div></div>
+    <div class="schip"><div class="cn">LINE Messaging API</div><div class="cd">通知・督促の配信基盤</div></div>
+    <div class="schip"><div class="cn">React + Vite</div><div class="cd">フロントエンド</div></div>
+    <div class="schip"><div class="cn">Next.js / Vercel</div><div class="cd">ホスティング・API Routes</div></div>
+    <div class="schip"><div class="cn">Upstash Redis</div><div class="cd">クラウドDB</div></div>
+    <div class="schip"><div class="cn">Google Spreadsheet</div><div class="cd">データの起点</div></div>
+    <div class="schip"><div class="cn">SerpAPI</div><div class="cd">Web横断検索</div></div>
+    <div class="schip"><div class="cn">Google Maps API</div><div class="cd">住所の可視化</div></div>
+    <div class="schip"><div class="cn">Biome</div><div class="cd">Linter / Formatter</div></div>
+    <div class="schip"><div class="cn">GitHub</div><div class="cd">ソース管理</div></div>
   </div>
-</div>
+
+</section>
+
 <footer><span>© 2026 業務改善.DX — 業務DX 自動化システム構築実績</span><span class="mono" style="color:var(--blue)">with SLIDE CAROUSEL</span></footer>
 
 <script>
