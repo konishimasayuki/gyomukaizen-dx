@@ -616,6 +616,84 @@ body.ld-lock{overflow:hidden;height:100vh}
 .dc.scr{color:rgba(15,23,42,.45)}
 h1 .grad .dc.scr{background:none;-webkit-text-fill-color:rgba(37,99,235,.4)}
 
+/* ============ DX ORBIT DIAGRAM ============ */
+.dx-sec{padding:20px 0 84px}
+.dx-stage{position:relative;width:min(92vw,620px);aspect-ratio:1/1;margin:10px auto 0}
+/* 回転する破線リング */
+.dx-ring{position:absolute;inset:7%;border:1.5px dashed rgba(37,99,235,.22);border-radius:50%;animation:dxSpin 40s linear infinite}
+.dx-ring2{position:absolute;inset:24%;border:1px dashed rgba(6,182,212,.18);border-radius:50%;animation:dxSpin 28s linear infinite reverse}
+@keyframes dxSpin{to{transform:rotate(360deg)}}
+/* SVG接続線 */
+.dx-svg{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+.dx-link{stroke:url(#dxGrad);stroke-width:1.6;fill:none;stroke-dasharray:400;stroke-dashoffset:400;opacity:.5}
+.dx-play .dx-link{animation:dxDraw 1s ease forwards}
+.dx-play .dx-link:nth-child(2){animation-delay:.08s}
+.dx-play .dx-link:nth-child(3){animation-delay:.16s}
+.dx-play .dx-link:nth-child(4){animation-delay:.24s}
+.dx-play .dx-link:nth-child(5){animation-delay:.32s}
+.dx-play .dx-link:nth-child(6){animation-delay:.40s}
+.dx-play .dx-link:nth-child(7){animation-delay:.48s}
+@keyframes dxDraw{to{stroke-dashoffset:0}}
+.dx-pt{fill:#06b6d4;opacity:0}
+.dx-play .dx-pt{opacity:.9}
+/* 中央ハブ */
+.dx-hub{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(0);width:31%;aspect-ratio:1/1;border-radius:50%;background:radial-gradient(circle at 32% 28%,#3b82f6,#1e3a8a 75%);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:4;box-shadow:0 10px 40px rgba(30,58,138,.45),0 0 0 6px rgba(255,255,255,.85),0 0 0 7px rgba(37,99,235,.15);text-align:center}
+.dx-play .dx-hub{animation:dxHubIn .7s cubic-bezier(.2,1.2,.35,1) .15s forwards}
+@keyframes dxHubIn{to{transform:translate(-50%,-50%) scale(1)}}
+.dx-hub::after{content:"";position:absolute;inset:-14px;border-radius:50%;border:2px solid rgba(37,99,235,.35);animation:dxPulse 2.2s ease-out infinite}
+.dx-hub::before{content:"";position:absolute;inset:-14px;border-radius:50%;border:2px solid rgba(6,182,212,.3);animation:dxPulse 2.2s ease-out 1.1s infinite}
+@keyframes dxPulse{0%{transform:scale(.85);opacity:1}100%{transform:scale(1.35);opacity:0}}
+.dx-hub .t1{font-family:"Syne",sans-serif;font-weight:800;font-size:clamp(17px,4.6vw,30px);color:#fff;letter-spacing:-.02em;line-height:1}
+.dx-hub .t2{font-family:"JetBrains Mono",monospace;font-size:clamp(6px,1.5vw,10px);letter-spacing:.3em;color:rgba(191,219,254,.9);margin-top:5px}
+/* ノード */
+.dx-node{position:absolute;width:27%;aspect-ratio:1/1;border-radius:50%;transform:translate(-50%,-50%) scale(0);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4%;z-index:3;color:#fff;box-shadow:0 8px 26px rgba(15,23,42,.28),inset 0 -6px 14px rgba(0,0,0,.22),0 0 0 4px rgba(255,255,255,.9);cursor:default;transition:box-shadow .3s}
+.dx-play .dx-node{animation:dxNodeIn .6s cubic-bezier(.2,1.4,.4,1) var(--d,.55s) forwards}
+@keyframes dxNodeIn{0%{transform:translate(-50%,-50%) scale(0) rotate(-40deg)}100%{transform:translate(-50%,-50%) scale(1) rotate(0)}}
+.dx-node:hover{box-shadow:0 14px 38px rgba(37,99,235,.4),inset 0 -6px 14px rgba(0,0,0,.22),0 0 0 4px #fff}
+/* ふわふわ浮遊（出現後） */
+.dx-node .fl{display:flex;flex-direction:column;align-items:center;justify-content:center;animation:dxFloat 4.5s ease-in-out infinite}
+.dx-node:nth-of-type(2n) .fl{animation-delay:1.2s}
+.dx-node:nth-of-type(3n) .fl{animation-delay:2.4s}
+@keyframes dxFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.dx-node .ic{font-size:clamp(14px,3.6vw,24px);line-height:1;margin-bottom:4px;filter:drop-shadow(0 2px 3px rgba(0,0,0,.25))}
+.dx-node .nm{font-family:"Syne",sans-serif;font-weight:800;font-size:clamp(9px,2.5vw,16px);line-height:1.1;letter-spacing:-.01em}
+.dx-node .ds{font-size:clamp(6px,1.55vw,9.5px);line-height:1.45;color:rgba(255,255,255,.88);margin-top:4px;font-weight:500}
+/* 配色 */
+.dxc1{background:radial-gradient(circle at 32% 28%,#60a5fa,#1d4ed8 78%)}
+.dxc2{background:radial-gradient(circle at 32% 28%,#22d3ee,#0e7490 78%)}
+.dxc3{background:radial-gradient(circle at 32% 28%,#818cf8,#4338ca 78%)}
+.dxc4{background:radial-gradient(circle at 32% 28%,#2dd4bf,#0f766e 78%)}
+.dxc5{background:radial-gradient(circle at 32% 28%,#a78bfa,#6d28d9 78%)}
+.dxc6{background:radial-gradient(circle at 32% 28%,#38bdf8,#0369a1 78%)}
+.dxc7{background:radial-gradient(circle at 32% 28%,#64748b,#1e293b 78%)}
+@media(max-width:580px){.dx-node .ds{display:none}.dx-node{width:25%}}
+
+/* ============ SOLUTION ============ */
+.sol-sec{padding-bottom:90px}
+.sol-bubbles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:860px;margin:6px auto 0}
+.sol-bub{position:relative;background:var(--white);border:1px solid var(--border);border-radius:16px 16px 16px 4px;padding:18px 16px;box-shadow:0 4px 16px rgba(15,23,42,.07);opacity:0;transform:translateY(18px) scale(.92)}
+.sol-play .sol-bub{animation:solBubIn .55s cubic-bezier(.2,1.1,.35,1) var(--d) forwards}
+@keyframes solBubIn{to{opacity:1;transform:none}}
+.sol-bub p{font-size:13.5px;font-weight:700;color:var(--mute);line-height:1.65}
+/* ハンコ */
+.sol-stamp{position:absolute;right:10px;bottom:8px;font-family:"Noto Sans JP",sans-serif;font-weight:900;font-size:14px;color:var(--blue);border:2.5px solid var(--blue);border-radius:8px;padding:2px 9px;transform:rotate(-8deg) scale(3);opacity:0;background:rgba(255,255,255,.75);box-shadow:0 2px 8px rgba(37,99,235,.25)}
+.sol-play .sol-stamp{animation:solStamp .38s cubic-bezier(.5,1.6,.4,1) calc(var(--d) + .9s) forwards}
+@keyframes solStamp{0%{opacity:0;transform:rotate(-8deg) scale(3)}60%{opacity:1;transform:rotate(-8deg) scale(.92)}100%{opacity:1;transform:rotate(-8deg) scale(1)}}
+/* スタンプ後に悩みが薄く */
+.sol-play .sol-bub p{animation:solFadeP .4s ease calc(var(--d) + 1.05s) forwards}
+@keyframes solFadeP{to{color:#c3ccd9;text-decoration:line-through}}
+/* ビッグメッセージ */
+.sol-head{text-align:center;margin-top:52px;opacity:0;transform:translateY(22px)}
+.sol-play .sol-head{animation:solHeadIn .7s cubic-bezier(.2,.9,.3,1) 2.1s forwards}
+@keyframes solHeadIn{to{opacity:1;transform:none}}
+.sol-h1{position:relative;display:inline-block;font-size:clamp(28px,5.6vw,52px);font-weight:900;letter-spacing:-.03em;line-height:1.3;color:var(--ink);overflow:hidden;padding:0 6px}
+.sol-grad{background:linear-gradient(120deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sol-shine{position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.75) 50%,transparent 65%);transform:translateX(-130%);pointer-events:none}
+.sol-play .sol-shine{animation:solShine 1s ease 2.9s forwards}
+@keyframes solShine{to{transform:translateX(130%)}}
+.sol-sub{font-size:15px;color:var(--mute);line-height:2;margin-top:18px}
+@media(max-width:720px){.sol-bubbles{grid-template-columns:repeat(2,1fr);gap:11px}.sol-bub{padding:14px 12px}.sol-bub p{font-size:11.5px}.sol-stamp{font-size:11px;border-width:2px}.sol-sub{font-size:13px}.sol-sub br{display:none}}
+
 </style>
 </head>
 <body>
@@ -685,6 +763,40 @@ h1 .grad .dc.scr{background:none;-webkit-text-fill-color:rgba(37,99,235,.4)}
     </div>
   </div>
 </div>
+
+<!-- DX ORBIT -->
+<section class="section wrap dx-sec" style="padding-top:10px">
+  <div class="sh"><div class="sh-top"><span class="sh-mono">/ DX MAP</span><h2>私たちが実現するDX</h2></div><p>7つの技術領域を組み合わせ、業務全体をデジタルで最適化します。</p></div>
+  <div class="dx-stage" id="dxStage">
+    <div class="dx-ring"></div>
+    <div class="dx-ring2"></div>
+    <svg class="dx-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <defs><linearGradient id="dxGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2563eb"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs>
+      <line class="dx-link" x1="50" y1="50" x2="50.0" y2="13.0"/>
+      <line class="dx-link" x1="50" y1="50" x2="78.9" y2="26.9"/>
+      <line class="dx-link" x1="50" y1="50" x2="86.1" y2="58.2"/>
+      <line class="dx-link" x1="50" y1="50" x2="66.1" y2="83.3"/>
+      <line class="dx-link" x1="50" y1="50" x2="33.9" y2="83.3"/>
+      <line class="dx-link" x1="50" y1="50" x2="13.9" y2="58.2"/>
+      <line class="dx-link" x1="50" y1="50" x2="21.1" y2="26.9"/>
+      <circle class="dx-pt" r="1.3"><animateMotion dur="2.2s" repeatCount="indefinite" path="M 50.0 13.0 L 50 50"/></circle>
+      <circle class="dx-pt" r="1.3"><animateMotion dur="2.5s" repeatCount="indefinite" path="M 78.9 26.9 L 50 50"/></circle>
+      <circle class="dx-pt" r="1.3"><animateMotion dur="2.8s" repeatCount="indefinite" path="M 86.1 58.2 L 50 50"/></circle>
+      <circle class="dx-pt" r="1.3"><animateMotion dur="3.1s" repeatCount="indefinite" path="M 66.1 83.3 L 50 50"/></circle>
+      <circle class="dx-pt" r="1.3"><animateMotion dur="3.4s" repeatCount="indefinite" path="M 33.9 83.3 L 50 50"/></circle>
+      <circle class="dx-pt" r="1.3"><animateMotion dur="3.7s" repeatCount="indefinite" path="M 13.9 58.2 L 50 50"/></circle>
+      <circle class="dx-pt" r="1.3"><animateMotion dur="4.0s" repeatCount="indefinite" path="M 21.1 26.9 L 50 50"/></circle>
+    </svg>
+    <div class="dx-node dxc1" style="--d:0.55s;left:50.0%;top:13.0%"><div class="fl"><div class="ic">🤖</div><div class="nm">AI</div><div class="ds">審査判定・自動返答・<br>コンテンツ生成をAIが実行</div></div></div>
+    <div class="dx-node dxc2" style="--d:0.65s;left:78.9%;top:26.9%"><div class="fl"><div class="ic">☁️</div><div class="nm">Cloud</div><div class="ds">クラウド構築で低コスト・<br>メンテフリーな運用</div></div></div>
+    <div class="dx-node dxc3" style="--d:0.75s;left:86.1%;top:58.2%"><div class="fl"><div class="ic">📊</div><div class="nm">Data</div><div class="ds">売上・入金・在庫を<br>リアルタイム可視化</div></div></div>
+    <div class="dx-node dxc4" style="--d:0.85s;left:66.1%;top:83.3%"><div class="fl"><div class="ic">⚙️</div><div class="nm">Automation</div><div class="ds">入力・通知・照合など<br>手作業を完全自動化</div></div></div>
+    <div class="dx-node dxc5" style="--d:0.95s;left:33.9%;top:83.3%"><div class="fl"><div class="ic">🔗</div><div class="nm">API連携</div><div class="ds">LINE・Maps・決済など<br>各種APIを自在に接続</div></div></div>
+    <div class="dx-node dxc6" style="--d:1.05s;left:13.9%;top:58.2%"><div class="fl"><div class="ic">📱</div><div class="nm">Mobile</div><div class="ds">スマホだけで完結する<br>現場ファースト設計</div></div></div>
+    <div class="dx-node dxc7" style="--d:1.15s;left:21.1%;top:26.9%"><div class="fl"><div class="ic">🔐</div><div class="nm">Security</div><div class="ds">権限管理・認証で<br>安全なデータ運用</div></div></div>
+    <div class="dx-hub"><div class="t1">DX</div><div class="t2">DIGITAL<br>TRANSFORMATION</div></div>
+  </div>
+</section>
 
 <!-- SYSTEMS -->
 <section class="section wrap">
@@ -3532,6 +3644,24 @@ h1 .grad .dc.scr{background:none;-webkit-text-fill-color:rgba(37,99,235,.4)}
 
 </section>
 
+
+<!-- SOLUTION -->
+<section class="section wrap sol-sec" style="padding-top:0" id="solSec">
+  <div class="sh"><div class="sh-top"><span class="sh-mono">/ SOLUTION</span><h2>その悩み、すべて解決します</h2></div></div>
+  <div class="sol-bubbles">
+    <div class="sol-bub" style="--d:.0s"><p>Excelの転記だけで<br>毎日2時間かかってる…</p><span class="sol-stamp">✓ 解決</span></div>
+    <div class="sol-bub" style="--d:.15s"><p>LINEで自動通知って<br>できないのかな…</p><span class="sol-stamp">✓ 解決</span></div>
+    <div class="sol-bub" style="--d:.3s"><p>入金チェックが手作業で<br>ミスが怖い…</p><span class="sol-stamp">✓ 解決</span></div>
+    <div class="sol-bub" style="--d:.45s"><p>紙の帳票やFAX、<br>そろそろやめたい…</p><span class="sol-stamp">✓ 解決</span></div>
+    <div class="sol-bub" style="--d:.6s"><p>市販ソフトが<br>うちの業種に合わない…</p><span class="sol-stamp">✓ 解決</span></div>
+    <div class="sol-bub" style="--d:.75s"><p>見積もりが高すぎて<br>あきらめてた…</p><span class="sol-stamp">✓ 解決</span></div>
+  </div>
+  <div class="sol-head">
+    <div class="sol-h1">その「こうしたい」、<br><span class="sol-grad">全部実現できます。</span><span class="sol-shine"></span></div>
+    <p class="sol-sub">既製品に業務を合わせるのではなく、業務に合わせてシステムを作る。<br>「できたらいいな」は、仕組みに変えられます。</p>
+  </div>
+</section>
+
 <footer><span>© 2026 業務改善.DX — 業務DX 自動化システム構築実績</span></footer>
 
 <script>
@@ -3919,6 +4049,20 @@ document.querySelectorAll('.card-feat,.card-sm,.card-wide,.schip').forEach(el =>
         if(t> 4+i*2){ clearInterval(iv); sp.textContent=final; sp.classList.remove('scr'); }
       }, 45);
     });
+  }
+  // SOLUTION trigger
+  var solSec=document.getElementById('solSec');
+  if(solSec){
+    new IntersectionObserver(function(es,ob){
+      es.forEach(function(e){ if(e.isIntersecting){ solSec.classList.add('sol-play'); ob.unobserve(solSec); } });
+    },{threshold:0.12,rootMargin:'0px 0px 8% 0px'}).observe(solSec);
+  }
+  // DX diagram trigger
+  var dxStage=document.getElementById('dxStage');
+  if(dxStage){
+    new IntersectionObserver(function(es,ob){
+      es.forEach(function(e){ if(e.isIntersecting){ dxStage.classList.add('dx-play'); ob.unobserve(dxStage); } });
+    },{threshold:0.15,rootMargin:'0px 0px 8% 0px'}).observe(dxStage);
   }
   window.__heroDecode=function(){
     var a=document.getElementById('dcA'), b=document.getElementById('dcB');
