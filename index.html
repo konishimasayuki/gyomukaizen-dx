@@ -146,9 +146,9 @@ nav{position:sticky;top:0;z-index:200;background:rgba(244,247,255,.85);backdrop-
 .mok-carousel{position:relative;overflow:hidden}
 .mok-track{display:flex;overflow-x:scroll;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none}
 .mok-track::-webkit-scrollbar{display:none}
-.mok-slide{flex:0 0 100%;scroll-snap-align:start;display:flex;align-items:center;justify-content:center;position:relative;padding:16px}
+.mok-slide{flex:0 0 100%;scroll-snap-align:start;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;padding:14px 16px}
 /* swipe hint label */
-.slide-lbl{position:absolute;top:9px;left:50%;transform:translateX(-50%);background:rgba(255,255,255,.9);border:1px solid rgba(0,0,0,.07);border-radius:999px;padding:2px 10px;font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--mute);white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,.07);z-index:5;pointer-events:none}
+.slide-lbl{position:relative;align-self:center;flex-shrink:0;margin-bottom:9px;background:rgba(255,255,255,.92);border:1px solid rgba(0,0,0,.07);border-radius:999px;padding:2px 12px;font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--mute);white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,.07);z-index:5;pointer-events:none}
 /* swipe hint arrow */
 .swipe-hint{position:absolute;right:10px;top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:4px;font-size:10px;color:rgba(0,0,0,.3);font-family:"JetBrains Mono",monospace;animation:hintpulse 2s ease-in-out 1.5s 3 forwards;opacity:0;pointer-events:none;z-index:4}
 .swipe-hint::after{content:"›";font-size:14px}
@@ -212,13 +212,13 @@ nav{position:sticky;top:0;z-index:200;background:rgba(244,247,255,.85);backdrop-
 /* ===== SECTION / CARDS ===== */
 .wrap{max-width:1200px;margin:0 auto;padding:0 32px;position:relative;z-index:1}
 .section{padding:72px 0}
-.sh{margin-bottom:44px}
+.sh{margin-bottom:26px}
 .sh-top{display:flex;align-items:center;gap:14px;margin-bottom:6px}
 .sh-mono{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--cyan);letter-spacing:.18em;background:var(--cyanlt);padding:3px 10px;border-radius:5px}
 .sh h2{font-size:clamp(24px,3.5vw,32px);font-weight:900;letter-spacing:-.03em}
 .sh p{font-size:14px;color:var(--mute)}
 
-.card-feat{background:var(--white);border:1px solid var(--border);border-radius:24px;overflow:hidden;display:grid;grid-template-columns:380px 1fr;box-shadow:0 4px 24px rgba(37,99,235,.08);margin-bottom:18px;opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.card-feat{background:var(--white);border:1px solid var(--border);border-radius:24px;overflow:hidden;display:grid;grid-template-columns:380px 1fr;box-shadow:0 4px 24px rgba(37,99,235,.08);margin-bottom:18px;opacity:0;transform:translateY(18px);transition:opacity .4s ease,transform .4s ease}
 .card-feat.show{opacity:1;transform:none}
 .card-feat .mok-carousel{height:100%;min-height:340px}
 .card-feat .mok-slide{min-height:340px}
@@ -228,7 +228,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(244,247,255,.85);backdrop-
 .card-feat .info p{color:var(--mute);font-size:14px;line-height:1.8;margin-bottom:20px}
 
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:18px}
-.card-sm{background:var(--white);border:1px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:0 2px 12px rgba(37,99,235,.06);opacity:0;transform:translateY(22px);transition:opacity .65s,transform .65s,box-shadow .3s,border-color .3s}
+.card-sm{background:var(--white);border:1px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:0 2px 12px rgba(37,99,235,.06);opacity:0;transform:translateY(16px);transition:opacity .4s ease,transform .4s ease,box-shadow .3s,border-color .3s}
 .card-sm.show{opacity:1;transform:none}
 .card-sm:hover{box-shadow:0 14px 40px -10px rgba(37,99,235,.22);border-color:rgba(37,99,235,.3);transform:translateY(-4px)}
 .card-sm .mok-carousel{border-bottom:1px solid var(--border)}
@@ -238,7 +238,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(244,247,255,.85);backdrop-
 .card-sm .info p{font-size:12.5px;color:var(--mute);line-height:1.7;margin-bottom:12px}
 
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.card-wide{background:var(--white);border:1px solid var(--border);border-radius:24px;overflow:hidden;box-shadow:0 4px 20px rgba(37,99,235,.08);opacity:0;transform:translateY(22px);transition:opacity .65s,transform .65s}
+.card-wide{background:var(--white);border:1px solid var(--border);border-radius:24px;overflow:hidden;box-shadow:0 4px 20px rgba(37,99,235,.08);opacity:0;transform:translateY(16px);transition:opacity .4s ease,transform .4s ease}
 .card-wide.show{opacity:1;transform:none}
 .card-wide .mok-carousel{border-bottom:1px solid var(--border)}
 .card-wide .mok-slide{height:280px}
@@ -282,7 +282,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:30
 .mono{font-family:"JetBrains Mono",monospace}
 
 /* REVEAL */
-@media(max-width:900px){.hero{grid-template-columns:1fr;padding:60px 24px 50px}.hero-r{display:none}.hero-catch{justify-content:flex-start}.card-feat{grid-template-columns:1fr}.grid3{grid-template-columns:1fr 1fr}.stk{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.wrap{padding:0 20px}}
+@media(max-width:900px){.hero{grid-template-columns:1fr;gap:20px;padding:56px 24px 32px}.hero-r{display:none}.hero-catch{justify-content:flex-start}.card-feat{grid-template-columns:1fr}.grid3{grid-template-columns:1fr 1fr}.stk{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.wrap{padding:0 20px}}
 @media(max-width:580px){.grid3{grid-template-columns:1fr}.navr .npill:first-child{display:none}}
 
 /* ===== BAR L'UCE APP STYLES ===== */
@@ -364,7 +364,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:30
 
 
 /* === SLIDE DUO: laptop + phone side by side === */
-.slide-duo{display:flex;align-items:flex-start;justify-content:center;width:100%;overflow:visible;padding-top:12px}
+.slide-duo{display:flex;align-items:flex-start;justify-content:center;width:100%;overflow:visible;padding-top:0}
 .slide-duo .laptop-wrap{max-width:365px;position:relative;z-index:1;flex-shrink:1}
 /* Phone overlay — half size, negative margin so it overlaps the laptop on the right */
 .iphone-ov{position:relative;z-index:20;flex-shrink:0;
@@ -379,7 +379,12 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:30
 .iphone-ov .sb{padding:9px 10px 2px}
 .iphone-ov .sb-time{font-size:7.5px}
 .iphone-ov .sb-icons{font-size:6.5px}
-.iphone-ov .lhdr{padding:5px 8px;gap:5px}
+.iphone-ov .lhdr{padding:5px 8px;gap:5px;overflow:hidden}
+.iphone-ov .lhdr-info{flex:1;min-width:0;overflow:hidden}
+.iphone-ov .lhdr-back{flex-shrink:0}
+.iphone-ov .lhdr-icons{flex-shrink:0}
+.iphone-ov .lc-msg{max-width:100%;overflow:hidden}
+.iphone-ov .lc-bub{max-width:82%}
 .iphone-ov .lhdr-av{width:20px;height:20px;font-size:7.5px}
 .iphone-ov .lhdr-info p{font-size:9px}
 .iphone-ov .lhdr-info span{font-size:7px}
@@ -615,7 +620,7 @@ a.clink{display:block;margin-top:16px}
 
           <!-- Slide 1: 入金照合ダッシュボード -->
           <div class="mok-slide" style="background:linear-gradient(140deg,#dbeafe,#e0f2fe)">
-            <span class="slide-lbl" style="background:rgba(56,189,248,.15);border-color:rgba(56,189,248,.3);color:#38bdf8">① 入金照合</span>
+            <span class="slide-lbl">① 入金照合</span>
             <div class="swipe-hint">スワイプ</div>
             <div class="slide-duo">
               <!-- ラップトップ: ダッシュボード -->
@@ -709,7 +714,7 @@ a.clink{display:block;margin-top:16px}
 
           <!-- Slide 2: 売上グラフ + LINE督促 -->
           <div class="mok-slide" style="background:linear-gradient(140deg,#eef2ff,#e0f2fe)">
-            <span class="slide-lbl" style="background:rgba(167,139,250,.15);border-color:rgba(167,139,250,.3);color:#a78bfa">② 売上・LINE督促</span>
+            <span class="slide-lbl">② 売上・LINE督促</span>
             <div class="slide-duo">
               <!-- ラップトップ: 売上グラフ -->
               <div class="laptop-wrap">
@@ -777,7 +782,7 @@ a.clink{display:block;margin-top:16px}
 
           <!-- Slide 3: 棚卸し・原価管理 -->
           <div class="mok-slide" style="background:linear-gradient(140deg,#dcfce7,#d1fae5)">
-            <span class="slide-lbl" style="background:rgba(74,222,128,.15);border-color:rgba(74,222,128,.3);color:#4ade80">③ 棚卸し・原価</span>
+            <span class="slide-lbl">③ 棚卸し・原価</span>
             <div class="slide-duo">
               <!-- ラップトップ: 棚卸し画面 -->
               <div class="laptop-wrap">
@@ -1158,18 +1163,10 @@ a.clink{display:block;margin-top:16px}
         <div class="genre-badge" data-genre="業務効率化">⚙️ 業務効率化</div>
       <h3>自社ローン業務管理システム</h3>
         <p>銀行CSV自動照合による入金消込、LINE督促送信、棚卸し＆原価管理、納車段取り、AI役員タブまで。中古車販売の全業務フローをワンダッシュボードで管理。</p>
-        <div class="tags" style="margin-bottom:12px">
-          <span class="tag blue">入金照合</span>
-          <span class="tag cyan">LINE督促</span>
-          <span class="tag amber">棚卸し</span>
-          <span class="tag blue">原価管理</span>
-          <span class="tag green">AI返答</span>
-        </div>
         <div class="feat-section">
         <div class="feat-lbl">搭載機能</div>
         <div class="feat-chips"><span class="feat-chip">売掛金入金管理</span><span class="feat-chip">売上管理</span><span class="feat-chip">原価管理</span><span class="feat-chip">LINE自動通知</span><span class="feat-chip">新規顧客通知</span><span class="feat-chip">LINE AI返答</span><span class="feat-chip">納車タスク管理</span></div>
       </div>
-      <a class="clink" href="https://engine-payment.vercel.app/" target="_blank">デモサイトを見る</a>
       </div>
     </div>
 
@@ -1363,28 +1360,24 @@ a.clink{display:block;margin-top:16px}
               <div class="laptop-lid">
                 <div class="laptop-screen">
                   <div class="lbar"><div class="lbd" style="background:#fc6b5d"></div><div class="lbd" style="background:#fdbc40"></div><div class="lbd" style="background:#35cd4b"></div><div class="lurl"><span>🔒</span><span>posta.com</span></div></div>
-                  <div style="height:168px;background:linear-gradient(135deg,#0f0a1e,#1a0a2e);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif">
+                  <div style="height:168px;background:linear-gradient(135deg,#0f0a1e,#1a0a2e);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;overflow:hidden">
                     <div style="width:180px">
                       <!-- ロゴ -->
-                      <div style="text-align:center;margin-bottom:12px">
+                      <div style="text-align:center;margin-bottom:8px">
                         <div style="font-size:18px;font-weight:800;background:linear-gradient(135deg,#d946ef,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-.03em">Posta</div>
                         <div style="font-size:7px;color:rgba(255,255,255,.4);letter-spacing:.15em;margin-top:1px">AI VIDEO & SNS GENERATOR</div>
                       </div>
                       <!-- フォーム -->
-                      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:10px 12px">
-                        <div style="margin-bottom:7px">
+                      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:9px 12px">
+                        <div style="margin-bottom:6px">
                           <div style="font-size:6px;color:rgba(255,255,255,.5);margin-bottom:3px">メールアドレス</div>
                           <div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:5px;padding:4px 7px;font-size:7px;color:rgba(255,255,255,.7)">konishi@example.com</div>
                         </div>
-                        <div style="margin-bottom:10px">
+                        <div style="margin-bottom:8px">
                           <div style="font-size:6px;color:rgba(255,255,255,.5);margin-bottom:3px">パスワード</div>
                           <div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:5px;padding:4px 7px;font-size:7px;color:rgba(255,255,255,.5)">●●●●●●●●</div>
                         </div>
                         <div style="background:linear-gradient(135deg,#d946ef,#8b5cf6);border-radius:5px;padding:5px;text-align:center;font-size:7px;font-weight:700;color:#fff">ログイン</div>
-                      </div>
-                      <div style="display:flex;gap:6px;margin-top:8px">
-                        <div style="flex:1;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:5px;padding:4px;text-align:center;font-size:6px;color:rgba(255,255,255,.6)">G Googleで続ける</div>
-                        <div style="flex:1;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);border-radius:5px;padding:4px;text-align:center;font-size:6px;color:rgba(255,255,255,.6)">🍎 Appleで続ける</div>
                       </div>
                     </div>
                   </div>
@@ -1646,12 +1639,6 @@ a.clink{display:block;margin-top:16px}
       <div class="genre-badge" data-genre="AI技術">🤖 AI技術</div>
       <h3>Posta<br>AI SNS動画生成システム</h3>
       <p>ブランド情報を一度登録するだけで、今日のSNSネタをAIが提案。Kling AI用の動画プロンプトとInstagram・TikTok向け投稿文を自動生成し、作品を一元管理。</p>
-      <div class="tags" style="margin-bottom:14px">
-        <span class="tag purple">ネタ自動提案</span>
-        <span class="tag amber">動画プロンプト</span>
-        <span class="tag cyan">投稿文生成</span>
-        <span class="tag blue">作品管理</span>
-      </div>
       <div class="feat-section">
         <div class="feat-lbl">搭載機能</div>
         <div class="feat-chips"><span class="feat-chip">プロジェクト管理</span><span class="feat-chip">AI動画成形</span><span class="feat-chip">作品履歴</span><span class="feat-chip">人気作品検索</span><span class="feat-chip">SNS投稿文成形</span><span class="feat-chip">ネタ自動成形</span></div>
@@ -1896,12 +1883,6 @@ a.clink{display:block;margin-top:16px}
       <div class="genre-badge" data-genre="業務効率化">⚙️ 業務効率化</div>
       <h3>楽給.com<br>給与計算システム</h3>
       <p>複数法人対応のクラウド型給与計算システム。月給・日給・時給など4種の支給形態、社会保険の自動計算から年末調整・源泉徴収票の発行まで一括対応。50名規模のデモデータ収録。</p>
-      <div class="tags" style="margin-bottom:10px">
-        <span class="tag blue">給与明細PDF</span>
-        <span class="tag cyan">賃金台帳</span>
-        <span class="tag blue">年末調整</span>
-        <span class="tag amber">源泉徴収票</span>
-      </div>
       <div class="feat-section">
         <div class="feat-lbl">搭載機能</div>
         <div class="feat-chips"><span class="feat-chip">給料明細発行</span><span class="feat-chip">賃金台帳</span><span class="feat-chip">年末調整</span><span class="feat-chip">源泉徴収票</span><span class="feat-chip">源泉徴収簿</span></div>
@@ -1916,7 +1897,7 @@ a.clink{display:block;margin-top:16px}
         <div class="mok-track">
           <!-- Slide 1: 社長モード（知識登録） -->
           <div class="mok-slide" style="background:linear-gradient(140deg,#f5f3ff,#eef2ff)">
-            <span class="slide-lbl" style="background:rgba(167,139,250,.15);border-color:rgba(167,139,250,.3);color:#a78bfa">① 社長モード</span>
+            <span class="slide-lbl">① 社長モード</span>
             <div class="swipe-hint">スワイプ</div>
             <div class="slide-duo">
               <div class="laptop-wrap">
@@ -2012,7 +1993,7 @@ a.clink{display:block;margin-top:16px}
 
           <!-- Slide 2: 社員モード（質問・回答） -->
           <div class="mok-slide" style="background:linear-gradient(140deg,#dcfce7,#f0fdf4)">
-            <span class="slide-lbl" style="background:rgba(74,222,128,.15);border-color:rgba(74,222,128,.3);color:#4ade80">② 社員モード</span>
+            <span class="slide-lbl">② 社員モード</span>
             <div class="slide-duo">
               <div class="laptop-wrap">
                 <div class="laptop-lid">
@@ -2106,11 +2087,6 @@ a.clink{display:block;margin-top:16px}
         <div class="genre-badge" data-genre="AI技術">🤖 AI技術</div>
       <h3>AI役員<br>社内知識AIシステム</h3>
         <p>社長が方針・審査基準・ルールを登録すると、社員がAIに相談できるシステム。会話から自動で知識を蓄積し、次回の回答精度を向上。音声入力・ファイル添付対応。</p>
-        <div class="tags" style="margin-bottom:12px">
-          <span class="tag purple">知識蓄積</span>
-          <span class="tag blue">社長/社員モード</span>
-          <span class="tag cyan">音声入力</span>
-        </div>
         <div class="feat-section">
         <div class="feat-lbl">搭載機能</div>
         <div class="feat-chips"><span class="feat-chip">知識蓄積機能</span><span class="feat-chip">社長モード</span><span class="feat-chip">社員モード</span><span class="feat-chip">LINE報告</span><span class="feat-chip">音声入力</span><span class="feat-chip">ファイル分析</span></div>
@@ -2682,7 +2658,7 @@ a.clink{display:block;margin-top:16px}
         </div>
         <!-- Slide 3: Barcode scan -->
         <div class="mok-slide" style="background:linear-gradient(140deg,#1c1108,#2a1e10)">
-          <span class="slide-lbl" style="background:rgba(0,0,0,.5);color:rgba(245,224,192,.8);border-color:rgba(245,224,192,.15)">③ バーコードスキャン</span>
+          <span class="slide-lbl">③ バーコードスキャン</span>
           <div class="slide-duo">
           <div class="laptop-wrap">
             <div class="laptop-lid" style="background:#2a2a2a;border-color:#444">
@@ -2743,7 +2719,7 @@ a.clink{display:block;margin-top:16px}
 
         <!-- Slide 1: 配送割り当て + LINE通知 -->
         <div class="mok-slide" style="background:linear-gradient(140deg,#eaf1f9,#dfe7f1)">
-          <span class="slide-lbl" style="background:rgba(27,78,168,.12);border-color:rgba(27,78,168,.3);color:#1b4ea8">① 配送割り当て</span>
+          <span class="slide-lbl">① 配送割り当て</span>
           <div class="swipe-hint">スワイプ</div>
           <div class="slide-duo">
             <div class="laptop-wrap">
@@ -2806,7 +2782,7 @@ a.clink{display:block;margin-top:16px}
 
         <!-- Slide 2: 出荷予定表 -->
         <div class="mok-slide" style="background:linear-gradient(140deg,#f4f6f9,#eef2f7)">
-          <span class="slide-lbl" style="background:rgba(27,78,168,.12);border-color:rgba(27,78,168,.3);color:#1b4ea8">② 出荷予定表</span>
+          <span class="slide-lbl">② 出荷予定表</span>
           <div class="slide-duo">
             <div class="laptop-wrap">
               <div class="laptop-lid">
@@ -2855,7 +2831,7 @@ a.clink{display:block;margin-top:16px}
 
         <!-- Slide 3: 集計・現場マップ -->
         <div class="mok-slide" style="background:linear-gradient(140deg,#e9f1f8,#eef2f7)">
-          <span class="slide-lbl" style="background:rgba(27,78,168,.12);border-color:rgba(27,78,168,.3);color:#1b4ea8">③ 集計・現場マップ</span>
+          <span class="slide-lbl">③ 集計・現場マップ</span>
           <div class="slide-duo">
             <div class="laptop-wrap">
               <div class="laptop-lid">
@@ -2914,7 +2890,6 @@ a.clink{display:block;margin-top:16px}
         <div class="feat-lbl">搭載機能</div>
         <div class="feat-chips"><span class="feat-chip">出荷予定表</span><span class="feat-chip">配送割り当て</span><span class="feat-chip">LINE自動通知</span><span class="feat-chip">現場マップ</span><span class="feat-chip">PDF/CSV取込</span><span class="feat-chip">権限管理</span></div>
       </div>
-      <a class="clink" href="https://tobunamakon.vercel.app/" target="_blank">デモサイトを見る</a>
     </div>
   </div>
   <!-- ▲▲▲ 東部生コン ここまで ▲▲▲ -->
@@ -2926,7 +2901,7 @@ a.clink{display:block;margin-top:16px}
 
         <!-- Slide 1: 経費一覧 + サマリ -->
         <div class="mok-slide" style="background:linear-gradient(140deg,#fff7ed,#ffedd5)">
-          <span class="slide-lbl" style="background:rgba(249,115,22,.12);border-color:rgba(249,115,22,.3);color:#c2410c">① 経費一覧・残高管理</span>
+          <span class="slide-lbl">① 経費一覧・残高管理</span>
           <div class="swipe-hint">スワイプ</div>
           <div class="iphone lg">
             <div class="island"></div>
@@ -2951,12 +2926,12 @@ a.clink{display:block;margin-top:16px}
                   </div>
                   <div style="display:flex;align-items:center;gap:6px;background:#fff;border:1px solid #f1f5f9;border-radius:7px;padding:6px 8px">
                     <div style="width:3px;height:26px;background:#F97316;border-radius:2px;flex-shrink:0"></div>
-                    <div style="flex:1;min-width:0"><div style="font-size:7.5px;font-weight:700;color:#1e293b;white-space:nowrap;overflow:hidden">スリーエイト打合せ</div><div style="margin-top:2px"><span style="font-size:5.5px;background:rgba(249,115,22,.13);color:#F97316;border-radius:3px;padding:1px 5px;font-weight:700">🚃 交通費</span> <span style="font-size:5.5px;color:#94a3b8;background:#f8fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 4px">📎1</span></div></div>
+                    <div style="flex:1;min-width:0"><div style="font-size:7.5px;font-weight:700;color:#1e293b;white-space:nowrap;overflow:hidden">日本システム打合せ</div><div style="margin-top:2px"><span style="font-size:5.5px;background:rgba(249,115,22,.13);color:#F97316;border-radius:3px;padding:1px 5px;font-weight:700">🚃 交通費</span> <span style="font-size:5.5px;color:#94a3b8;background:#f8fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 4px">📎1</span></div></div>
                     <div style="text-align:right"><div style="font-size:9px;font-weight:800;color:#F97316">¥760</div><div style="font-size:5.5px;color:#94a3b8">06/18</div></div>
                   </div>
                   <div style="display:flex;align-items:center;gap:6px;background:#fff;border:1px solid #f1f5f9;border-radius:7px;padding:6px 8px">
                     <div style="width:3px;height:26px;background:#ef4444;border-radius:2px;flex-shrink:0"></div>
-                    <div style="flex:1;min-width:0"><div style="font-size:7.5px;font-weight:700;color:#1e293b;white-space:nowrap;overflow:hidden">往路ガソリン</div><div style="margin-top:2px"><span style="font-size:5.5px;background:rgba(239,68,68,.13);color:#ef4444;border-radius:3px;padding:1px 5px;font-weight:700">⛽ ガソリン代</span> <span style="font-size:5.5px;color:#94a3b8;background:#f8fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 4px">自宅→東部生コン</span></div></div>
+                    <div style="flex:1;min-width:0"><div style="font-size:7.5px;font-weight:700;color:#1e293b;white-space:nowrap;overflow:hidden">往路ガソリン</div><div style="margin-top:2px"><span style="font-size:5.5px;background:rgba(239,68,68,.13);color:#ef4444;border-radius:3px;padding:1px 5px;font-weight:700">⛽ ガソリン代</span> <span style="font-size:5.5px;color:#94a3b8;background:#f8fafc;border:1px solid #e2e8f0;border-radius:3px;padding:1px 4px">自宅→日本システム</span></div></div>
                     <div style="text-align:right"><div style="font-size:9px;font-weight:800;color:#F97316">¥165</div><div style="font-size:5.5px;color:#94a3b8">06/05</div></div>
                   </div>
                 </div>
@@ -2968,7 +2943,7 @@ a.clink{display:block;margin-top:16px}
 
         <!-- Slide 2: 経費登録フォーム + ガソリン自動計算 -->
         <div class="mok-slide" style="background:linear-gradient(140deg,#ffedd5,#fef3c7)">
-          <span class="slide-lbl" style="background:rgba(249,115,22,.12);border-color:rgba(249,115,22,.3);color:#c2410c">② ガソリン代 自動計算</span>
+          <span class="slide-lbl">② ガソリン代 自動計算</span>
           <div class="swipe-hint">スワイプ</div>
           <div class="iphone lg">
             <div class="island"></div>
@@ -2989,7 +2964,7 @@ a.clink{display:block;margin-top:16px}
                   <div style="display:flex;gap:5px;margin-bottom:5px">
                     <div style="flex:1"><div style="font-size:5.5px;color:#64748b;margin-bottom:1px">出発地</div><div style="font-size:7px;color:#1e293b;background:#fff;border:1px solid #e2e8f0;border-radius:5px;padding:3px 5px">自宅</div></div>
                     <div style="font-size:9px;color:#cbd5e1;align-self:flex-end;padding-bottom:2px">→</div>
-                    <div style="flex:1"><div style="font-size:5.5px;color:#64748b;margin-bottom:1px">目的地</div><div style="font-size:7px;color:#1e293b;background:#fff;border:1px solid #e2e8f0;border-radius:5px;padding:3px 5px">東部生コン</div></div>
+                    <div style="flex:1"><div style="font-size:5.5px;color:#64748b;margin-bottom:1px">目的地</div><div style="font-size:7px;color:#1e293b;background:#fff;border:1px solid #e2e8f0;border-radius:5px;padding:3px 5px">日本システム</div></div>
                   </div>
                   <div style="display:flex;gap:4px;margin-bottom:6px">
                     <div style="flex:1"><div style="font-size:5.5px;color:#64748b;margin-bottom:1px">距離km</div><div style="font-size:7px;color:#1e293b;background:#fff;border:1px solid #e2e8f0;border-radius:5px;padding:3px 5px">10</div></div>
@@ -3015,7 +2990,7 @@ a.clink{display:block;margin-top:16px}
 
         <!-- Slide 3: PDF月次精算書 -->
         <div class="mok-slide" style="background:linear-gradient(140deg,#fef3c7,#fff7ed)">
-          <span class="slide-lbl" style="background:rgba(249,115,22,.12);border-color:rgba(249,115,22,.3);color:#c2410c">③ PDF精算書 出力</span>
+          <span class="slide-lbl">③ PDF精算書 出力</span>
           <div class="iphone lg">
             <div class="island"></div>
             <div class="iphone-screen" style="background:#fff">
@@ -3024,7 +2999,7 @@ a.clink{display:block;margin-top:16px}
                 <div style="background:#F97316;padding:8px 10px">
                   <div style="display:flex;justify-content:space-between;align-items:flex-start">
                     <div><div style="font-size:11px;font-weight:800;color:#fff">経費精算書</div><div style="font-size:6px;color:#fff;opacity:.9;margin-top:1px">2026年06月 ／ Konishi</div></div>
-                    <div style="text-align:right"><div style="font-size:5px;color:#fff;opacity:.9">出力日 2026/06/26</div><div style="font-size:5px;color:#fff;opacity:.9;margin-top:2px">三菱UFJ銀行 久留米支店</div><div style="font-size:5px;color:#fff;opacity:.9">普通 0016202 コニシマサユキ</div></div>
+                    <div style="text-align:right"><div style="font-size:5px;color:#fff;opacity:.9">出力日 2026/06/26</div></div>
                   </div>
                 </div>
                 <div style="padding:8px 10px">
@@ -3036,7 +3011,7 @@ a.clink{display:block;margin-top:16px}
                   <div style="font-size:6.5px;font-weight:700;color:#F97316;border-left:2px solid #F97316;padding-left:5px;margin-bottom:4px">ガソリン代明細</div>
                   <div style="border:1px solid #e2e8f0;border-radius:4px;overflow:hidden;margin-bottom:7px">
                     <div style="display:flex;background:#F97316;color:#fff;font-size:5px;font-weight:700"><div style="flex:1.2;padding:2px 4px">日付</div><div style="flex:1.5;padding:2px 4px">区間</div><div style="flex:.8;padding:2px 4px;text-align:right">金額</div><div style="flex:1.2;padding:2px 4px">単価・燃費</div></div>
-                    <div style="display:flex;font-size:5px;color:#1e293b"><div style="flex:1.2;padding:2px 4px">06/05</div><div style="flex:1.5;padding:2px 4px">自宅→東部生コン</div><div style="flex:.8;padding:2px 4px;text-align:right;color:#F97316;font-weight:700">¥165</div><div style="flex:1.2;padding:2px 4px">¥165/L·10km/L</div></div>
+                    <div style="display:flex;font-size:5px;color:#1e293b"><div style="flex:1.2;padding:2px 4px">06/05</div><div style="flex:1.5;padding:2px 4px">自宅→日本システム</div><div style="flex:.8;padding:2px 4px;text-align:right;color:#F97316;font-weight:700">¥165</div><div style="flex:1.2;padding:2px 4px">¥165/L·10km/L</div></div>
                   </div>
                   <div style="font-size:6.5px;font-weight:700;color:#F97316;border-left:2px solid #F97316;padding-left:5px;margin-bottom:4px">経費明細</div>
                   <div style="border:1px solid #e2e8f0;border-radius:4px;overflow:hidden">
@@ -3064,7 +3039,6 @@ a.clink{display:block;margin-top:16px}
         <div class="feat-lbl">搭載機能</div>
         <div class="feat-chips"><span class="feat-chip">ガソリン代自動計算</span><span class="feat-chip">領収書 写真/PDF添付</span><span class="feat-chip">未精算残高管理</span><span class="feat-chip">カテゴリ別集計</span><span class="feat-chip">PDF精算書出力</span><span class="feat-chip">月別フィルター</span></div>
       </div>
-      <a class="clink" href="https://kantanseisan.vercel.app/" target="_blank">デモサイトを見る</a>
     </div>
   </div>
   <!-- ▲▲▲ 簡単精算くん ここまで ▲▲▲ -->
@@ -3076,7 +3050,7 @@ a.clink{display:block;margin-top:16px}
 
         <!-- Slide 1: リード自動取得・新着通知 -->
         <div class="mok-slide" style="background:linear-gradient(140deg,#e8f1fb,#e0f2fe)">
-          <span class="slide-lbl" style="background:rgba(30,95,168,.12);border-color:rgba(30,95,168,.3);color:#1E5FA8">① リード自動取得・通知</span>
+          <span class="slide-lbl">① リード自動取得・通知</span>
           <div class="swipe-hint">スワイプ</div>
           <div class="slide-duo">
             <div class="laptop-wrap">
@@ -3134,7 +3108,7 @@ a.clink{display:block;margin-top:16px}
 
         <!-- Slide 2: 配車ボード -->
         <div class="mok-slide" style="background:linear-gradient(140deg,#e6f5f2,#eaf3f9)">
-          <span class="slide-lbl" style="background:rgba(14,138,122,.12);border-color:rgba(14,138,122,.3);color:#0E8A7A">② 配車ボード</span>
+          <span class="slide-lbl">② 配車ボード</span>
           <div class="slide-duo">
             <div class="laptop-wrap">
               <div class="laptop-lid">
@@ -3204,7 +3178,7 @@ a.clink{display:block;margin-top:16px}
 
         <!-- Slide 3: 売上分析・見積書 -->
         <div class="mok-slide" style="background:linear-gradient(140deg,#eaf1f9,#e0f2fe)">
-          <span class="slide-lbl" style="background:rgba(30,95,168,.12);border-color:rgba(30,95,168,.3);color:#1E5FA8">③ 売上分析・見積書</span>
+          <span class="slide-lbl">③ 売上分析・見積書</span>
           <div class="slide-duo">
             <div class="laptop-wrap">
               <div class="laptop-lid">
@@ -3304,7 +3278,7 @@ a.clink{display:block;margin-top:16px}
 
         <!-- Slide 1: 申請一覧・審査状況 -->
         <div class="mok-slide" style="background:linear-gradient(140deg,#f0fdfa,#ccfbf1)">
-          <span class="slide-lbl" style="background:rgba(13,148,136,.12);border-color:rgba(13,148,136,.3);color:#0f766e">① 申請一覧・審査状況</span>
+          <span class="slide-lbl">① 申請一覧・審査状況</span>
           <div class="swipe-hint">スワイプ</div>
           <div class="iphone lg">
             <div class="island"></div>
@@ -3346,7 +3320,7 @@ a.clink{display:block;margin-top:16px}
 
         <!-- Slide 2: 保証料金 自動計算 -->
         <div class="mok-slide" style="background:linear-gradient(140deg,#ccfbf1,#cffafe)">
-          <span class="slide-lbl" style="background:rgba(13,148,136,.12);border-color:rgba(13,148,136,.3);color:#0f766e">② 保証料金 自動計算</span>
+          <span class="slide-lbl">② 保証料金 自動計算</span>
           <div class="swipe-hint">スワイプ</div>
           <div class="iphone lg">
             <div class="island"></div>
@@ -3393,7 +3367,7 @@ a.clink{display:block;margin-top:16px}
 
         <!-- Slide 3: 保証書 PDF発行 -->
         <div class="mok-slide" style="background:linear-gradient(140deg,#cffafe,#f0fdfa)">
-          <span class="slide-lbl" style="background:rgba(13,148,136,.12);border-color:rgba(13,148,136,.3);color:#0f766e">③ 保証書 PDF発行</span>
+          <span class="slide-lbl">③ 保証書 PDF発行</span>
           <div class="iphone lg">
             <div class="island"></div>
             <div class="iphone-screen" style="background:#fff">
@@ -3443,7 +3417,6 @@ a.clink{display:block;margin-top:16px}
         <div class="feat-lbl">搭載機能</div>
         <div class="feat-chips"><span class="feat-chip">4書類ワークフロー</span><span class="feat-chip">電子署名の申込リンク</span><span class="feat-chip">審査（受理・却下）</span><span class="feat-chip">保証料金 自動計算</span><span class="feat-chip">契約番号 自動採番</span><span class="feat-chip">保証書PDF発行</span><span class="feat-chip">ロール別アクセス制御</span><span class="feat-chip">メール自動通知</span></div>
       </div>
-      <a class="clink" href="https://guarantor.vercel.app/" target="_blank">デモサイトを見る</a>
     </div>
   </div>
   <!-- ▲▲▲ 車両故障保証 管理システム ここまで ▲▲▲ -->
@@ -3469,7 +3442,7 @@ a.clink{display:block;margin-top:16px}
 
 </section>
 
-<footer><span>© 2026 業務改善.DX — 業務DX 自動化システム構築実績</span><span class="mono" style="color:var(--blue)">with SLIDE CAROUSEL</span></footer>
+<footer><span>© 2026 業務改善.DX — 業務DX 自動化システム構築実績</span></footer>
 
 <script>
 // Carousel logic
@@ -3508,13 +3481,11 @@ document.querySelectorAll('.mok-carousel').forEach(carousel => {
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
-      const siblings = [...e.target.parentElement.children];
-      const i = siblings.indexOf(e.target);
-      setTimeout(() => e.target.classList.add('show'), i * 90);
+      e.target.classList.add('show');
       io.unobserve(e.target);
     }
   });
-}, { threshold: .1 });
+}, { threshold: 0, rootMargin: '0px 0px 20% 0px' });
 document.querySelectorAll('.card-feat,.card-sm,.card-wide,.schip').forEach(el => io.observe(el));
 
 // ── AI役員 slide animations ──
@@ -3545,9 +3516,9 @@ document.querySelectorAll('.card-feat,.card-sm,.card-wide,.schip').forEach(el =>
   const card = aiC.closest('.card-wide');
   if(card) new IntersectionObserver(es => {
     es.forEach(e => {
-      if(e.isIntersecting && !visible){ visible=true; lastIdx=0; setTimeout(()=>playSlide(0), 400); }
+      if(e.isIntersecting && !visible){ visible=true; lastIdx=0; setTimeout(()=>playSlide(0), 80); }
     });
-  }, {threshold: 0.2}).observe(card);
+  }, {threshold:0.05,rootMargin:'0px 0px 15% 0px'}).observe(card);
 
   track.addEventListener('scroll', () => {
     const idx = Math.round(track.scrollLeft / track.offsetWidth);
@@ -3605,10 +3576,10 @@ document.querySelectorAll('.card-feat,.card-sm,.card-wide,.schip').forEach(el =>
     es.forEach(e=>{
       if(e.isIntersecting && !visible){
         visible=true; lastIdx=0;
-        setTimeout(()=>playSlide(0), 450);
+        setTimeout(()=>playSlide(0), 80);
       }
     });
-  },{threshold:0.2}).observe(card);
+  },{threshold:0.05,rootMargin:'0px 0px 15% 0px'}).observe(card);
 
   // trigger on slide swipe
   track.addEventListener('scroll',()=>{
@@ -3730,10 +3701,10 @@ document.querySelectorAll('.card-feat,.card-sm,.card-wide,.schip').forEach(el =>
     es.forEach(e => {
       if(e.isIntersecting && !visible){
         visible = true; lastIdx = 0;
-        setTimeout(() => playSlide(0), 400);
+        setTimeout(() => playSlide(0), 80);
       }
     });
-  }, {threshold: 0.2}).observe(card);
+  }, {threshold:0.05,rootMargin:'0px 0px 15% 0px'}).observe(card);
 
   // slide swipe
   track.addEventListener('scroll', () => {
@@ -3769,8 +3740,8 @@ document.querySelectorAll('.card-feat,.card-sm,.card-wide,.schip').forEach(el =>
   }
   const card=kcC.closest('.card-feat');
   new IntersectionObserver(es=>{
-    es.forEach(e=>{if(e.isIntersecting&&!visible){visible=true;lastIdx=0;setTimeout(()=>playSlide(0),400);}});
-  },{threshold:0.2}).observe(card);
+    es.forEach(e=>{if(e.isIntersecting&&!visible){visible=true;lastIdx=0;setTimeout(()=>playSlide(0),80);}});
+  },{threshold:0.05,rootMargin:'0px 0px 15% 0px'}).observe(card);
   track.addEventListener('scroll',()=>{
     const idx=Math.round(track.scrollLeft/track.offsetWidth);
     if(idx!==lastIdx){lastIdx=idx;playSlide(idx);}
