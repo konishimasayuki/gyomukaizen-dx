@@ -15,6 +15,8 @@ a{text-decoration:none;color:inherit}
 
 /* BG blobs */
 .blob-layer{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.blob-layer::after{content:"";position:absolute;inset:-60px;background-image:linear-gradient(rgba(37,99,235,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.05) 1px,transparent 1px);background-size:52px 52px;animation:bgGrid 16s linear infinite}
+@keyframes bgGrid{0%{transform:translate(0,0)}100%{transform:translate(52px,52px)}}
 .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.5}
 .blob-1{width:700px;height:600px;background:radial-gradient(#93c5fd,transparent 70%);top:-100px;right:-100px}
 .blob-2{width:600px;height:500px;background:radial-gradient(#a5f3fc,transparent 70%);bottom:5%;left:-80px}
@@ -215,6 +217,8 @@ nav{position:sticky;top:0;z-index:200;background:rgba(244,247,255,.85);backdrop-
 .sh{margin-bottom:26px}
 .sh-top{display:flex;align-items:center;gap:14px;margin-bottom:6px}
 .sh-mono{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--cyan);letter-spacing:.18em;background:var(--cyanlt);padding:3px 10px;border-radius:5px}
+.sh-mono::after{content:"▌";margin-left:4px;animation:cursorBlink 1.1s steps(1) infinite}
+@keyframes cursorBlink{0%,49%{opacity:1}50%,100%{opacity:0}}
 .sh h2{font-size:clamp(24px,3.5vw,32px);font-weight:900;letter-spacing:-.03em}
 .sh p{font-size:14px;color:var(--mute)}
 
@@ -602,6 +606,16 @@ a.clink{display:block;margin-top:16px}
 #loader.done{display:none}
 body.ld-lock{overflow:hidden;height:100vh}
 
+/* card scan shine on reveal */
+.card-feat,.card-wide{position:relative}
+.card-feat.show::after,.card-wide.show::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(37,99,235,.14) 50%,transparent 65%);transform:translateX(-130%);animation:cardScan .9s ease .1s forwards;pointer-events:none;z-index:9;border-radius:inherit}
+@keyframes cardScan{0%{transform:translateX(-130%)}100%{transform:translateX(130%)}}
+
+/* hero decode chars */
+.dc{display:inline-block}
+.dc.scr{color:rgba(15,23,42,.45)}
+h1 .grad .dc.scr{background:none;-webkit-text-fill-color:rgba(37,99,235,.4)}
+
 </style>
 </head>
 <body>
@@ -637,6 +651,7 @@ body.ld-lock{overflow:hidden;height:100vh}
       setTimeout(function(){
         loader.classList.add('open');
         document.body.classList.remove('ld-lock');
+        if(window.__heroDecode) window.__heroDecode();
         setTimeout(function(){ loader.classList.add('done'); }, 750);
       }, 350);
     }
@@ -656,7 +671,7 @@ body.ld-lock{overflow:hidden;height:100vh}
 <div class="hero">
   <div class="hero-l">
     <div class="hero-tag">BUSINESS DX PORTFOLIO</div>
-    <h1>仕組みを、<span class="grad">システムが勝手に。</span></h1>
+    <h1><span id="dcA">仕組みを、</span><span class="grad" id="dcB">システムが勝手に。</span></h1>
     <p class="hero-desc">あらゆる APIを組み合わせ、業務効率化・各種自動化・給料計算・動画成形まで——現場の手作業を自動化したシステム。</p>
   </div>
   <div class="hero-catch">
@@ -3886,6 +3901,31 @@ document.querySelectorAll('.card-feat,.card-sm,.card-wide,.schip').forEach(el =>
   setInterval(next,1800);
 })();
 
+</script>
+
+<script>
+// ── Hero decode effect ──
+(function(){
+  var GLYPH='アイウエオカキクケコサシスセソタチツテトABCDEF0123456789#$%&';
+  function decode(el){
+    var text=el.textContent;
+    el.innerHTML=text.split('').map(function(c){return '<span class="dc scr">'+c+'</span>';}).join('');
+    var spans=el.querySelectorAll('.dc');
+    spans.forEach(function(sp,i){
+      var final=text[i], t=0;
+      var iv=setInterval(function(){
+        sp.textContent=GLYPH[Math.floor(Math.random()*GLYPH.length)];
+        t++;
+        if(t> 4+i*2){ clearInterval(iv); sp.textContent=final; sp.classList.remove('scr'); }
+      }, 45);
+    });
+  }
+  window.__heroDecode=function(){
+    var a=document.getElementById('dcA'), b=document.getElementById('dcB');
+    if(a) decode(a);
+    if(b) setTimeout(function(){decode(b);}, 250);
+  };
+})();
 </script>
 </body>
 </html>
