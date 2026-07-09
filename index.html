@@ -717,22 +717,13 @@ h1 .grad .dc.scr{background:none;-webkit-text-fill-color:rgba(37,99,235,.4)}
 </div>
 <script>
 (function(){
-  // ブラウザ任せのスクロール復元はローダーのスクロールロック+smooth-scrollと衝突し
-  // 中途半端な位置で止まるため、手動で復元する
+  // リロード時は常にページ先頭から開始する(ブラウザの中途半端なスクロール復元を無効化)
   try{ if('scrollRestoration' in history) history.scrollRestoration='manual'; }catch(e){}
-  window.addEventListener('pagehide', function(){
-    try{ sessionStorage.setItem('dxScrollY', String(window.scrollY||window.pageYOffset||0)); }catch(e){}
-  });
-  function restoreScroll(){
-    if(location.hash) return;
-    var y=0;
-    try{ y=parseInt(sessionStorage.getItem('dxScrollY'),10)||0; }catch(e){}
-    if(y>0){
-      var de=document.documentElement, prev=de.style.scrollBehavior;
-      de.style.scrollBehavior='auto';           // smoothを一時無効化して即時復元
-      window.scrollTo(0,y);
-      requestAnimationFrame(function(){ de.style.scrollBehavior=prev; });
-    }
+  if(!location.hash){
+    var de=document.documentElement, prev=de.style.scrollBehavior;
+    de.style.scrollBehavior='auto';   // smoothを一時無効化して即時に先頭へ
+    window.scrollTo(0,0);
+    de.style.scrollBehavior=prev;
   }
   var loader=document.getElementById('loader');
   var pbar=document.getElementById('ldPbar');
@@ -749,7 +740,6 @@ h1 .grad .dc.scr{background:none;-webkit-text-fill-color:rgba(37,99,235,.4)}
       setTimeout(function(){
         loader.classList.add('open');
         document.body.classList.remove('ld-lock');
-        restoreScroll();
         if(window.__heroDecode) window.__heroDecode();
         setTimeout(function(){ loader.classList.add('done'); }, 750);
       }, 300);
